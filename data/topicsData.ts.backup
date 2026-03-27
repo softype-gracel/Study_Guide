@@ -1,0 +1,176 @@
+export interface Topic {
+  id: string;
+  title: string;
+  content: string;
+}
+
+export interface Section {
+  id: number;
+  title: string;
+  description: string;
+  topics: Topic[];
+}
+
+export const studyGuideData: { sections: Section[] } = {
+  sections: [
+    {
+      id: 1,
+      title: "Setup & Administration",
+      description: "Enable Features, renaming records, classifications, subsidiaries, and SuiteBuilder customization tools.",
+      topics: [
+        {
+          id: "t1_1",
+          title: "Enable Features — General Functionality",
+          content: `
+            <div class="concept-block">
+              <h4>Key Concepts</h4>
+              <ul>
+                <li><strong>Enable Features</strong> is found at <code>Setup → Company → Enable Features</code>. This is the master switch panel for turning NetSuite capabilities on or off.</li>
+                <li>Features are organized across subtabs: Accounting, CRM, Web Presence, SuiteCloud, etc. — but the exam won't ask which subtab a feature lives on.</li>
+                <li><strong>Enable Features vs. General Preferences</strong>: Enable Features turns functionality on/off. General Preferences controls default company-wide behavior (e.g., mandatory fields).</li>
+                <li><strong>Enable Features vs. Set Preferences</strong>: Set Preferences (Home → Set Preferences) is user-level; Enable Features is company-level.</li>
+                <li><strong>Accounting Preferences</strong> control settings like default accounts, posting behaviors, etc. — separate from Enable Features.</li>
+                <li>Some features <strong>cannot be disabled</strong> once enabled (e.g., Multi-Location Inventory). Know which ones are irreversible.</li>
+              </ul>
+            </div>
+            <div class="mnemonic-box">
+              <span class="icon">💡</span>
+              <div class="text"><strong>Memory trick — "EGAL":</strong> The 4 places to configure behavior: <strong>E</strong>nable Features → <strong>G</strong>eneral Preferences → <strong>A</strong>ccounting Preferences → user-Level (Set Preferences). They go from broadest (system) to narrowest (user).</div>
+            </div>
+            <div class="tip-box">
+              <strong>Exam Tip:</strong> When a question says "Where do you turn on…", the answer is almost always Enable Features. When it says "Where do you set the default behavior…", think General Preferences or Accounting Preferences.
+            </div>
+            <div class="quiz-block">
+              <h4>Practice Question</h4>
+              <div class="quiz-q">Where does an Administrator enable the CRM feature in NetSuite?</div>
+              <ul class="quiz-options">
+                <li class="quiz-opt" data-correct="false">A. Home → Set Preferences</li>
+                <li class="quiz-opt" data-correct="true">B. Setup → Company → Enable Features</li>
+                <li class="quiz-opt" data-correct="false">C. Setup → Company → General Preferences</li>
+                <li class="quiz-opt" data-correct="false">D. Setup → Accounting → Accounting Preferences</li>
+              </ul>
+              <div class="quiz-explanation">Enable Features is the centralized location for turning features on/off at the company level. General Preferences and Accounting Preferences control default behaviors, not feature activation. Set Preferences is user-level only.</div>
+            </div>
+          `
+        },
+        {
+          id: "t1_2",
+          title: "Renaming Records & Transactions",
+          content: `
+            <div class="concept-block">
+              <h4>Key Concepts</h4>
+              <ul>
+                <li>NetSuite allows you to <strong>rename</strong> standard record types and transaction types to match your company's terminology (e.g., "Sales Order" → "Service Order").</li>
+                <li>Found at <code>Setup → Company → Rename Records/Transactions</code>.</li>
+                <li><strong>Benefits:</strong> Better user adoption, align with business terminology, clearer for end users.</li>
+                <li><strong>Constraints:</strong> Only the <em>label</em> changes — the underlying record/transaction type and its SuiteScript/API name remain the same. SuiteAnswers and Help documentation still use original names. This can cause confusion for new admins.</li>
+                <li>Renaming is company-wide and affects all users, all roles, all centers.</li>
+              </ul>
+            </div>
+            <div class="warning-box">
+              <strong>Watch Out:</strong> Renaming does NOT change the internal ID, scripting references, or SuiteAnswers documentation. If a user searches NetSuite Help for "Service Order" (your renamed label), they won't find results — they need to search "Sales Order."
+            </div>
+            <div class="quiz-block">
+              <h4>Practice Question</h4>
+              <div class="quiz-q">After renaming "Sales Order" to "Service Order," which of the following is TRUE?</div>
+              <ul class="quiz-options">
+                <li class="quiz-opt" data-correct="false">A. SuiteScript references must also be updated</li>
+                <li class="quiz-opt" data-correct="true">B. SuiteAnswers documentation will still refer to "Sales Order"</li>
+                <li class="quiz-opt" data-correct="false">C. The change only affects Administrators</li>
+                <li class="quiz-opt" data-correct="false">D. The internal ID of the record changes</li>
+              </ul>
+              <div class="quiz-explanation">Renaming only changes the UI label company-wide. Internal IDs, scripting references, and documentation all continue using the original name. This affects all users, not just administrators.</div>
+            </div>
+          `
+        },
+        {
+          id: "t1_3",
+          title: "Features Requiring NetSuite Support Intervention",
+          content: `
+            <div class="concept-block">
+              <h4>Key Concepts</h4>
+              <ul>
+                <li>Certain features <strong>cannot be enabled by an Administrator</strong> alone and require contacting NetSuite Support.</li>
+                <li><strong>Multi-Location Inventory (MLI)</strong> is the classic example — it requires Support to enable and <strong>cannot be reversed</strong> once turned on.</li>
+                <li>Other examples include certain advanced features that fundamentally change data structures.</li>
+                <li>Some features present a <strong>warning message</strong> before being enabled, indicating they are irreversible.</li>
+              </ul>
+            </div>
+            <div class="mnemonic-box">
+              <span class="icon">💡</span>
+              <div class="text"><strong>Rule of thumb:</strong> If enabling a feature changes how data is <em>stored</em> at a structural level (like splitting inventory across locations), it likely requires Support and is irreversible.</div>
+            </div>
+          `
+        },
+        {
+          id: "t1_4",
+          title: "Classifications & Subsidiaries",
+          content: `
+            <div class="concept-block">
+              <h4>Key Concepts</h4>
+              <ul>
+                <li>NetSuite has four main classification structures: <strong>Departments, Classes, Locations, and Subsidiaries</strong>.</li>
+                <li><strong>Departments</strong>: Organizational units (e.g., Marketing, Engineering). Can restrict record access by department via roles.</li>
+                <li><strong>Classes</strong>: Flexible segmentation (e.g., product lines, business segments). Often used for profitability reporting.</li>
+                <li><strong>Locations</strong>: Physical or logical locations (e.g., warehouses, stores, offices). Used for inventory tracking per location.</li>
+                <li><strong>Subsidiaries</strong>: Legal entities. Required for OneWorld accounts. Enable consolidated financial reports by legal entity. Support intercompany transactions.</li>
+                <li>D/C/L are available in all editions. Subsidiaries require <strong>OneWorld</strong>.</li>
+                <li>Intercompany transactions can be offset by posting journals to an <strong>elimination subsidiary</strong>.</li>
+                <li>All four can be used for reporting segmentation and role-based access restrictions.</li>
+              </ul>
+            </div>
+            <div class="mnemonic-box">
+              <span class="icon">💡</span>
+              <div class="text"><strong>"DCLS" — Departments, Classes, Locations, Subsidiaries.</strong> Think of them from most flexible to most structural. Only Subsidiaries represent a <em>legal entity</em> — if the question mentions "consolidated financials" or "legal entity," the answer is Subsidiaries.</div>
+            </div>
+            <div class="quiz-block">
+              <h4>Practice Question</h4>
+              <div class="quiz-q">Which structure allows tracking of consolidated financial reports by legal entity?</div>
+              <ul class="quiz-options">
+                <li class="quiz-opt" data-correct="false">A. Classes</li>
+                <li class="quiz-opt" data-correct="false">B. Locations</li>
+                <li class="quiz-opt" data-correct="true">C. Subsidiaries</li>
+                <li class="quiz-opt" data-correct="false">D. Departments</li>
+              </ul>
+              <div class="quiz-explanation">Subsidiaries represent legal entities in NetSuite OneWorld. They are the only classification that supports consolidated financial reporting by legal entity. Departments, Classes, and Locations are segmentation tools but don't represent legal structures.</div>
+            </div>
+          `
+        },
+        {
+          id: "t1_5",
+          title: "SuiteBuilder Elements: Custom Forms, Fields, Records, Subtabs",
+          content: `
+            <div class="concept-block">
+              <h4>Key Concepts</h4>
+              <ul>
+                <li><strong>Custom Forms</strong>: Modified versions of standard forms. You can show/hide fields, rearrange layout, set field defaults. Found under <code>Customization → Forms</code>. Each record can have multiple custom forms.</li>
+                <li><strong>Custom Fields</strong>: User-created fields added to standard or custom records. Types include: Free-Form Text, List/Record, Date, Check Box, etc. Can be transaction body or transaction line fields.</li>
+                <li><strong>Custom Record Types</strong>: Entirely new record types you create to store data not covered by standard records. Found under <code>Customization → Lists, Records, & Fields → Record Types</code>.</li>
+                <li><strong>Subtabs</strong>: Tabs within a record that group related information. You can create custom subtabs on standard records to organize custom fields.</li>
+                <li><strong>Custom Records</strong> are enabled under Enable Features, NOT under Customization.</li>
+              </ul>
+            </div>
+            <div class="tip-box">
+              <strong>Exam Tip:</strong> "Where does an Administrator turn on Custom Records?" — The answer is <strong>Enable Features</strong>, not Setup → Customization. Customization is where you <em>create</em> them, but the feature itself must first be enabled.
+            </div>
+          `
+        },
+        {
+          id: "t1_6",
+          title: "High-Level Tools: Bundles, SuiteApps, SuiteFlow",
+          content: `
+            <div class="concept-block">
+              <h4>Key Concepts</h4>
+              <ul>
+                <li><strong>Installed Bundles</strong>: Pre-packaged configurations, scripts, and customizations. Installed via <code>Customization → SuiteBundler → Search & Install Bundles</code>.</li>
+                <li><strong>SuiteApps</strong>: Applications from SuiteApp.com marketplace. Include third-party and NetSuite-built solutions that extend functionality.</li>
+                <li><strong>SuiteFlow (Workflow Manager)</strong>: A visual, point-and-click tool for automating business processes without scripting. Create states, transitions, and actions based on conditions.</li>
+                <li>The exam tests <em>high-level knowledge</em> — know what each tool does, not specific subtabs or configuration details.</li>
+              </ul>
+            </div>
+          `
+        }
+      ]
+    }
+  ]
+};
