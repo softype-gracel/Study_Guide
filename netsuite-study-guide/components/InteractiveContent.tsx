@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 interface InteractiveContentProps {
   html: string
@@ -8,9 +8,10 @@ interface InteractiveContentProps {
 
 export default function InteractiveContent({ html }: InteractiveContentProps) {
   const contentRef = useRef<HTMLDivElement>(null)
+  const [initialized, setInitialized] = useState(false)
 
   useEffect(() => {
-    if (!contentRef.current) return
+    if (!contentRef.current || initialized) return
 
     // Find all quiz blocks
     const quizBlocks = contentRef.current.querySelectorAll('.quiz-block')
@@ -20,7 +21,7 @@ export default function InteractiveContent({ html }: InteractiveContentProps) {
       const explanation = block.querySelector('.quiz-explanation')
       let answered = false
 
-      options.forEach((option, index) => {
+      options.forEach((option) => {
         const li = option as HTMLLIElement
 
         // Check if this is the correct answer
@@ -29,8 +30,11 @@ export default function InteractiveContent({ html }: InteractiveContentProps) {
         // Remove onclick attribute to prevent conflicts
         li.removeAttribute('onclick')
 
-        // Add click handler
-        li.addEventListener('click', () => {
+        // Make sure cursor shows it's clickable
+        li.style.cursor = 'pointer'
+
+        // Create handler function
+        const handleClick = () => {
           if (answered) return
 
           answered = true
@@ -38,10 +42,11 @@ export default function InteractiveContent({ html }: InteractiveContentProps) {
           // Mark all options as disabled
           options.forEach((opt) => {
             opt.classList.add('disabled')
+            ;(opt as HTMLElement).style.cursor = 'default'
           })
 
           // Mark correct answer
-          options.forEach((opt, idx) => {
+          options.forEach((opt) => {
             const isOptCorrect = (opt as HTMLLIElement).getAttribute('data-correct') === 'true'
             if (isOptCorrect) {
               opt.classList.add('correct')
@@ -57,10 +62,15 @@ export default function InteractiveContent({ html }: InteractiveContentProps) {
           if (explanation) {
             explanation.classList.add('show')
           }
-        })
+        }
+
+        // Add click handler
+        li.addEventListener('click', handleClick)
       })
     })
-  }, [html])
+
+    setInitialized(true)
+  }, [html, initialized])
 
   return <div ref={contentRef} dangerouslySetInnerHTML={{ __html: html }} />
 }
