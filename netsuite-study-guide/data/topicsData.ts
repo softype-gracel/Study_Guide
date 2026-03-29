@@ -49,10 +49,10 @@ export const studyGuideData = {
             <h4>Practice Question</h4>
             <div class="quiz-q">Where does an Administrator enable the CRM feature in NetSuite?</div>
             <ul class="quiz-options">
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">A. Home → Set Preferences</li>
-              <li class="quiz-opt" data-correct="true" onclick="checkAnswer(this)">B. Setup → Company → Enable Features</li>
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">C. Setup → Company → General Preferences</li>
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">D. Setup → Accounting → Accounting Preferences</li>
+              <li class="quiz-opt" data-correct="false">A. Home → Set Preferences</li>
+              <li class="quiz-opt" data-correct="true">B. Setup → Company → Enable Features</li>
+              <li class="quiz-opt" data-correct="false">C. Setup → Company → General Preferences</li>
+              <li class="quiz-opt" data-correct="false">D. Setup → Accounting → Accounting Preferences</li>
             </ul>
             <div class="quiz-explanation">Enable Features is the centralized location for turning features on/off at the company level. General Preferences and Accounting Preferences control default behaviors, not feature activation. Set Preferences is user-level only.</div>
           </div>
@@ -79,10 +79,10 @@ export const studyGuideData = {
             <h4>Practice Question</h4>
             <div class="quiz-q">After renaming "Sales Order" to "Service Order," which of the following is TRUE?</div>
             <ul class="quiz-options">
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">A. SuiteScript references must also be updated</li>
-              <li class="quiz-opt" data-correct="true" onclick="checkAnswer(this)">B. SuiteAnswers documentation will still refer to "Sales Order"</li>
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">C. The change only affects Administrators</li>
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">D. The internal ID of the record changes</li>
+              <li class="quiz-opt" data-correct="false">A. SuiteScript references must also be updated</li>
+              <li class="quiz-opt" data-correct="true">B. SuiteAnswers documentation will still refer to "Sales Order"</li>
+              <li class="quiz-opt" data-correct="false">C. The change only affects Administrators</li>
+              <li class="quiz-opt" data-correct="false">D. The internal ID of the record changes</li>
             </ul>
             <div class="quiz-explanation">Renaming only changes the UI label company-wide. Internal IDs, scripting references, and documentation all continue using the original name. This affects all users, not just administrators.</div>
           </div>
@@ -132,10 +132,10 @@ export const studyGuideData = {
             <h4>Practice Question</h4>
             <div class="quiz-q">Which structure allows tracking of consolidated financial reports by legal entity?</div>
             <ul class="quiz-options">
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">A. Classes</li>
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">B. Locations</li>
-              <li class="quiz-opt" data-correct="true" onclick="checkAnswer(this)">C. Subsidiaries</li>
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">D. Departments</li>
+              <li class="quiz-opt" data-correct="false">A. Classes</li>
+              <li class="quiz-opt" data-correct="false">B. Locations</li>
+              <li class="quiz-opt" data-correct="true">C. Subsidiaries</li>
+              <li class="quiz-opt" data-correct="false">D. Departments</li>
             </ul>
             <div class="quiz-explanation">Subsidiaries represent legal entities in NetSuite OneWorld. They are the only classification that supports consolidated financial reporting by legal entity. Departments, Classes, and Locations are segmentation tools but don't represent legal structures.</div>
           </div>
@@ -226,10 +226,10 @@ export const studyGuideData = {
             <h4>Practice Question</h4>
             <div class="quiz-q">Which action can be taken to optimize NetSuite's performance in a browser?</div>
             <ul class="quiz-options">
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">A. Resize dashboard portlets</li>
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">B. Use multiple browser tabs</li>
-              <li class="quiz-opt" data-correct="true" onclick="checkAnswer(this)">C. Use the smallest portlet level refresh</li>
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">D. Maximize dashboard reports and searches</li>
+              <li class="quiz-opt" data-correct="false">A. Resize dashboard portlets</li>
+              <li class="quiz-opt" data-correct="false">B. Use multiple browser tabs</li>
+              <li class="quiz-opt" data-correct="true">C. Use the smallest portlet level refresh</li>
+              <li class="quiz-opt" data-correct="false">D. Maximize dashboard reports and searches</li>
             </ul>
             <div class="quiz-explanation">Using the smallest portlet level refresh reduces the data loaded on the dashboard, improving performance. Multiple browser tabs and maximizing reports would hurt performance, not help it.</div>
           </div>
@@ -287,10 +287,10 @@ export const studyGuideData = {
             <h4>Practice Question</h4>
             <div class="quiz-q">Which feature requires a user to agree to the Mass Messaging Application Terms of Service?</div>
             <ul class="quiz-options">
-              <li class="quiz-opt" data-correct="true" onclick="checkAnswer(this)">A. Mail Merge</li>
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">B. Capture Email Replies</li>
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">C. Subscription Categories</li>
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">D. CRM</li>
+              <li class="quiz-opt" data-correct="true">A. Mail Merge</li>
+              <li class="quiz-opt" data-correct="false">B. Capture Email Replies</li>
+              <li class="quiz-opt" data-correct="false">C. Subscription Categories</li>
+              <li class="quiz-opt" data-correct="false">D. CRM</li>
             </ul>
             <div class="quiz-explanation">Mail Merge is a mass messaging feature that sends personalized emails/letters in bulk, which is why it requires agreement to the Mass Messaging Application Terms of Service before use.</div>
           </div>
@@ -344,10 +344,10 @@ export const studyGuideData = {
             <h4>Practice Question</h4>
             <div class="quiz-q">At what point does a Lead automatically become a Prospect in NetSuite?</div>
             <ul class="quiz-options">
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">A. When a Quote is sent</li>
-              <li class="quiz-opt" data-correct="true" onclick="checkAnswer(this)">B. When an Opportunity is created</li>
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">C. When a Sales Order is created</li>
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">D. When a Contact is added</li>
+              <li class="quiz-opt" data-correct="false">A. When a Quote is sent</li>
+              <li class="quiz-opt" data-correct="true">B. When an Opportunity is created</li>
+              <li class="quiz-opt" data-correct="false">C. When a Sales Order is created</li>
+              <li class="quiz-opt" data-correct="false">D. When a Contact is added</li>
             </ul>
             <div class="quiz-explanation">In NetSuite's standard sales cycle, creating an Opportunity for a Lead automatically converts them to a Prospect. Creating a Sales Order converts the Prospect to a Customer.</div>
           </div>
@@ -388,10 +388,10 @@ export const studyGuideData = {
             <h4>Practice Question</h4>
             <div class="quiz-q">Where can users set subsidiary-level support preferences?</div>
             <ul class="quiz-options">
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">A. Case Profile</li>
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">C. Setup → Company → General Preferences</li>
-              <li class="quiz-opt" data-correct="true" onclick="checkAnswer(this)">C. Setup → Support → Support Preferences</li>
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">D. Subsidiary record</li>
+              <li class="quiz-opt" data-correct="false">A. Case Profile</li>
+              <li class="quiz-opt" data-correct="false">C. Setup → Company → General Preferences</li>
+              <li class="quiz-opt" data-correct="true">C. Setup → Support → Support Preferences</li>
+              <li class="quiz-opt" data-correct="false">D. Subsidiary record</li>
             </ul>
             <div class="quiz-explanation">Subsidiary-level support preferences are configured at Setup → Support → Support Preferences. Case Profiles control case behavior and rules, not subsidiary-level settings.</div>
           </div>
@@ -514,10 +514,10 @@ export const studyGuideData = {
             <h4>Practice Question</h4>
             <div class="quiz-q">Which item type displays component items as individual lines on a Sales Order?</div>
             <ul class="quiz-options">
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">A. Kit/Package</li>
-              <li class="quiz-opt" data-correct="true" onclick="checkAnswer(this)">B. Group Item</li>
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">C. Assembly Item</li>
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">D. Matrix Item</li>
+              <li class="quiz-opt" data-correct="false">A. Kit/Package</li>
+              <li class="quiz-opt" data-correct="true">B. Group Item</li>
+              <li class="quiz-opt" data-correct="false">C. Assembly Item</li>
+              <li class="quiz-opt" data-correct="false">D. Matrix Item</li>
             </ul>
             <div class="quiz-explanation">Group Items show each component as individual lines on the transaction with separate pricing. Kit/Package items appear as a single line. Assembly Items are manufactured finished goods. Matrix Items are parent-child item structures based on attributes.</div>
           </div>
@@ -660,10 +660,10 @@ export const studyGuideData = {
             <h4>Practice Question</h4>
             <div class="quiz-q">Which element of a saved search controls conditional row highlighting based on specific criteria?</div>
             <ul class="quiz-options">
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">A. Available Filters</li>
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">B. Audience</li>
-              <li class="quiz-opt" data-correct="true" onclick="checkAnswer(this)">C. Highlighting</li>
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">D. Formulas</li>
+              <li class="quiz-opt" data-correct="false">A. Available Filters</li>
+              <li class="quiz-opt" data-correct="false">B. Audience</li>
+              <li class="quiz-opt" data-correct="true">C. Highlighting</li>
+              <li class="quiz-opt" data-correct="false">D. Formulas</li>
             </ul>
             <div class="quiz-explanation">Highlighting is the saved search element that applies conditional formatting to rows — for example, coloring overdue invoices red. Available Filters let users refine results. Audience controls who sees the search. Formulas add calculated columns.</div>
           </div>
@@ -691,10 +691,10 @@ export const studyGuideData = {
             <h4>Practice Question</h4>
             <div class="quiz-q">Which portlet displays summary data from reports or saved searches for selected date ranges, with options to compare ranges and highlight thresholds?</div>
             <ul class="quiz-options">
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">A. Report Snapshot</li>
-              <li class="quiz-opt" data-correct="true" onclick="checkAnswer(this)">B. Key Performance Indicators</li>
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">C. Account Reconciliation Summary</li>
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">D. SMT Links</li>
+              <li class="quiz-opt" data-correct="false">A. Report Snapshot</li>
+              <li class="quiz-opt" data-correct="true">B. Key Performance Indicators</li>
+              <li class="quiz-opt" data-correct="false">C. Account Reconciliation Summary</li>
+              <li class="quiz-opt" data-correct="false">D. SMT Links</li>
             </ul>
             <div class="quiz-explanation">The KPI portlet displays summary data with date range comparisons and threshold-based highlighting. Report Snapshots show report data but with fewer interactive comparison features.</div>
           </div>
@@ -803,10 +803,10 @@ export const studyGuideData = {
             <h4>Practice Question</h4>
             <div class="quiz-q">What is the best practice for creating roles with specific permissions?</div>
             <ul class="quiz-options">
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">A. Modify standard out-of-the-box roles</li>
-              <li class="quiz-opt" data-correct="true" onclick="checkAnswer(this)">B. Create custom roles rather than modifying standard roles</li>
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">C. Give all users the Administrator role</li>
-              <li class="quiz-opt" data-correct="false" onclick="checkAnswer(this)">D. Use a single role for all users and restrict with preferences</li>
+              <li class="quiz-opt" data-correct="false">A. Modify standard out-of-the-box roles</li>
+              <li class="quiz-opt" data-correct="true">B. Create custom roles rather than modifying standard roles</li>
+              <li class="quiz-opt" data-correct="false">C. Give all users the Administrator role</li>
+              <li class="quiz-opt" data-correct="false">D. Use a single role for all users and restrict with preferences</li>
             </ul>
             <div class="quiz-explanation">Creating custom roles is the best practice because standard roles can be reset during system upgrades. Custom roles preserve your specific permission configurations across updates.</div>
           </div>
