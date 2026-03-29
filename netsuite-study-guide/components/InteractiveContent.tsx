@@ -13,11 +13,8 @@ export default function InteractiveContent({ html }: InteractiveContentProps) {
   useEffect(() => {
     if (!contentRef.current || handlersAttached.current) return
 
-    console.log('Attaching quiz handlers...')
-
     // Find all quiz blocks
     const quizBlocks = contentRef.current.querySelectorAll('.quiz-block')
-    console.log('Found quiz blocks:', quizBlocks.length)
 
     quizBlocks.forEach((block) => {
       const options = block.querySelectorAll('.quiz-opt')
@@ -38,14 +35,10 @@ export default function InteractiveContent({ html }: InteractiveContentProps) {
 
         // Create handler function
         const handleClick = (e: Event) => {
-          console.log('Quiz option clicked!', { answered, isCorrect })
           e.preventDefault()
           e.stopPropagation()
 
-          if (answered) {
-            console.log('Already answered, ignoring')
-            return
-          }
+          if (answered) return
 
           answered = true
 
