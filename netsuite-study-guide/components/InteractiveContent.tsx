@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 interface InteractiveContentProps {
   html: string
@@ -8,13 +8,16 @@ interface InteractiveContentProps {
 
 export default function InteractiveContent({ html }: InteractiveContentProps) {
   const contentRef = useRef<HTMLDivElement>(null)
-  const [initialized, setInitialized] = useState(false)
+  const handlersAttached = useRef(false)
 
   useEffect(() => {
-    if (!contentRef.current || initialized) return
+    if (!contentRef.current || handlersAttached.current) return
+
+    console.log('Attaching quiz handlers...')
 
     // Find all quiz blocks
     const quizBlocks = contentRef.current.querySelectorAll('.quiz-block')
+    console.log('Found quiz blocks:', quizBlocks.length)
 
     quizBlocks.forEach((block) => {
       const options = block.querySelectorAll('.quiz-opt')
@@ -34,8 +37,15 @@ export default function InteractiveContent({ html }: InteractiveContentProps) {
         li.style.cursor = 'pointer'
 
         // Create handler function
-        const handleClick = () => {
-          if (answered) return
+        const handleClick = (e: Event) => {
+          console.log('Quiz option clicked!', { answered, isCorrect })
+          e.preventDefault()
+          e.stopPropagation()
+
+          if (answered) {
+            console.log('Already answered, ignoring')
+            return
+          }
 
           answered = true
 
@@ -65,12 +75,12 @@ export default function InteractiveContent({ html }: InteractiveContentProps) {
         }
 
         // Add click handler
-        li.addEventListener('click', handleClick)
+        li.addEventListener('click', handleClick, { once: false })
       })
     })
 
-    setInitialized(true)
-  }, [html, initialized])
+    handlersAttached.current = true
+  }, [html])
 
   return <div ref={contentRef} dangerouslySetInnerHTML={{ __html: html }} />
 }
