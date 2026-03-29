@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import InteractiveContent from './InteractiveContent'
 import type { Topic } from '@/data/topicsData'
 
 interface TopicCardProps {
@@ -27,7 +28,7 @@ export default function TopicCard({ topic, isChecked, toggleCheck }: TopicCardPr
       </div>
 
       <div className="topic-content">
-        <div dangerouslySetInnerHTML={{ __html: topic.content }} />
+        <InteractiveContent html={topic.content} />
       </div>
     </div>
   )
