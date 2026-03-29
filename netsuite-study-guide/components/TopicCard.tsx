@@ -28,7 +28,7 @@ export default function TopicCard({ topic, isChecked, toggleCheck }: TopicCardPr
       </div>
 
       <div className="topic-content">
-        <InteractiveContent html={topic.content} />
+        <InteractiveContent html={topic.content} isVisible={isOpen} />
       </div>
     </div>
   )
