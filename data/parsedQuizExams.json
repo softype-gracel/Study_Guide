@@ -1,0 +1,1151 @@
+[
+  {
+    "title": "NetSuite Enable Features — Practice Examination",
+    "description": "",
+    "totalQuestions": 70,
+    "questions": [
+      {
+        "id": "1",
+        "options": [
+          "Departments, Locations, Classes",
+          "Departments, Divisions, Projects",
+          "Groups, Segments, Categories",
+          "Departments, Business Units, Regions"
+        ],
+        "correctIndex": 0,
+        "topic": "Classifications",
+        "difficulty": "Easy",
+        "questionType": "Multiple Choice",
+        "question": "Which three classification types are available under Enable Features > Company?",
+        "correctAnswer": "A",
+        "explanation": "NetSuite provides three standard classification types: Departments, Locations, and Classes. These classifications allow you to track activity across different dimensions of your business and can be renamed to suit your specific business needs."
+      },
+      {
+        "id": "2",
+        "options": [
+          "Departments can only be used for HR purposes",
+          "Departments can be renamed to suit your business needs",
+          "Department names are fixed and cannot be changed",
+          "Departments are automatically synced with payroll"
+        ],
+        "correctIndex": 1,
+        "topic": "Classifications - Departments",
+        "difficulty": "Easy",
+        "questionType": "Multiple Choice",
+        "question": "What is a key characteristic of the Departments classification in NetSuite?",
+        "correctAnswer": "B",
+        "explanation": "One of the key features of NetSuite's classification system is flexibility. Departments, like the other classifications (Locations and Classes), can be renamed to match your business terminology and organizational structure."
+      },
+      {
+        "id": "3",
+        "options": [
+          "Only track physical warehouse addresses",
+          "Track activity by location, and the label can be renamed",
+          "Assign GPS coordinates to transactions",
+          "Restrict user access by geographic region"
+        ],
+        "correctIndex": 1,
+        "topic": "Classifications - Locations",
+        "difficulty": "Easy",
+        "questionType": "Multiple Choice",
+        "question": "The Locations classification in NetSuite allows you to:",
+        "correctAnswer": "B",
+        "explanation": "Locations allow you to track business activity by location (which could be physical locations, virtual locations, or any other location-based categorization your business needs). Like all classifications, the Locations label can be renamed to suit your business requirements."
+      },
+      {
+        "id": "4",
+        "options": [
+          "Departments",
+          "Locations",
+          "Classes",
+          "Segments"
+        ],
+        "correctIndex": 2,
+        "topic": "Classifications - Classes",
+        "difficulty": "Easy",
+        "questionType": "Multiple Choice",
+        "question": "Which classification feature lets you track activity by custom categories and can be renamed?",
+        "correctAnswer": "C",
+        "explanation": "Classes allow you to track activity by custom categories that are meaningful to your business. The Classes classification, like Departments and Locations, can be renamed to match your business terminology."
+      },
+      {
+        "id": "5",
+        "options": [
+          "Only time tracking for employees",
+          "Tracking projects independently from customers, including activities, time tracking, and billing",
+          "Automatic project scheduling with Gantt charts",
+          "Integration with third-party project management tools only"
+        ],
+        "correctIndex": 1,
+        "topic": "Projects",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "When the Projects feature is enabled, what capabilities does it provide?",
+        "correctAnswer": "B",
+        "explanation": "The Projects feature in NetSuite provides comprehensive project management capabilities, allowing you to track projects independently from customers. This includes tracking project activities, time, expenses, and billing associated with projects."
+      },
+      {
+        "id": "6",
+        "options": [
+          "Convert currencies only",
+          "Purchase and sell inventory in different units and use non-monetary accounts",
+          "Set up multiple measurement standards for shipping",
+          "Track warehouse dimensions"
+        ],
+        "correctIndex": 1,
+        "topic": "ERP General - Multiple Units of Measure",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "The Multiple Units of Measure feature allows you to:",
+        "correctAnswer": "B",
+        "explanation": "Multiple Units of Measure enables businesses to purchase and sell the same inventory item in different units (e.g., purchase in cases, sell in individual units). This feature also allows the use of non-monetary accounts for tracking units."
+      },
+      {
+        "id": "7",
+        "options": [
+          "Automatically deletes duplicate transactions",
+          "Records the reason for deleted transactions",
+          "Prevents users from deleting any transactions",
+          "Creates an audit log only for system administrators"
+        ],
+        "correctIndex": 1,
+        "topic": "ERP General - Use Deletion Reason",
+        "difficulty": "Easy",
+        "questionType": "Multiple Choice",
+        "question": "What does the Use Deletion Reason feature do?",
+        "correctAnswer": "B",
+        "explanation": "The Use Deletion Reason feature requires users to provide a reason when deleting transactions. This creates an audit trail and accountability for deleted records, but does not prevent deletions from occurring."
+      },
+      {
+        "id": "8",
+        "options": [
+          "Create one customer record visible to all subsidiaries automatically",
+          "Create customer records across multiple subsidiaries",
+          "Merge customer records from different subsidiaries",
+          "Restrict customer visibility to a single subsidiary"
+        ],
+        "correctIndex": 1,
+        "topic": "ERP General - Multi Subsidiary Customer",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "The Multi Subsidiary Customer feature enables you to:",
+        "correctAnswer": "B",
+        "explanation": "Multi Subsidiary Customer allows you to create and manage customer records that span multiple subsidiaries within your NetSuite account. This is essential for businesses with the same customer doing business across different legal entities."
+      },
+      {
+        "id": "9",
+        "options": [
+          "Automatic numbering with no customization",
+          "Creation and application of multiple numbering rules for transactions",
+          "Sequential numbering for journal entries only",
+          "Random numbering for security purposes"
+        ],
+        "correctIndex": 1,
+        "topic": "ERP General - Advanced Numbering",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "What does the Advanced Numbering feature allow?",
+        "correctAnswer": "B",
+        "explanation": "Advanced Numbering allows you to create and apply multiple numbering sequences and rules for different transaction types, subsidiaries, or other criteria. This provides flexibility in how transactions are numbered across your organization."
+      },
+      {
+        "id": "10",
+        "options": [
+          "Only the NetSuite user interface",
+          "Website content, item names/descriptions, printed sales transactions, and order confirmation emails",
+          "Only email correspondence with foreign vendors",
+          "Only financial reports for international auditors"
+        ],
+        "correctIndex": 1,
+        "topic": "International - Multi-Language",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "The Multi-Language feature translates which of the following? (Choose the BEST answer)",
+        "correctAnswer": "B",
+        "explanation": "Multi-Language feature provides comprehensive translation capabilities including website content, item names and descriptions, printed sales transactions, and order confirmation emails. This enables businesses to communicate with customers in their preferred language across multiple touchpoints."
+      },
+      {
+        "id": "11",
+        "options": [
+          "Restrict your transactions to a single currency",
+          "Create transactions for foreign customers and vendors and account for exchange rate fluctuations",
+          "Eliminate the need for bank reconciliation",
+          "Convert all transactions to USD automatically"
+        ],
+        "correctIndex": 1,
+        "topic": "International - Multiple Currencies",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "The Multiple Currencies feature primarily helps you:",
+        "correctAnswer": "B",
+        "explanation": "Multiple Currencies enables businesses to conduct transactions in multiple currencies with foreign customers and vendors. The feature also handles exchange rate fluctuations and currency conversion, maintaining proper accounting for foreign exchange gains and losses."
+      },
+      {
+        "id": "12",
+        "options": [
+          "Manually imports exchange rates each morning",
+          "Automatically updates currency exchange rates on a nightly basis",
+          "Only updates rates when a user clicks refresh",
+          "Syncs rates with Bloomberg Terminal"
+        ],
+        "correctIndex": 1,
+        "topic": "International - Currency Exchange Rate Integration",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "What does Currency Exchange Rate Integration do when enabled?",
+        "correctAnswer": "B",
+        "explanation": "Currency Exchange Rate Integration automatically updates exchange rates on a nightly basis, ensuring that your currency conversions use current market rates without manual intervention."
+      },
+      {
+        "id": "13",
+        "options": [
+          "Setup > Company > Company Information",
+          "Accounting Preferences",
+          "Administrator role settings",
+          "System Preferences > Analytics"
+        ],
+        "correctIndex": 1,
+        "topic": "International - Currency Exchange Rate Integration",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "The foreign exchange rate provider for Currency Exchange Rate Integration can be specified through:",
+        "correctAnswer": "B",
+        "explanation": "The foreign exchange rate provider (Xignite) for Currency Exchange Rate Integration is configured through Accounting Preferences, where you can specify settings related to currency management."
+      },
+      {
+        "id": "14",
+        "options": [
+          "VoIP calling within NetSuite",
+          "International and national phone number formatting based on local standards",
+          "Automatic phone verification for all contacts",
+          "Click-to-call functionality"
+        ],
+        "correctIndex": 1,
+        "topic": "International - Worldwide Phone Number Formatting",
+        "difficulty": "Easy",
+        "questionType": "Multiple Choice",
+        "question": "Worldwide Support for Phone Number Formatting enables:",
+        "correctAnswer": "B",
+        "explanation": "This feature enables proper formatting of phone numbers according to international and national standards for different countries, ensuring phone numbers are displayed and stored in the correct format for each locale."
+      },
+      {
+        "id": "15",
+        "options": [
+          "Edit records only from the record's detail page",
+          "Edit records directly from lists and search results",
+          "Edit records using CSV import only",
+          "Edit records through SuiteScript only"
+        ],
+        "correctIndex": 1,
+        "topic": "Data Management - Inline Editing",
+        "difficulty": "Easy",
+        "questionType": "Multiple Choice",
+        "question": "What does the Inline Editing feature allow users to do?",
+        "correctAnswer": "B",
+        "explanation": "Inline Editing improves user efficiency by allowing users to edit record fields directly from list views and search results without having to open the full record page."
+      },
+      {
+        "id": "16",
+        "options": [
+          "Store files on external cloud services only",
+          "Upload and associate documents with contact, event, and task records",
+          "Only store PDF documents",
+          "Create a virtual file system within SuiteAnalytics"
+        ],
+        "correctIndex": 1,
+        "topic": "Data Management - File Cabinet",
+        "difficulty": "Easy",
+        "questionType": "Multiple Choice",
+        "question": "The File Cabinet feature allows you to:",
+        "correctAnswer": "B",
+        "explanation": "File Cabinet provides document management capabilities within NetSuite, allowing you to upload various file types and associate them with specific records like contacts, events, and tasks for easy reference and organization."
+      },
+      {
+        "id": "17",
+        "options": [
+          "Vendors, items, and employees",
+          "Customer, lead, and contact records",
+          "Journal entries, invoices, and bills",
+          "All standard and custom record types"
+        ],
+        "correctIndex": 1,
+        "topic": "Data Management - Duplicate Detection & Merge",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "The Duplicate Detection & Merge feature automatically detects duplicates for which record types?",
+        "correctAnswer": "B",
+        "explanation": "Duplicate Detection & Merge specifically focuses on customer, lead, and contact records, helping maintain data quality by identifying and allowing users to merge duplicate CRM records."
+      },
+      {
+        "id": "18",
+        "options": [
+          "Two-factor authentication for all file access",
+          "Employee-specific expense folders",
+          "Encryption of all uploaded documents",
+          "File versioning and rollback capabilities"
+        ],
+        "correctIndex": 1,
+        "topic": "Data Management - Enhanced File Security",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "What does Enhanced File Security provide?",
+        "correctAnswer": "B",
+        "explanation": "Enhanced File Security provides employee-specific expense folders, ensuring that employee expense documents are properly secured and organized with appropriate access controls."
+      },
+      {
+        "id": "19",
+        "options": [
+          "Block countries from accessing the internet",
+          "Create rules to restrict employee access based on IP address",
+          "Set up VPN connections for remote workers",
+          "Monitor internet usage by IP"
+        ],
+        "correctIndex": 1,
+        "topic": "Access - IP Address Rules",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "The IP Address Rules feature allows administrators to:",
+        "correctAnswer": "B",
+        "explanation": "IP Address Rules enable administrators to create access control rules based on IP addresses, allowing them to restrict which IP addresses or IP ranges can access the NetSuite account. This adds an additional layer of security."
+      },
+      {
+        "id": "20",
+        "options": [
+          "Sends an SMS when someone logs in",
+          "Sets up a message for users to acknowledge when they log in",
+          "Alerts administrators of unauthorized login attempts",
+          "Notifies managers when employees log in late"
+        ],
+        "correctIndex": 1,
+        "topic": "Access - Login Notification",
+        "difficulty": "Easy",
+        "questionType": "Multiple Choice",
+        "question": "What is the purpose of the Login Notification feature?",
+        "correctAnswer": "B",
+        "explanation": "Login Notification allows administrators to display a message to users upon login that they must acknowledge. This is useful for communicating important information, policy updates, or compliance requirements."
+      },
+      {
+        "id": "21",
+        "options": [
+          "Unlimited",
+          "Up to three devices",
+          "Two devices maximum",
+          "Five devices maximum"
+        ],
+        "correctIndex": 1,
+        "topic": "Access - Multiple Sessions",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "How many simultaneous sessions can 2FA-protected users have when Multiple Sessions is enabled?",
+        "correctAnswer": "B",
+        "explanation": "When Multiple Sessions is enabled, users with only 2FA-protected roles can log in from up to three devices simultaneously, providing flexibility while maintaining security through two-factor authentication."
+      },
+      {
+        "id": "22",
+        "options": [
+          "Is enabled per individual employee",
+          "Allows users of NetSuite Mobile products to receive Push Notifications for the company",
+          "Replaces email notifications entirely",
+          "Requires a separate mobile license per user"
+        ],
+        "correctIndex": 1,
+        "topic": "Mobile & Related SuiteApps - Mobile Push Notification",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "The Mobile Push Notification feature:",
+        "correctAnswer": "B",
+        "explanation": "Mobile Push Notification enables push notifications for users of NetSuite Mobile products at the company level, allowing users to receive timely notifications on their mobile devices."
+      },
+      {
+        "id": "23",
+        "options": [
+          "Create Box accounts directly from NetSuite",
+          "Upload documents to Box and associate them with NetSuite records",
+          "Replace the File Cabinet with Box storage",
+          "Automatically sync all NetSuite data to Box"
+        ],
+        "correctIndex": 1,
+        "topic": "Mobile & Related SuiteApps - Box Document Management",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "The Box Document Management SuiteApp enables you to:",
+        "correctAnswer": "B",
+        "explanation": "Box Document Management SuiteApp provides integration between NetSuite and Box, allowing users to upload documents to Box and associate them with specific NetSuite records for enhanced document management capabilities."
+      },
+      {
+        "id": "24",
+        "options": [
+          "An optional add-on for financial management",
+          "Using NetSuite to handle your business's accounting",
+          "A third-party integration with QuickBooks",
+          "A reporting-only module with no transaction posting"
+        ],
+        "correctIndex": 1,
+        "topic": "Accounting - Basic Features",
+        "difficulty": "Easy",
+        "questionType": "Multiple Choice",
+        "question": "The core Accounting feature in NetSuite is described as:",
+        "correctAnswer": "B",
+        "explanation": "The Accounting feature is the core financial management capability in NetSuite that enables businesses to handle all aspects of their accounting operations, including transaction processing, financial reporting, and compliance."
+      },
+      {
+        "id": "25",
+        "options": [
+          "Pay vendor bills based on supplier terms",
+          "Invoice customers when delivering goods or services and offer them payment terms",
+          "Only track overdue customer payments",
+          "Generate statements without creating invoices"
+        ],
+        "correctIndex": 1,
+        "topic": "Accounting - A/R (Accounts Receivable)",
+        "difficulty": "Easy",
+        "questionType": "Multiple Choice",
+        "question": "The A/R (Accounts Receivable) feature enables you to:",
+        "correctAnswer": "B",
+        "explanation": "Accounts Receivable functionality allows businesses to invoice customers for goods or services delivered and manage payment terms, tracking what customers owe and when payments are due."
+      },
+      {
+        "id": "26",
+        "options": [
+          "Issue invoices to customers",
+          "Track bills as they come in for payment based on suppliers' terms",
+          "Manage petty cash only",
+          "Create purchase orders for inventory"
+        ],
+        "correctIndex": 1,
+        "topic": "Accounting - A/P (Accounts Payable)",
+        "difficulty": "Easy",
+        "questionType": "Multiple Choice",
+        "question": "The A/P (Accounts Payable) feature is primarily used to:",
+        "correctAnswer": "B",
+        "explanation": "Accounts Payable manages the money your business owes to suppliers and vendors. It tracks bills as they are received and manages payment according to the suppliers' payment terms."
+      },
+      {
+        "id": "27",
+        "options": [
+          "Only view annual summaries",
+          "Post transactions to periods, run reports by period, and close books at period end",
+          "Automatically calculate taxes by period",
+          "Set up recurring transactions"
+        ],
+        "correctIndex": 1,
+        "topic": "Accounting - Accounting Periods",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "The Accounting Periods feature allows you to:",
+        "correctAnswer": "B",
+        "explanation": "Accounting Periods enable proper period-based accounting by allowing transactions to be posted to specific periods, running period-specific reports, and closing books at the end of each period to maintain financial integrity."
+      },
+      {
+        "id": "28",
+        "options": [
+          "Random numbering for GL entries",
+          "Gapless numbering for GL posted transactions",
+          "Automatic reversal of misposted entries",
+          "Department-level numbering for journal entries"
+        ],
+        "correctIndex": 1,
+        "topic": "Accounting - GL Audit Numbering",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "GL Audit Numbering provides:",
+        "correctAnswer": "B",
+        "explanation": "GL Audit Numbering ensures gapless (sequential without gaps) numbering for general ledger posted transactions, which is important for audit trails and compliance in many jurisdictions."
+      },
+      {
+        "id": "29",
+        "options": [
+          "Automatically approves all expense reports",
+          "Allows expenses to be allocated",
+          "Restricts expenses to a single department",
+          "Creates expense budgets for each employee"
+        ],
+        "correctIndex": 1,
+        "topic": "Accounting - Advanced Features - Expense Allocation",
+        "difficulty": "Easy",
+        "questionType": "Multiple Choice",
+        "question": "What does the Expense Allocation feature do?",
+        "correctAnswer": "B",
+        "explanation": "Expense Allocation enables businesses to allocate expenses across multiple departments, locations, classes, or other segments, allowing for more accurate cost distribution and reporting."
+      },
+      {
+        "id": "30",
+        "options": [
+          "Manually entered percentages only",
+          "The current statistical account's balance when the allocation journal is generated",
+          "Last year's budget figures",
+          "Headcount in each department"
+        ],
+        "correctIndex": 1,
+        "topic": "Accounting - Advanced Features - Dynamic Allocation",
+        "difficulty": "Hard",
+        "questionType": "Multiple Choice",
+        "question": "Dynamic Allocation calculates allocation weight based on:",
+        "correctAnswer": "B",
+        "explanation": "Dynamic Allocation automatically calculates allocation weights based on the current balance in statistical accounts at the time the allocation journal is generated, rather than using static percentages. This provides more accurate and current expense allocations."
+      },
+      {
+        "id": "31",
+        "options": [
+          "Only one budget per fiscal year",
+          "Creation of multiple budgeting scenarios",
+          "Budgets for revenue accounts only",
+          "Automatic budget approvals"
+        ],
+        "correctIndex": 1,
+        "topic": "Accounting - Advanced Features - Multiple Budgets",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "The Multiple Budgets feature allows:",
+        "correctAnswer": "B",
+        "explanation": "Multiple Budgets enables businesses to create and maintain multiple budget scenarios (e.g., conservative, aggressive, best case) for better financial planning and analysis."
+      },
+      {
+        "id": "32",
+        "options": [
+          "Only track intercompany loans",
+          "Manage intercompany transactions and automatically generate elimination journal entries",
+          "Merge subsidiary financial statements manually",
+          "Restrict intercompany transactions to one subsidiary pair"
+        ],
+        "correctIndex": 1,
+        "topic": "Accounting - Advanced Features - Automated Intercompany Management",
+        "difficulty": "Hard",
+        "questionType": "Multiple Choice",
+        "question": "Automated Intercompany Management enables you to:",
+        "correctAnswer": "B",
+        "explanation": "Automated Intercompany Management handles transactions between subsidiaries and automatically generates the necessary elimination journal entries for consolidated financial reporting, simplifying multi-subsidiary accounting."
+      },
+      {
+        "id": "33",
+        "options": [
+          "Only process payments for the parent company",
+          "Apply payments, credits, and deposits through top-level customers or subcustomers and print consolidated statements",
+          "Consolidate payments into a single bank account",
+          "Automatically match payments to invoices using AI"
+        ],
+        "correctIndex": 1,
+        "topic": "Accounting - Advanced Features - Consolidated Payments",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "The Consolidated Payments feature allows you to:",
+        "correctAnswer": "B",
+        "explanation": "Consolidated Payments enables businesses with customer hierarchies to apply payments, credits, and deposits at either the parent customer level or subcustomer level, and print consolidated statements showing the complete customer relationship."
+      },
+      {
+        "id": "34",
+        "options": [
+          "Only employee headcount",
+          "Non-monetary data and its relationship with financial activity",
+          "Statistical reports for tax compliance",
+          "Performance metrics for sales teams only"
+        ],
+        "correctIndex": 1,
+        "topic": "Accounting - Advanced Features - Statistical Accounts",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "What does the Statistical Accounts feature track?",
+        "correctAnswer": "B",
+        "explanation": "Statistical Accounts allow tracking of non-monetary data (such as headcount, square footage, units produced) and analyzing its relationship with financial activity. This is useful for allocation calculations and operational metrics."
+      },
+      {
+        "id": "35",
+        "options": [
+          "Displaying employee calendars side by side",
+          "Using different accounting period and tax period rollups for subsidiaries",
+          "Setting up multiple fiscal years simultaneously",
+          "Scheduling recurring transactions across calendars"
+        ],
+        "correctIndex": 1,
+        "topic": "Accounting - Advanced Features - Multiple Calendars",
+        "difficulty": "Hard",
+        "questionType": "Multiple Choice",
+        "question": "The Multiple Calendars feature allows:",
+        "correctAnswer": "B",
+        "explanation": "Multiple Calendars enables different subsidiaries to use different accounting period structures and tax period rollups, which is essential for businesses operating across multiple jurisdictions with different fiscal year requirements."
+      },
+      {
+        "id": "36",
+        "options": [
+          "Eliminate foreign currency transactions",
+          "Create posting rules to define which accounts foreign currency variances post to",
+          "Automatically revalue all foreign currency balances",
+          "Convert all foreign currencies to the base currency"
+        ],
+        "correctIndex": 1,
+        "topic": "Accounting - Advanced Features - Foreign Currency Variance Mapping",
+        "difficulty": "Hard",
+        "questionType": "Multiple Choice",
+        "question": "What does Foreign Currency Variance Mapping allow you to do?",
+        "correctAnswer": "B",
+        "explanation": "Foreign Currency Variance Mapping allows you to create posting rules that define which accounts foreign currency variances should post to, providing control over how exchange rate differences are recorded in your financial statements."
+      },
+      {
+        "id": "37",
+        "options": [
+          "Daily reconciliation entries",
+          "Period end consolidation and year end closing",
+          "Automated bank reconciliation",
+          "Intercompany eliminations only"
+        ],
+        "correctIndex": 1,
+        "topic": "Accounting - Advanced Features - Period End Journal Entries",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "The Period End Journal Entries feature enables posting journal entries to record:",
+        "correctAnswer": "B",
+        "explanation": "Period End Journal Entries facilitates the creation and posting of journal entries specifically for period end consolidation activities and year end closing processes."
+      },
+      {
+        "id": "38",
+        "options": [
+          "Automatic period close without review",
+          "Management of period close tasks, period close metrics, and AI insights",
+          "A checklist for annual audits only",
+          "Automated financial statement generation"
+        ],
+        "correctIndex": 1,
+        "topic": "Accounting - Advanced Features - Intelligent Close Manager",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "What does the Intelligent Close Manager provide?",
+        "correctAnswer": "B",
+        "explanation": "Intelligent Close Manager provides comprehensive period close management including task management, metrics tracking, and AI-powered insights to help streamline and improve the period close process."
+      },
+      {
+        "id": "39",
+        "options": [
+          "Rule-based scheduling",
+          "AI-powered predictions to forecast when invoices will be paid",
+          "Historical average calculations only",
+          "Customer-submitted payment schedules"
+        ],
+        "correctIndex": 1,
+        "topic": "Accounting - Advanced Features - Payment Date Prediction",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "The Payment Date Prediction feature uses what technology?",
+        "correctAnswer": "B",
+        "explanation": "Payment Date Prediction uses artificial intelligence to analyze payment patterns and predict when outstanding invoices are likely to be paid, helping with cash flow forecasting."
+      },
+      {
+        "id": "40",
+        "options": [
+          "Automatically categorize all transactions",
+          "Enrich imported bank and credit card transaction data by analyzing payor/payee and memo fields",
+          "Predict bank account balances",
+          "Generate synthetic bank statements"
+        ],
+        "correctIndex": 1,
+        "topic": "Accounting - Advanced Features - Enriched Bank Data",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "The Enriched Bank Data feature uses AI to:",
+        "correctAnswer": "B",
+        "explanation": "Enriched Bank Data uses AI to analyze and enrich imported bank and credit card transactions by extracting meaningful information from payor/payee names and memo fields, making reconciliation easier and more accurate. # SECTION II: TRUE OR FALSE (20 Questions)"
+      },
+      {
+        "id": "41",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 0,
+        "topic": "Classifications",
+        "difficulty": "Easy",
+        "questionType": "True/False",
+        "question": "Departments, Locations, and Classes can all be renamed to suit your business needs.",
+        "correctAnswer": "A",
+        "explanation": "All three classification types (Departments, Locations, and Classes) can be renamed to match your specific business terminology and organizational structure, providing flexibility in how you categorize and track business activities."
+      },
+      {
+        "id": "42",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 1,
+        "topic": "Projects",
+        "difficulty": "Easy",
+        "questionType": "True/False",
+        "question": "The Projects feature in NetSuite cannot track activities or billing independently from customers.",
+        "correctAnswer": "B",
+        "explanation": "This statement is FALSE. The Projects feature CAN track activities, time tracking, and billing independently from customers, providing comprehensive project management capabilities."
+      },
+      {
+        "id": "43",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 0,
+        "topic": "ERP General - Multiple Units of Measure",
+        "difficulty": "Easy",
+        "questionType": "True/False",
+        "question": "Multiple Units of Measure allows purchase and sale of inventory in different units.",
+        "correctAnswer": "A",
+        "explanation": "Multiple Units of Measure enables businesses to purchase inventory in one unit (e.g., cases) and sell it in another unit (e.g., individual items), providing flexibility in inventory management."
+      },
+      {
+        "id": "44",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 1,
+        "topic": "ERP General - Use Deletion Reason",
+        "difficulty": "Easy",
+        "questionType": "True/False",
+        "question": "The Use Deletion Reason feature prevents all transaction deletions in NetSuite.",
+        "correctAnswer": "B",
+        "explanation": "This statement is FALSE. Use Deletion Reason does not prevent deletions; it requires users to provide a reason when deleting transactions, creating an audit trail but not blocking the deletion itself."
+      },
+      {
+        "id": "45",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 0,
+        "topic": "ERP General - Multi Subsidiary Customer",
+        "difficulty": "Easy",
+        "questionType": "True/False",
+        "question": "Multi Subsidiary Customer allows creating customer records across multiple subsidiaries.",
+        "correctAnswer": "A",
+        "explanation": "Multi Subsidiary Customer enables the creation and management of customer records that span multiple subsidiaries within your NetSuite account."
+      },
+      {
+        "id": "46",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 1,
+        "topic": "Data Management - Inline Editing",
+        "difficulty": "Easy",
+        "questionType": "True/False",
+        "question": "Inline Editing only works on the record detail page, not on lists or search results.",
+        "correctAnswer": "B",
+        "explanation": "This statement is FALSE. Inline Editing specifically allows editing directly from lists AND search results, not just from the record detail page. This is the key benefit of the feature."
+      },
+      {
+        "id": "47",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 0,
+        "topic": "Data Management - File Cabinet",
+        "difficulty": "Easy",
+        "questionType": "True/False",
+        "question": "The File Cabinet feature allows uploading and associating documents with contact, event, and task records.",
+        "correctAnswer": "A",
+        "explanation": "File Cabinet provides document management capabilities that allow uploading various file types and associating them with specific record types including contacts, events, and tasks."
+      },
+      {
+        "id": "48",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 1,
+        "topic": "Data Management - Duplicate Detection & Merge",
+        "difficulty": "Medium",
+        "questionType": "True/False",
+        "question": "Duplicate Detection & Merge detects duplicates for all record types in NetSuite.",
+        "correctAnswer": "B",
+        "explanation": "This statement is FALSE. Duplicate Detection & Merge only detects duplicates for specific record types: customer, lead, and contact records, not all record types."
+      },
+      {
+        "id": "49",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 1,
+        "topic": "Access - Login Notification",
+        "difficulty": "Easy",
+        "questionType": "True/False",
+        "question": "The Login Notification feature sends SMS alerts to administrators when users log in.",
+        "correctAnswer": "B",
+        "explanation": "This statement is FALSE. Login Notification sets up a message that users must acknowledge when they log in; it does not send SMS alerts to administrators."
+      },
+      {
+        "id": "50",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 0,
+        "topic": "International - Currency Exchange Rate Integration",
+        "difficulty": "Medium",
+        "questionType": "True/False",
+        "question": "The foreign exchange rate data for Currency Exchange Rate Integration is provided by Xignite.",
+        "correctAnswer": "A",
+        "explanation": "Currency Exchange Rate Integration uses Xignite as the foreign exchange rate data provider, which automatically updates exchange rates on a nightly basis."
+      },
+      {
+        "id": "51",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 0,
+        "topic": "Accounting - Accounting Periods",
+        "difficulty": "Easy",
+        "questionType": "True/False",
+        "question": "Accounting Periods allow you to post transactions to periods and close books at period end.",
+        "correctAnswer": "A",
+        "explanation": "Accounting Periods enable proper period-based accounting by allowing transactions to be posted to specific periods and providing the ability to close books at the end of each accounting period."
+      },
+      {
+        "id": "52",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 1,
+        "topic": "Accounting - GL Audit Numbering",
+        "difficulty": "Medium",
+        "questionType": "True/False",
+        "question": "GL Audit Numbering provides random numbering to GL posted transactions for security purposes.",
+        "correctAnswer": "B",
+        "explanation": "This statement is FALSE. GL Audit Numbering provides GAPLESS (sequential without gaps) numbering, not random numbering. Gapless numbering is important for audit trails and compliance."
+      },
+      {
+        "id": "53",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 1,
+        "topic": "Accounting - Dynamic Allocation",
+        "difficulty": "Medium",
+        "questionType": "True/False",
+        "question": "Dynamic Allocation uses manually entered percentages to calculate allocation weights.",
+        "correctAnswer": "B",
+        "explanation": "This statement is FALSE. Dynamic Allocation calculates weights based on the CURRENT statistical account's balance when the allocation journal is generated, not manually entered percentages."
+      },
+      {
+        "id": "54",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 0,
+        "topic": "Accounting - Intercompany Time and Expense",
+        "difficulty": "Medium",
+        "questionType": "True/False",
+        "question": "The Intercompany Time and Expense feature allows creation of intercompany time and expenses.",
+        "correctAnswer": "A",
+        "explanation": "Intercompany Time and Expense enables the creation and management of time and expense transactions that occur between different subsidiaries within the same organization."
+      },
+      {
+        "id": "55",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 0,
+        "topic": "Accounting - Automated Intercompany Drop Ship",
+        "difficulty": "Medium",
+        "questionType": "True/False",
+        "question": "Automated Intercompany Drop Ship manages intercompany drop ship workflow and automatically generates elimination journal entries.",
+        "correctAnswer": "A",
+        "explanation": "Automated Intercompany Drop Ship handles the complete intercompany drop ship workflow and automatically generates the necessary elimination journal entries for proper consolidated financial reporting."
+      },
+      {
+        "id": "56",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 0,
+        "topic": "Accounting - In-Transit Payments",
+        "difficulty": "Easy",
+        "questionType": "True/False",
+        "question": "In-Transit Payments allows in-transit vendor payments.",
+        "correctAnswer": "A",
+        "explanation": "In-Transit Payments feature enables the tracking of vendor payments that are in-transit, providing better cash management and visibility into outstanding payments."
+      },
+      {
+        "id": "57",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 0,
+        "topic": "Accounting - Amortization",
+        "difficulty": "Easy",
+        "questionType": "True/False",
+        "question": "The Amortization feature falls under the Revenue Accounting section of accounting features.",
+        "correctAnswer": "A",
+        "explanation": "Amortization is listed under the Revenue Accounting section of accounting features, allowing businesses to manage revenue and expense amortization schedules."
+      },
+      {
+        "id": "58",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 0,
+        "topic": "Accounting - Multi-Book Accounting",
+        "difficulty": "Hard",
+        "questionType": "True/False",
+        "question": "Adjustment Only Books under Multi-Book Accounting use book-specific journals to prepare alternative financial statements.",
+        "correctAnswer": "A",
+        "explanation": "Adjustment Only Books use book-specific journals to record adjustments, enabling the preparation of alternative financial statements (e.g., GAAP vs. tax reporting) while maintaining a single transaction base."
+      },
+      {
+        "id": "59",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 0,
+        "topic": "Accounting - Extended Accounting Period Close",
+        "difficulty": "Hard",
+        "questionType": "True/False",
+        "question": "The Extended Accounting Period Close Process allows independent closure of accounting periods by accounting book.",
+        "correctAnswer": "A",
+        "explanation": "Extended Accounting Period Close Process enables each accounting book to have its own independent period close schedule, useful for organizations with different reporting requirements across books."
+      },
+      {
+        "id": "60",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 0,
+        "topic": "Accounting - Balancing Segments",
+        "difficulty": "Medium",
+        "questionType": "True/False",
+        "question": "Balancing Segments allow for the creation of balancing segments specific to your business.",
+        "correctAnswer": "A",
+        "explanation": "Balancing Segments enable businesses to create custom segments that must balance (debits equal credits) within each segment value, useful for fund accounting and other specialized accounting requirements. # SECTION III: MATCHING (10 Questions)"
+      },
+      {
+        "id": "61",
+        "options": [
+          "Manage installments and related payments for A/R and A/P",
+          "Enable the Exception Management UI to monitor transactions and review detected exceptions",
+          "Create and apply Vendor Prepayments",
+          "Train Exception Management AI models on production data",
+          "Define criteria for intercompany business workflows",
+          "Allow users of NetSuite Mobile products to receive Push Notifications",
+          "Create and apply multiple numbering rules for transactions",
+          "Upload documents to Box and associate them with NetSuite records",
+          "Enable international and national phone number formatting based on local standards",
+          "Users with only 2FA-protected roles can log in from up to three devices simultaneously"
+        ],
+        "correctIndex": 1,
+        "topic": "Accounting Features - Various",
+        "difficulty": "Medium",
+        "questionType": "Matching",
+        "question": "Match: Exception Management",
+        "correctAnswer": "B",
+        "explanation": "Exception Management enables the Exception Management UI to monitor transactions and review detected exceptions, helping identify and resolve issues in transaction processing."
+      },
+      {
+        "id": "62",
+        "options": [
+          "Manage installments and related payments for A/R and A/P",
+          "Enable the Exception Management UI to monitor transactions and review detected exceptions",
+          "Create and apply Vendor Prepayments",
+          "Train Exception Management AI models on production data",
+          "Define criteria for intercompany business workflows",
+          "Allow users of NetSuite Mobile products to receive Push Notifications",
+          "Create and apply multiple numbering rules for transactions",
+          "Upload documents to Box and associate them with NetSuite records",
+          "Enable international and national phone number formatting based on local standards",
+          "Users with only 2FA-protected roles can log in from up to three devices simultaneously"
+        ],
+        "correctIndex": 2,
+        "topic": "Accounting Features - Vendor Prepayments",
+        "difficulty": "Medium",
+        "questionType": "Matching",
+        "question": "Match: Vendor Prepayments",
+        "correctAnswer": "C",
+        "explanation": "Vendor Prepayments feature allows businesses to create and apply prepayments to vendors, useful for managing advance payments required by suppliers."
+      },
+      {
+        "id": "63",
+        "options": [
+          "Manage installments and related payments for A/R and A/P",
+          "Enable the Exception Management UI to monitor transactions and review detected exceptions",
+          "Create and apply Vendor Prepayments",
+          "Train Exception Management AI models on production data",
+          "Define criteria for intercompany business workflows",
+          "Allow users of NetSuite Mobile products to receive Push Notifications",
+          "Create and apply multiple numbering rules for transactions",
+          "Upload documents to Box and associate them with NetSuite records",
+          "Enable international and national phone number formatting based on local standards",
+          "Users with only 2FA-protected roles can log in from up to three devices simultaneously"
+        ],
+        "correctIndex": 0,
+        "topic": "Accounting Features - Installments",
+        "difficulty": "Medium",
+        "questionType": "Matching",
+        "question": "Match: Installments",
+        "correctAnswer": "A",
+        "explanation": "Installments feature enables management of installment payments for both Accounts Receivable and Accounts Payable, allowing customers and vendors to pay in multiple installments."
+      },
+      {
+        "id": "64",
+        "options": [
+          "Manage installments and related payments for A/R and A/P",
+          "Enable the Exception Management UI to monitor transactions and review detected exceptions",
+          "Create and apply Vendor Prepayments",
+          "Train Exception Management AI models on production data",
+          "Define criteria for intercompany business workflows",
+          "Allow users of NetSuite Mobile products to receive Push Notifications",
+          "Create and apply multiple numbering rules for transactions",
+          "Upload documents to Box and associate them with NetSuite records",
+          "Enable international and national phone number formatting based on local standards",
+          "Users with only 2FA-protected roles can log in from up to three devices simultaneously"
+        ],
+        "correctIndex": 4,
+        "topic": "Accounting Features - Intercompany Framework",
+        "difficulty": "Hard",
+        "questionType": "Matching",
+        "question": "Match: Intercompany Framework",
+        "correctAnswer": "E",
+        "explanation": "Intercompany Framework allows businesses to define criteria and rules for intercompany business workflows, managing transactions between subsidiaries."
+      },
+      {
+        "id": "65",
+        "options": [
+          "Manage installments and related payments for A/R and A/P",
+          "Enable the Exception Management UI to monitor transactions and review detected exceptions",
+          "Create and apply Vendor Prepayments",
+          "Train Exception Management AI models on production data",
+          "Define criteria for intercompany business workflows",
+          "Allow users of NetSuite Mobile products to receive Push Notifications",
+          "Create and apply multiple numbering rules for transactions",
+          "Upload documents to Box and associate them with NetSuite records",
+          "Enable international and national phone number formatting based on local standards",
+          "Users with only 2FA-protected roles can log in from up to three devices simultaneously"
+        ],
+        "correctIndex": 3,
+        "topic": "Accounting Features - Exception Management Models",
+        "difficulty": "Hard",
+        "questionType": "Matching",
+        "question": "Match: Exception Management Models",
+        "correctAnswer": "D",
+        "explanation": "Exception Management Models feature allows training of AI models on production data to improve exception detection accuracy and relevance for your specific business."
+      },
+      {
+        "id": "66",
+        "options": [
+          "Manage installments and related payments for A/R and A/P",
+          "Enable the Exception Management UI to monitor transactions and review detected exceptions",
+          "Create and apply Vendor Prepayments",
+          "Train Exception Management AI models on production data",
+          "Define criteria for intercompany business workflows",
+          "Allow users of NetSuite Mobile products to receive Push Notifications",
+          "Create and apply multiple numbering rules for transactions",
+          "Upload documents to Box and associate them with NetSuite records",
+          "Enable international and national phone number formatting based on local standards",
+          "Users with only 2FA-protected roles can log in from up to three devices simultaneously"
+        ],
+        "correctIndex": 6,
+        "topic": "Company Features - Advanced Numbering",
+        "difficulty": "Medium",
+        "questionType": "Matching",
+        "question": "Match: Advanced Numbering",
+        "correctAnswer": "G",
+        "explanation": "Advanced Numbering allows creation and application of multiple numbering rules for different transaction types, providing flexibility in how transactions are numbered."
+      },
+      {
+        "id": "67",
+        "options": [
+          "Manage installments and related payments for A/R and A/P",
+          "Enable the Exception Management UI to monitor transactions and review detected exceptions",
+          "Create and apply Vendor Prepayments",
+          "Train Exception Management AI models on production data",
+          "Define criteria for intercompany business workflows",
+          "Allow users of NetSuite Mobile products to receive Push Notifications",
+          "Create and apply multiple numbering rules for transactions",
+          "Upload documents to Box and associate them with NetSuite records",
+          "Enable international and national phone number formatting based on local standards",
+          "Users with only 2FA-protected roles can log in from up to three devices simultaneously"
+        ],
+        "correctIndex": 5,
+        "topic": "Company Features - Mobile Push Notification",
+        "difficulty": "Easy",
+        "questionType": "Matching",
+        "question": "Match: Mobile Push Notification",
+        "correctAnswer": "F",
+        "explanation": "Mobile Push Notification allows users of NetSuite Mobile products to receive push notifications for important updates and alerts."
+      },
+      {
+        "id": "68",
+        "options": [
+          "Manage installments and related payments for A/R and A/P",
+          "Enable the Exception Management UI to monitor transactions and review detected exceptions",
+          "Create and apply Vendor Prepayments",
+          "Train Exception Management AI models on production data",
+          "Define criteria for intercompany business workflows",
+          "Allow users of NetSuite Mobile products to receive Push Notifications",
+          "Create and apply multiple numbering rules for transactions",
+          "Upload documents to Box and associate them with NetSuite records",
+          "Enable international and national phone number formatting based on local standards",
+          "Users with only 2FA-protected roles can log in from up to three devices simultaneously"
+        ],
+        "correctIndex": 8,
+        "topic": "Company Features - Worldwide Phone Formatting",
+        "difficulty": "Easy",
+        "questionType": "Matching",
+        "question": "Match: Worldwide Phone Formatting",
+        "correctAnswer": "I",
+        "explanation": "Worldwide Phone Formatting enables international and national phone number formatting based on local standards for different countries."
+      },
+      {
+        "id": "69",
+        "options": [
+          "Manage installments and related payments for A/R and A/P",
+          "Enable the Exception Management UI to monitor transactions and review detected exceptions",
+          "Create and apply Vendor Prepayments",
+          "Train Exception Management AI models on production data",
+          "Define criteria for intercompany business workflows",
+          "Allow users of NetSuite Mobile products to receive Push Notifications",
+          "Create and apply multiple numbering rules for transactions",
+          "Upload documents to Box and associate them with NetSuite records",
+          "Enable international and national phone number formatting based on local standards",
+          "Users with only 2FA-protected roles can log in from up to three devices simultaneously"
+        ],
+        "correctIndex": 7,
+        "topic": "Company Features - Box Document Management",
+        "difficulty": "Medium",
+        "questionType": "Matching",
+        "question": "Match: Box Document Management",
+        "correctAnswer": "H",
+        "explanation": "Box Document Management SuiteApp enables uploading documents to Box cloud storage and associating them with NetSuite records for enhanced document management."
+      },
+      {
+        "id": "70",
+        "options": [
+          "Manage installments and related payments for A/R and A/P",
+          "Enable the Exception Management UI to monitor transactions and review detected exceptions",
+          "Create and apply Vendor Prepayments",
+          "Train Exception Management AI models on production data",
+          "Define criteria for intercompany business workflows",
+          "Allow users of NetSuite Mobile products to receive Push Notifications",
+          "Create and apply multiple numbering rules for transactions",
+          "Upload documents to Box and associate them with NetSuite records",
+          "Enable international and national phone number formatting based on local standards",
+          "Users with only 2FA-protected roles can log in from up to three devices simultaneously"
+        ],
+        "correctIndex": 9,
+        "topic": "Company Features - Multiple Sessions for 2FA",
+        "difficulty": "Medium",
+        "questionType": "Matching",
+        "question": "Match: Multiple Sessions for 2FA",
+        "correctAnswer": "J",
+        "explanation": "Multiple Sessions for 2FA allows users with only 2FA-protected roles to log in from up to three devices simultaneously, providing flexibility while maintaining security."
+      }
+    ],
+    "passingScore": "70%",
+    "id": "netsuite-enable-features-practice-examination"
+  }
+]

@@ -6,7 +6,7 @@ import ProgressBar from '@/components/ProgressBar'
 import InfoStrip from '@/components/InfoStrip'
 import TabNavigation from '@/components/TabNavigation'
 import Section from '@/components/Section'
-import QuizMode from '@/components/QuizMode'
+import EnhancedQuizMode from '@/components/EnhancedQuizMode'
 import Footer from '@/components/Footer'
 import { studyGuideData } from '@/data/topicsData'
 
@@ -69,7 +69,7 @@ export default function Home() {
           />
         ))}
 
-        {activeTab === 6 && <QuizMode />}
+        {activeTab === 6 && <EnhancedQuizMode />}
       </div>
 
       <Footer />
