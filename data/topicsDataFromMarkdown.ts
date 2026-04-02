@@ -16,6 +16,7 @@ export interface Topic {
 export interface Section {
   id: number
   title: string
+  description?: string
   topics: Topic[]
 }
 

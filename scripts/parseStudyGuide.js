@@ -11,6 +11,7 @@ function parseStudyGuideMarkdown(filePath) {
   const section = {
     id: 1,
     title: '',
+    description: '',
     topics: []
   }
 
@@ -255,6 +256,11 @@ try {
         practiceQuestion: practiceQuestion
       }
     })
+
+    // Add default description if not set
+    if (!section.description) {
+      section.description = `Study guide section covering ${section.title.toLowerCase()}`
+    }
 
     console.log(`  Parsed ${section.topics.length} topic(s)`)
     sections.push(section)

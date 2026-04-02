@@ -8,7 +8,7 @@ import TabNavigation from '@/components/TabNavigation'
 import Section from '@/components/Section'
 import EnhancedQuizMode from '@/components/EnhancedQuizMode'
 import Footer from '@/components/Footer'
-import { studyGuideData } from '@/data/topicsData'
+import { studyGuideData } from '@/data/topicsDataFromMarkdown'
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState(1)
