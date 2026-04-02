@@ -1,0 +1,103 @@
+{
+  "title": "NetSuite SuiteFoundation Study Guide",
+  "sections": [
+    {
+      "id": 1,
+      "title": "Setup & Administration",
+      "topics": [
+        {
+          "id": "topic-1",
+          "title": "Enable Features",
+          "content": "",
+          "practiceQuestion": {
+            "question": "Where does an Administrator enable the CRM feature in NetSuite?",
+            "options": [
+              "Home → Set Preferences",
+              "Setup → Company → Enable Features",
+              "Setup → Company → General Preferences",
+              "Setup → Accounting → Accounting Preferences"
+            ],
+            "correctIndex": 1,
+            "explanation": "Enable Features is the centralized location for turning features on/off at the company level. General Preferences and Accounting Preferences control default behaviors, not feature activation. Set Preferences is user-level only."
+          }
+        },
+        {
+          "id": "topic-2",
+          "title": "Record Renaming",
+          "content": "",
+          "practiceQuestion": {
+            "question": "After renaming \"Sales Order\" to \"Service Order,\" which of the following is TRUE?",
+            "options": [
+              "SuiteScript references must also be updated",
+              "SuiteAnswers documentation will still refer to \"Sales Order\"",
+              "The change only affects Administrators",
+              "The internal ID of the record changes"
+            ],
+            "correctIndex": 1,
+            "explanation": "Renaming only changes the UI label company-wide. Internal IDs, scripting references, and documentation all continue using the original name. This affects all users, not just administrators."
+          }
+        },
+        {
+          "id": "topic-3",
+          "title": "Classifications (Departments, Classes, Locations)",
+          "content": "Learn about the three standard classification types for segmenting transactions and reporting.\n\n<h4>The Three Classifications</h4>\n\nNetSuite provides three classification types for segmentation:\n\n1. <strong>Departments</strong> - Organize by functional areas (Sales, Marketing, Operations)\n2. <strong>Classes</strong> - Track by product lines, divisions, or custom categories\n3. <strong>Locations</strong> - Segment by physical or virtual locations\n\n<h4>Key Characteristics</h4>\n\n<ul><li>All three can be <strong>renamed</strong> to suit your business needs</li>\n<li>Enable at <strong>Setup → Company → Enable Features → Company</strong></li>\n<li>Can be made <strong>mandatory</strong> on transactions</li>\n<li>Used for segmented reporting and analysis</li>\n<li>Appear as fields on transaction forms</li>\n</ul>\n<div class=\"note\"><strong>Note:</strong> These are NOT the same as Subsidiaries. Subsidiaries represent legal entities, while classifications are segmentation tools.</div>",
+          "practiceQuestion": null
+        },
+        {
+          "id": "topic-4",
+          "title": "Subsidiaries",
+          "content": "",
+          "practiceQuestion": {
+            "question": "Which structure allows tracking of consolidated financial reports by legal entity?",
+            "options": [
+              "Classes",
+              "Locations",
+              "Subsidiaries",
+              "Departments"
+            ],
+            "correctIndex": 2,
+            "explanation": "Subsidiaries represent legal entities in NetSuite OneWorld. They are the only classification that supports consolidated financial reporting by legal entity. Departments, Classes, and Locations are segmentation tools but don't represent legal structures."
+          }
+        },
+        {
+          "id": "topic-5",
+          "title": "Custom Records",
+          "content": "Learn how to enable and use Custom Records for extending NetSuite's data model.\n\n<h4>Enabling Custom Records</h4>\n\n<ul><li>Must first be enabled at <strong>Setup → Company → Enable Features</strong></li>\n<li>After enabling, create and manage at <strong>Setup → Customization → Custom Records</strong></li>\n<li>This is a common trick question on the exam!</li>\n</ul>\n<h4>Use Cases</h4>\n\n<ul><li>Track custom business data not covered by standard records</li>\n<li>Create relationships between custom and standard records</li>\n<li>Build custom applications on the NetSuite platform</li>\n<li>Extend functionality without modifying core system</li>\n</ul>\n<h4>Important Note</h4>\n\n<div class=\"note\"><strong>Exam Tip:</strong> Remember that Custom Records must be enabled in Enable Features BEFORE you can create them in the Customization menu.</div>",
+          "practiceQuestion": null
+        },
+        {
+          "id": "topic-6",
+          "title": "Enable Features vs. General Preferences",
+          "content": "",
+          "practiceQuestion": {
+            "question": "What is the difference between Enable Features and General Preferences?",
+            "options": [
+              "They are the same thing",
+              "Enable Features turns functionality on/off; General Preferences controls default company-wide behavior",
+              "General Preferences turns features on/off; Enable Features sets defaults",
+              "Enable Features is user-level; General Preferences is company-level"
+            ],
+            "correctIndex": 1,
+            "explanation": "Enable Features is the master switch for turning capabilities on or off. General Preferences configures default company-wide behaviors (like mandatory fields and display options). Both are company-level, but they serve different purposes."
+          }
+        },
+        {
+          "id": "topic-7",
+          "title": "SuiteFlow (Workflow Manager)",
+          "content": "",
+          "practiceQuestion": {
+            "question": "What is SuiteFlow used for?",
+            "options": [
+              "Managing data imports via CSV",
+              "Automating business processes with a visual point-and-click tool",
+              "Tracking financial transactions in the GL",
+              "Creating custom saved searches"
+            ],
+            "correctIndex": 1,
+            "explanation": "SuiteFlow (Workflow Manager) is a visual, point-and-click tool for automating business processes without scripting. You create states, transitions, and actions based on conditions to automate workflows."
+          }
+        }
+      ]
+    }
+  ]
+}

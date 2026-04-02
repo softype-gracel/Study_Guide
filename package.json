@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "parse-questions": "node scripts/parseMarkdownQuestions.js"
+    "parse-questions": "node scripts/parseMarkdownQuestions.js",
+    "parse-study-guide": "node scripts/parseStudyGuide.js",
+    "parse-all": "npm run parse-questions && npm run parse-study-guide"
   },
   "dependencies": {
     "next": "^14.2.0",
