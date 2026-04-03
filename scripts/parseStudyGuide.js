@@ -271,9 +271,35 @@ function processInlineMarkdown(text) {
   // Convert italic
   html = html.replace(/\*(.+?)\*/g, '<em>$1</em>')
 
-  // Convert unordered lists
-  html = html.replace(/^- (.+)$/gm, '<li>$1</li>')
-  html = html.replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
+  // Convert unordered lists - be more careful to avoid double wrapping
+  const lines = html.split('\n')
+  const processedLines = []
+  let inList = false
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i]
+    const trimmed = line.trim()
+
+    if (trimmed.startsWith('- ')) {
+      if (!inList) {
+        processedLines.push('<ul>')
+        inList = true
+      }
+      processedLines.push('<li>' + trimmed.substring(2) + '</li>')
+    } else {
+      if (inList) {
+        processedLines.push('</ul>')
+        inList = false
+      }
+      processedLines.push(line)
+    }
+  }
+
+  if (inList) {
+    processedLines.push('</ul>')
+  }
+
+  html = processedLines.join('\n')
 
   // Convert inline code
   html = html.replace(/`([^`]+)`/g, '<code>$1</code>')
