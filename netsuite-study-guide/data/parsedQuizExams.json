@@ -1147,5 +1147,788 @@
     ],
     "passingScore": "70%",
     "id": "netsuite-enable-features-practice-examination"
+  },
+  {
+    "title": "NetSuite Tax Features — Practice Examination",
+    "description": "",
+    "totalQuestions": 50,
+    "questions": [
+      {
+        "id": "1",
+        "options": [
+          "To calculate a single flat tax rate for all transactions",
+          "To track taxes for multiple nexuses and use tax schedules to determine tax treatment of items sold in each nexus",
+          "To eliminate the need for tax filing",
+          "To automatically pay taxes to government agencies"
+        ],
+        "correctIndex": 1,
+        "topic": "Advanced Taxes",
+        "difficulty": "Easy",
+        "questionType": "Multiple Choice",
+        "question": "What is the primary purpose of the Advanced Taxes feature?",
+        "correctAnswer": "B",
+        "explanation": "Advanced Taxes allows tracking taxes for multiple nexuses and uses tax schedules to determine the tax treatment of items sold in each nexus. This feature provides comprehensive multi-jurisdiction tax management."
+      },
+      {
+        "id": "2",
+        "options": [
+          "A type of tax form",
+          "A tax jurisdiction where a company has a tax obligation",
+          "A NetSuite user role for tax administrators",
+          "A report format for tax audits"
+        ],
+        "correctIndex": 1,
+        "topic": "Advanced Taxes - Nexus",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "In the context of Advanced Taxes, what is a nexus?",
+        "correctAnswer": "B",
+        "explanation": "A nexus is a tax jurisdiction where a company has a tax obligation. It represents a location or situation where a business has sufficient presence to be required to collect and remit taxes."
+      },
+      {
+        "id": "3",
+        "options": [
+          "Schedule automatic tax payments to government agencies",
+          "Determine the tax treatment of items sold in each nexus",
+          "Set up recurring tax journal entries",
+          "Create timelines for tax audits"
+        ],
+        "correctIndex": 1,
+        "topic": "Advanced Taxes - Tax Schedules",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "Tax schedules in Advanced Taxes are used to:",
+        "correctAnswer": "B",
+        "explanation": "Tax schedules determine the tax treatment of items sold in each nexus. They define which taxes apply to specific items in specific jurisdictions."
+      },
+      {
+        "id": "4",
+        "options": [
+          "Track taxes for all European transactions regardless of type",
+          "Track taxes for EU B2C distance sales",
+          "Manage VAT refunds for EU tourists",
+          "Handle customs duties for EU imports"
+        ],
+        "correctIndex": 1,
+        "topic": "EU One Stop Shop",
+        "difficulty": "Easy",
+        "questionType": "Multiple Choice",
+        "question": "The EU One Stop Shop feature is specifically designed to:",
+        "correctAnswer": "B",
+        "explanation": "EU One Stop Shop is specifically designed to track taxes for EU B2C (business-to-consumer) distance sales, simplifying VAT compliance for cross-border e-commerce within the EU."
+      },
+      {
+        "id": "5",
+        "options": [
+          "B2B cross-border sales within the EU",
+          "B2C distance sales within the EU",
+          "All domestic EU sales",
+          "Government-to-business sales in the EU"
+        ],
+        "correctIndex": 1,
+        "topic": "EU One Stop Shop",
+        "difficulty": "Easy",
+        "questionType": "Multiple Choice",
+        "question": "What type of sales does EU One Stop Shop target?",
+        "correctAnswer": "B",
+        "explanation": "EU One Stop Shop targets B2C (business-to-consumer) distance sales within the EU. It simplifies VAT reporting for companies selling goods online to consumers in multiple EU member states."
+      },
+      {
+        "id": "6",
+        "options": [
+          "Only calculate sales tax for US-based transactions",
+          "Define different tax mechanisms for different tax jurisdictions",
+          "Replace all manual tax calculations with a single global rate",
+          "Automatically file tax returns with government agencies"
+        ],
+        "correctIndex": 1,
+        "topic": "SuiteTax",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "SuiteTax allows you to:",
+        "correctAnswer": "B",
+        "explanation": "SuiteTax allows you to define different tax mechanisms for different tax jurisdictions. This provides flexibility to handle complex, multi-jurisdictional tax requirements with jurisdiction-specific rules."
+      },
+      {
+        "id": "7",
+        "options": [
+          "Automatic tax return filing",
+          "Visualizing tax details on each transaction",
+          "Replacing the need for tax accountants",
+          "Generating tax refund checks"
+        ],
+        "correctIndex": 1,
+        "topic": "SuiteTax - Capabilities",
+        "difficulty": "Easy",
+        "questionType": "Multiple Choice",
+        "question": "Which of the following is a capability of SuiteTax?",
+        "correctAnswer": "B",
+        "explanation": "SuiteTax provides the capability to visualize tax details on each transaction, allowing users to see how taxes are calculated line by line. This transparency helps with tax compliance and auditing."
+      },
+      {
+        "id": "8",
+        "options": [
+          "A separate NetSuite module purchased independently",
+          "The tax utility plug-in (SuiteTax Engine, partner tools, or combinations)",
+          "A third-party accounting software integration",
+          "No additional installation – it works out of the box"
+        ],
+        "correctIndex": 1,
+        "topic": "SuiteTax - Requirements",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "SuiteTax requires the installation of:",
+        "correctAnswer": "B",
+        "explanation": "SuiteTax requires the installation of the tax utility plug-in, which can be the SuiteTax Engine, partner tools, or combinations thereof. The plug-in performs the actual tax calculations."
+      },
+      {
+        "id": "9",
+        "options": [
+          "SuiteTax Engine",
+          "Partner tools",
+          "Combinations of SuiteTax Engine and partner tools",
+          "TurboTax Integration Module"
+        ],
+        "correctIndex": 3,
+        "topic": "SuiteTax - Plug-ins",
+        "difficulty": "Easy",
+        "questionType": "Multiple Choice",
+        "question": "Which of the following is NOT listed as a valid plug-in option for SuiteTax?",
+        "correctAnswer": "D",
+        "explanation": "TurboTax Integration Module is not a valid SuiteTax plug-in option. Valid options include SuiteTax Engine, partner tools, and combinations of these."
+      },
+      {
+        "id": "10",
+        "options": [
+          "They are the same feature with different names",
+          "They are separate tax features – Advanced Taxes tracks taxes by nexus/schedule, while SuiteTax defines tax mechanisms by jurisdiction with plug-in support",
+          "SuiteTax replaces Advanced Taxes entirely",
+          "Advanced Taxes is a sub-feature of SuiteTax"
+        ],
+        "correctIndex": 1,
+        "topic": "Advanced Taxes vs SuiteTax",
+        "difficulty": "Hard",
+        "questionType": "Multiple Choice",
+        "question": "What is the relationship between Advanced Taxes and SuiteTax?",
+        "correctAnswer": "B",
+        "explanation": "Advanced Taxes and SuiteTax are separate tax features with different approaches. Advanced Taxes tracks taxes by nexus and tax schedules, while SuiteTax defines tax mechanisms by jurisdiction and requires plug-in support for calculations."
+      },
+      {
+        "id": "11",
+        "options": [
+          "Tax reports for US federal taxes only",
+          "Localized VAT and cross-border reports for over 40 countries in familiar formats",
+          "Only basic sales tax summaries",
+          "Reports exclusively for OECD member countries"
+        ],
+        "correctIndex": 1,
+        "topic": "International Tax Reports",
+        "difficulty": "Easy",
+        "questionType": "Multiple Choice",
+        "question": "The International Tax Reports SuiteApp provides:",
+        "correctAnswer": "B",
+        "explanation": "International Tax Reports SuiteApp provides localized VAT and cross-border reports for over 40 countries in familiar, locally recognized formats, helping companies comply with various international tax reporting requirements."
+      },
+      {
+        "id": "12",
+        "options": [
+          "10 countries",
+          "25 countries",
+          "Over 40 countries",
+          "All 195 countries worldwide"
+        ],
+        "correctIndex": 2,
+        "topic": "International Tax Reports - Coverage",
+        "difficulty": "Easy",
+        "questionType": "Multiple Choice",
+        "question": "How many countries does the International Tax Reports SuiteApp support?",
+        "correctAnswer": "C",
+        "explanation": "The International Tax Reports SuiteApp supports over 40 countries, providing localized tax reporting capabilities for companies operating in multiple international jurisdictions."
+      },
+      {
+        "id": "13",
+        "options": [
+          "Automatic tax payment processing",
+          "Online filing for many countries",
+          "AI-powered tax optimization",
+          "Tax audit scheduling"
+        ],
+        "correctIndex": 1,
+        "topic": "International Tax Reports - Features",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "What additional capability does International Tax Reports include beyond report generation?",
+        "correctAnswer": "B",
+        "explanation": "In addition to report generation, International Tax Reports includes online filing capabilities for many countries, streamlining the tax filing process for international operations."
+      },
+      {
+        "id": "14",
+        "options": [
+          "Only tracks withholding tax on payroll",
+          "Calculates and tracks withholding tax on sales and purchase transactions",
+          "Only applies to international vendors",
+          "Replaces the need for W-9 forms"
+        ],
+        "correctIndex": 1,
+        "topic": "Withholding Tax",
+        "difficulty": "Easy",
+        "questionType": "Multiple Choice",
+        "question": "The Withholding Tax SuiteApp:",
+        "correctAnswer": "B",
+        "explanation": "The Withholding Tax SuiteApp calculates and tracks withholding tax on both sales and purchase transactions, not just payroll. It handles various withholding tax scenarios across different transaction types."
+      },
+      {
+        "id": "15",
+        "options": [
+          "Payroll transactions only",
+          "Sales and purchase transactions",
+          "Journal entries only",
+          "Bank reconciliation transactions"
+        ],
+        "correctIndex": 1,
+        "topic": "Withholding Tax - Transaction Types",
+        "difficulty": "Easy",
+        "questionType": "Multiple Choice",
+        "question": "On which types of transactions does the Withholding Tax SuiteApp operate?",
+        "correctAnswer": "B",
+        "explanation": "The Withholding Tax SuiteApp operates on sales and purchase transactions, allowing businesses to calculate and track required withholding taxes on these transaction types."
+      },
+      {
+        "id": "16",
+        "options": [
+          "Random audit samples for internal review",
+          "An extract of general ledger data in a format complying with government statutory requirements",
+          "Employee expense audit reports",
+          "Inventory valuation reports for tax purposes"
+        ],
+        "correctIndex": 1,
+        "topic": "Tax Audit Files",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "The Tax Audit Files SuiteApp generates:",
+        "correctAnswer": "B",
+        "explanation": "Tax Audit Files generates an extract of general ledger data in formats that comply with government statutory requirements, making it easier to provide required information during tax audits."
+      },
+      {
+        "id": "17",
+        "options": [
+          "GAAP (Generally Accepted Accounting Principles)",
+          "Standard Audit File for Tax purposes (SAFT)",
+          "IFRS (International Financial Reporting Standards)",
+          "SOX (Sarbanes-Oxley Act)"
+        ],
+        "correctIndex": 1,
+        "topic": "Tax Audit Files - SAFT",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "Tax Audit Files includes compliance with which specific standard?",
+        "correctAnswer": "B",
+        "explanation": "Tax Audit Files includes compliance with the Standard Audit File for Tax purposes (SAFT), an international standard for exchanging data between accounting systems and tax authorities."
+      },
+      {
+        "id": "18",
+        "options": [
+          "Employee income tax withholdings only",
+          "Partially reclaimable input taxes and taxes on prompt payments",
+          "Capital gains taxes on investments",
+          "Property taxes for business locations"
+        ],
+        "correctIndex": 1,
+        "topic": "Supplementary Tax Calculation",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "The Supplementary Tax Calculation SuiteApp calculates and tracks:",
+        "correctAnswer": "B",
+        "explanation": "Supplementary Tax Calculation calculates and tracks partially reclaimable input taxes and taxes on prompt payments, handling complex tax scenarios where only a portion of tax can be recovered."
+      },
+      {
+        "id": "19",
+        "options": [
+          "A tax that is fully refundable",
+          "An input tax where only a portion can be reclaimed or recovered",
+          "A tax that applies only to partial shipments",
+          "A penalty tax for partial payments"
+        ],
+        "correctIndex": 1,
+        "topic": "Supplementary Tax Calculation - Definitions",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "What is a \"partially reclaimable input tax\"?",
+        "correctAnswer": "B",
+        "explanation": "A partially reclaimable input tax is an input tax where only a portion can be reclaimed or recovered, typically based on the business vs. non-business use of the purchased goods or services."
+      },
+      {
+        "id": "20",
+        "options": [
+          "Automatic tax return generation",
+          "Automatic posting of notional taxes",
+          "Blockchain-based tax verification",
+          "Real-time tax rate updates from government databases"
+        ],
+        "correctIndex": 1,
+        "topic": "Supplementary Tax Calculation - Features",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "Supplementary Tax Calculation includes support for:",
+        "correctAnswer": "B",
+        "explanation": "Supplementary Tax Calculation includes support for automatic posting of notional taxes, which are theoretical or deemed taxes used for accounting purposes rather than actual tax payments."
+      },
+      {
+        "id": "21",
+        "options": [
+          "A tax that is physically collected from the customer",
+          "A theoretical or deemed tax used for accounting purposes rather than actual payment",
+          "A tax notification sent to customers",
+          "A tax applied only to non-profit organizations"
+        ],
+        "correctIndex": 1,
+        "topic": "Supplementary Tax Calculation - Notional Tax",
+        "difficulty": "Hard",
+        "questionType": "Multiple Choice",
+        "question": "A \"notional tax\" in the context of Supplementary Tax Calculation refers to:",
+        "correctAnswer": "B",
+        "explanation": "A notional tax is a theoretical or deemed tax used for accounting purposes rather than actual payment. It represents a tax amount calculated for bookkeeping but not necessarily collected or remitted."
+      },
+      {
+        "id": "22",
+        "options": [
+          "Advanced Taxes only",
+          "EU One Stop Shop",
+          "SuiteTax only",
+          "Withholding Tax"
+        ],
+        "correctIndex": 1,
+        "topic": "Tax Features - Scenarios",
+        "difficulty": "Hard",
+        "questionType": "Multiple Choice",
+        "question": "A company operates in five EU countries and sells products online directly to consumers. Which feature should they enable?",
+        "correctAnswer": "B",
+        "explanation": "EU One Stop Shop is specifically designed for B2C distance sales within the EU, making it the appropriate choice for a company selling online to consumers across multiple EU countries."
+      },
+      {
+        "id": "23",
+        "options": [
+          "Tax Audit Files",
+          "Supplementary Tax Calculation",
+          "International Tax Reports",
+          "Withholding Tax"
+        ],
+        "correctIndex": 2,
+        "topic": "SuiteApps - Scenarios",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "A multinational company needs to file VAT reports in 15 different countries in locally recognized formats. Which SuiteApp should they use?",
+        "correctAnswer": "C",
+        "explanation": "International Tax Reports is designed to provide localized VAT and cross-border reports for over 40 countries in familiar, locally recognized formats, making it ideal for filing VAT reports across multiple jurisdictions."
+      },
+      {
+        "id": "24",
+        "options": [
+          "International Tax Reports",
+          "Tax Audit Files",
+          "Supplementary Tax Calculation",
+          "Advanced Taxes"
+        ],
+        "correctIndex": 1,
+        "topic": "SuiteApps - Audit Scenarios",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "A company is being audited by the tax authority and needs to provide a general ledger extract in SAFT format. Which SuiteApp should they use?",
+        "correctAnswer": "B",
+        "explanation": "Tax Audit Files is specifically designed to generate general ledger extracts in SAFT-compliant format and other statutory formats required by tax authorities during audits."
+      },
+      {
+        "id": "25",
+        "options": [
+          "Advanced Taxes",
+          "EU One Stop Shop",
+          "Withholding Tax",
+          "Tax Audit Files"
+        ],
+        "correctIndex": 2,
+        "topic": "Withholding Tax - Scenarios",
+        "difficulty": "Easy",
+        "questionType": "Multiple Choice",
+        "question": "A business purchases supplies from foreign vendors and must withhold a percentage of each payment for tax purposes. Which SuiteApp addresses this?",
+        "correctAnswer": "C",
+        "explanation": "Withholding Tax SuiteApp is designed to calculate and track withholding tax on purchase transactions, making it appropriate for scenarios where payments to vendors require tax withholding."
+      },
+      {
+        "id": "26",
+        "options": [
+          "Advanced Taxes",
+          "SuiteTax",
+          "Withholding Tax",
+          "Supplementary Tax Calculation"
+        ],
+        "correctIndex": 1,
+        "topic": "Tax Features - Complex Scenarios",
+        "difficulty": "Hard",
+        "questionType": "Multiple Choice",
+        "question": "A company has complex tax requirements where different jurisdictions require different tax calculation methods. Which feature best addresses this?",
+        "correctAnswer": "B",
+        "explanation": "SuiteTax allows defining different tax mechanisms for different tax jurisdictions, making it the best choice for handling complex, jurisdiction-specific tax calculation requirements."
+      },
+      {
+        "id": "27",
+        "options": [
+          "Advanced Taxes",
+          "SuiteTax",
+          "International Tax Reports",
+          "None of the tax features require agreeing to terms"
+        ],
+        "correctIndex": 1,
+        "topic": "SuiteTax - Configuration",
+        "difficulty": "Medium",
+        "questionType": "Multiple Choice",
+        "question": "Which of the following features requires agreeing to Terms before enabling?",
+        "correctAnswer": "B",
+        "explanation": "SuiteTax requires agreeing to Terms before enabling, similar to other features like Currency Exchange Rate Integration that involve third-party services or special conditions."
+      },
+      {
+        "id": "28",
+        "options": [
+          "Advanced Taxes",
+          "SuiteTax",
+          "International Tax Reports",
+          "Tax Audit Files"
+        ],
+        "correctIndex": 1,
+        "topic": "SuiteTax - Transparency",
+        "difficulty": "Easy",
+        "questionType": "Multiple Choice",
+        "question": "A company wants to see exactly how taxes are calculated line by line on each transaction. Which feature provides this visualization?",
+        "correctAnswer": "B",
+        "explanation": "SuiteTax provides visualization of tax details on each transaction, allowing users to see line-by-line tax calculations and understand how taxes are applied."
+      },
+      {
+        "id": "29",
+        "options": [
+          "Advanced Taxes + Withholding Tax + Supplementary Tax Calculation",
+          "EU One Stop Shop + International Tax Reports + Tax Audit Files",
+          "SuiteTax + Withholding Tax + Tax Audit Files",
+          "Advanced Taxes + EU One Stop Shop only"
+        ],
+        "correctIndex": 1,
+        "topic": "Tax Features - Multi-Feature Scenarios",
+        "difficulty": "Hard",
+        "questionType": "Multiple Choice",
+        "question": "Which combination of features would best serve a European company that needs to handle B2C distance sales tax, file VAT reports across multiple countries, AND provide SAFT-compliant audit files?",
+        "correctAnswer": "B",
+        "explanation": "EU One Stop Shop handles B2C distance sales, International Tax Reports provides multi-country VAT filing, and Tax Audit Files generates SAFT-compliant extracts. This combination addresses all three requirements."
+      },
+      {
+        "id": "30",
+        "options": [
+          "International Tax Reports",
+          "Withholding Tax",
+          "EU One Stop Shop",
+          "Tax Audit Files"
+        ],
+        "correctIndex": 2,
+        "topic": "Tax Features - Classification",
+        "difficulty": "Easy",
+        "questionType": "Multiple Choice",
+        "question": "All of the following are Related SuiteApps under the Tax section EXCEPT:",
+        "correctAnswer": "C",
+        "explanation": "EU One Stop Shop is listed under Tax & Compliance section, not Related SuiteApps. The Related SuiteApps include International Tax Reports, Withholding Tax, Tax Audit Files, and Supplementary Tax Calculation. # SECTION II: TRUE OR FALSE (13 Questions)"
+      },
+      {
+        "id": "31",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 0,
+        "topic": "Advanced Taxes",
+        "difficulty": "Easy",
+        "questionType": "True/False",
+        "question": "Advanced Taxes allows tracking taxes for multiple nexuses.",
+        "correctAnswer": "A",
+        "explanation": "True. Advanced Taxes is designed to track taxes for multiple nexuses (tax jurisdictions), allowing businesses to manage tax obligations across different locations."
+      },
+      {
+        "id": "32",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 0,
+        "topic": "Advanced Taxes - Tax Schedules",
+        "difficulty": "Easy",
+        "questionType": "True/False",
+        "question": "Tax schedules in Advanced Taxes determine the tax treatment of items sold in each nexus.",
+        "correctAnswer": "A",
+        "explanation": "True. Tax schedules are used to determine how different items are taxed in each nexus, defining which taxes apply to which items in which jurisdictions."
+      },
+      {
+        "id": "33",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 1,
+        "topic": "EU One Stop Shop",
+        "difficulty": "Easy",
+        "questionType": "True/False",
+        "question": "EU One Stop Shop is designed for B2B transactions between EU member states.",
+        "correctAnswer": "B",
+        "explanation": "False. EU One Stop Shop is designed for B2C (business-to-consumer) distance sales, not B2B (business-to-business) transactions."
+      },
+      {
+        "id": "34",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 1,
+        "topic": "SuiteTax",
+        "difficulty": "Easy",
+        "questionType": "True/False",
+        "question": "SuiteTax works out of the box without any additional plug-in installation.",
+        "correctAnswer": "B",
+        "explanation": "False. SuiteTax requires the installation of the tax utility plug-in (SuiteTax Engine, partner tools, or combinations) to function."
+      },
+      {
+        "id": "35",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 0,
+        "topic": "SuiteTax - Features",
+        "difficulty": "Easy",
+        "questionType": "True/False",
+        "question": "SuiteTax allows you to visualize tax details on each transaction.",
+        "correctAnswer": "A",
+        "explanation": "True. SuiteTax provides the capability to visualize tax details on each transaction, showing how taxes are calculated line by line."
+      },
+      {
+        "id": "36",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 0,
+        "topic": "International Tax Reports",
+        "difficulty": "Easy",
+        "questionType": "True/False",
+        "question": "International Tax Reports supports localized VAT reports for over 40 countries.",
+        "correctAnswer": "A",
+        "explanation": "True. International Tax Reports provides localized VAT and cross-border reports for over 40 countries in familiar, locally recognized formats."
+      },
+      {
+        "id": "37",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 1,
+        "topic": "International Tax Reports - Filing",
+        "difficulty": "Easy",
+        "questionType": "True/False",
+        "question": "International Tax Reports does not include any online filing capabilities.",
+        "correctAnswer": "B",
+        "explanation": "False. International Tax Reports does include online filing capabilities for many countries, in addition to report generation."
+      },
+      {
+        "id": "38",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 1,
+        "topic": "Withholding Tax",
+        "difficulty": "Easy",
+        "questionType": "True/False",
+        "question": "Withholding Tax only calculates withholding on purchase transactions, not sales.",
+        "correctAnswer": "B",
+        "explanation": "False. Withholding Tax calculates and tracks withholding tax on both sales and purchase transactions."
+      },
+      {
+        "id": "39",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 0,
+        "topic": "Tax Audit Files",
+        "difficulty": "Easy",
+        "questionType": "True/False",
+        "question": "Tax Audit Files generates a general ledger extract complying with government statutory requirements.",
+        "correctAnswer": "A",
+        "explanation": "True. Tax Audit Files generates general ledger extracts in formats that comply with government statutory requirements, including SAFT format."
+      },
+      {
+        "id": "40",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 0,
+        "topic": "Tax Audit Files - SAFT",
+        "difficulty": "Easy",
+        "questionType": "True/False",
+        "question": "The SAFT standard referenced in Tax Audit Files stands for Standard Audit File for Tax purposes.",
+        "correctAnswer": "A",
+        "explanation": "True. SAFT stands for Standard Audit File for Tax purposes, an international standard for data exchange between accounting systems and tax authorities."
+      },
+      {
+        "id": "41",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 1,
+        "topic": "Supplementary Tax Calculation",
+        "difficulty": "Easy",
+        "questionType": "True/False",
+        "question": "Supplementary Tax Calculation only handles fully reclaimable input taxes.",
+        "correctAnswer": "B",
+        "explanation": "False. Supplementary Tax Calculation specifically handles partially reclaimable input taxes, where only a portion of the input tax can be reclaimed or recovered."
+      },
+      {
+        "id": "42",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 0,
+        "topic": "Supplementary Tax Calculation - Notional Taxes",
+        "difficulty": "Easy",
+        "questionType": "True/False",
+        "question": "Supplementary Tax Calculation includes support for automatic posting of notional taxes.",
+        "correctAnswer": "A",
+        "explanation": "True. Supplementary Tax Calculation includes support for automatic posting of notional taxes (theoretical taxes used for accounting purposes)."
+      },
+      {
+        "id": "43",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctIndex": 0,
+        "topic": "Tax & Compliance Section",
+        "difficulty": "Easy",
+        "questionType": "True/False",
+        "question": "EU One Stop Shop, Advanced Taxes, and SuiteTax are all listed under the Tax & Compliance section.",
+        "correctAnswer": "A",
+        "explanation": "True. All three features (EU One Stop Shop, Advanced Taxes, and SuiteTax) are listed under the Tax & Compliance section in Enable Features. # SECTION III: MATCHING (7 Questions)"
+      },
+      {
+        "id": "44",
+        "options": [
+          "Generates GL data extracts in SAFT-compliant format",
+          "Calculates and tracks withholding tax on sales and purchase transactions",
+          "Tracks taxes for multiple nexuses using tax schedules",
+          "Tracks taxes for EU B2C distance sales"
+        ],
+        "correctIndex": 2,
+        "topic": "Tax Features - Matching",
+        "difficulty": "Medium",
+        "questionType": "Matching",
+        "question": "Match Advanced Taxes with its correct description:",
+        "correctAnswer": "C",
+        "explanation": "Advanced Taxes is correctly described as tracking taxes for multiple nexuses using tax schedules to determine tax treatment."
+      },
+      {
+        "id": "45",
+        "options": [
+          "Generates GL data extracts in SAFT-compliant format",
+          "Calculates and tracks withholding tax on sales and purchase transactions",
+          "Tracks taxes for multiple nexuses using tax schedules",
+          "Tracks taxes for EU B2C distance sales"
+        ],
+        "correctIndex": 3,
+        "topic": "Tax Features - Matching",
+        "difficulty": "Medium",
+        "questionType": "Matching",
+        "question": "Match EU One Stop Shop with its correct description:",
+        "correctAnswer": "D",
+        "explanation": "EU One Stop Shop is correctly described as tracking taxes for EU B2C (business-to-consumer) distance sales."
+      },
+      {
+        "id": "46",
+        "options": [
+          "Provides localized VAT and cross-border reports for 40+ countries with online filing",
+          "Calculates partially reclaimable input taxes and supports notional tax posting",
+          "Defines different tax mechanisms for different jurisdictions with plug-in support",
+          "Tracks taxes for EU B2C distance sales"
+        ],
+        "correctIndex": 2,
+        "topic": "Tax Features - Matching",
+        "difficulty": "Medium",
+        "questionType": "Matching",
+        "question": "Match SuiteTax with its correct description:",
+        "correctAnswer": "C",
+        "explanation": "SuiteTax is correctly described as defining different tax mechanisms for different jurisdictions with plug-in support."
+      },
+      {
+        "id": "47",
+        "options": [
+          "Provides localized VAT and cross-border reports for 40+ countries with online filing",
+          "Calculates partially reclaimable input taxes and supports notional tax posting",
+          "Defines different tax mechanisms for different jurisdictions with plug-in support",
+          "Generates GL data extracts in SAFT-compliant format"
+        ],
+        "correctIndex": 0,
+        "topic": "SuiteApps - Matching",
+        "difficulty": "Medium",
+        "questionType": "Matching",
+        "question": "Match International Tax Reports with its correct description:",
+        "correctAnswer": "A",
+        "explanation": "International Tax Reports is correctly described as providing localized VAT and cross-border reports for over 40 countries with online filing capabilities."
+      },
+      {
+        "id": "48",
+        "options": [
+          "Provides localized VAT and cross-border reports for 40+ countries with online filing",
+          "Calculates and tracks withholding tax on sales and purchase transactions",
+          "Generates GL data extracts in SAFT-compliant format",
+          "Calculates partially reclaimable input taxes and supports notional tax posting"
+        ],
+        "correctIndex": 1,
+        "topic": "SuiteApps - Matching",
+        "difficulty": "Medium",
+        "questionType": "Matching",
+        "question": "Match Withholding Tax with its correct description:",
+        "correctAnswer": "B",
+        "explanation": "Withholding Tax is correctly described as calculating and tracking withholding tax on both sales and purchase transactions."
+      },
+      {
+        "id": "49",
+        "options": [
+          "Provides localized VAT and cross-border reports for 40+ countries with online filing",
+          "Calculates and tracks withholding tax on sales and purchase transactions",
+          "Generates GL data extracts in SAFT-compliant format",
+          "Calculates partially reclaimable input taxes and supports notional tax posting"
+        ],
+        "correctIndex": 2,
+        "topic": "SuiteApps - Matching",
+        "difficulty": "Medium",
+        "questionType": "Matching",
+        "question": "Match Tax Audit Files with its correct description:",
+        "correctAnswer": "C",
+        "explanation": "Tax Audit Files is correctly described as generating general ledger data extracts in SAFT-compliant format for tax audits."
+      },
+      {
+        "id": "50",
+        "options": [
+          "Provides localized VAT and cross-border reports for 40+ countries with online filing",
+          "Calculates and tracks withholding tax on sales and purchase transactions",
+          "Generates GL data extracts in SAFT-compliant format",
+          "Calculates partially reclaimable input taxes and supports notional tax posting"
+        ],
+        "correctIndex": 3,
+        "topic": "SuiteApps - Matching",
+        "difficulty": "Medium",
+        "questionType": "Matching",
+        "question": "Match Supplementary Tax Calculation with its correct description:",
+        "correctAnswer": "D",
+        "explanation": "Supplementary Tax Calculation is correctly described as calculating partially reclaimable input taxes and supporting automatic posting of notional taxes."
+      }
+    ],
+    "passingScore": "70%",
+    "id": "netsuite-tax-features-practice-examination"
   }
 ]

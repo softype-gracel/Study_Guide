@@ -1,7 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(npm run parse-study-guide:*)",
+      "Bash(git add:*)",
+      "Bash(node:*)",
+      "Bash(npm start)",
+      "Bash(taskkill //F //IM node.exe)"
     ],
     "deny": [],
     "ask": []

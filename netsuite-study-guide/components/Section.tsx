@@ -1,5 +1,5 @@
 import TopicCard from './TopicCard'
-import type { Section as SectionType } from '@/data/topicsData'
+import type { Section as SectionType } from '@/data/topicsDataFromMarkdown'
 
 interface SectionProps {
   section: SectionType
@@ -15,7 +15,7 @@ export default function Section({ section, active, checkedTopics, toggleCheck }:
     <div className="section active">
       <div className="section-header">
         <h2>{section.title}</h2>
-        <p>{section.description}</p>
+        {section.description && <p>{section.description}</p>}
       </div>
 
       {section.topics.map((topic) => (

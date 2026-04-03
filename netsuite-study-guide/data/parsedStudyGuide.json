@@ -1,0 +1,392 @@
+{
+  "title": "NetSuite SuiteFoundation Study Guide",
+  "sections": [
+    {
+      "id": 1,
+      "title": "Setup & Administration",
+      "description": "Study guide section covering setup & administration",
+      "topics": [
+        {
+          "id": "topic-1",
+          "title": "Enable Features",
+          "content": "Learn about NetSuite's Enable Features configuration and how to activate/deactivate functionality modules.\n\n<div class=\"concept-block\"><h4>Key Points</h4>\n<ul>\n<li><strong>Enable Features</strong> is located at <strong>Setup → Company → Enable Features</strong></li>\n<li>This is the master switch for turning major NetSuite functionality on or off (e.g., CRM, SuiteCommerce, Advanced Inventory)</li>\n<li>Some features require NetSuite Support to enable and <strong>cannot be reversed</strong> once turned on (e.g., Multi-Location Inventory)</li>\n<li>Enabling a feature may unlock additional preferences and configuration options elsewhere in the system</li>\n</ul>\n</div>\n<div class=\"warning-box\">\n<div class=\"note\"><strong>Warning:</strong> Multi-Location Inventory (MLI) is the classic example of a feature that requires NetSuite Support intervention to enable and cannot be reversed once turned on, because it fundamentally changes how inventory data is stored.</div>\n</div>\n<div class=\"mnemonic-box\">\n<strong>Memory trick — \"EGAL\":</strong> The 4 places to configure behavior: <strong>E</strong>nable Features → <strong>G</strong>eneral Preferences → <strong>A</strong>ccounting Preferences → user-<strong>L</strong>evel (Set Preferences). They go from broadest (system) to narrowest (user).\n</div>\n<div class=\"tip-box\">\n<strong>Exam Tip:</strong> When a question says \"Where do you turn on...\", the answer is almost always Enable Features. When it says \"Where do you set the default behavior...\", think General Preferences or Accounting Preferences.</div>",
+          "practiceQuestion": {
+            "question": "Where does an Administrator enable the CRM feature in NetSuite?",
+            "options": [
+              "Home → Set Preferences",
+              "Setup → Company → Enable Features",
+              "Setup → Company → General Preferences",
+              "Setup → Accounting → Accounting Preferences"
+            ],
+            "correctIndex": 1,
+            "explanation": "Enable Features is the centralized location for turning features on/off at the company level. General Preferences and Accounting Preferences control default behaviors, not feature activation. Set Preferences is user-level only."
+          }
+        },
+        {
+          "id": "topic-2",
+          "title": "Record Renaming",
+          "content": "Understanding how renaming record types affects the system and user interface.\n\n<div class=\"concept-block\"><h4>Key Points</h4>\n<ul>\n<li>Record types (e.g., \"Sales Order\") can be renamed to match your business terminology (e.g., \"Service Order\")</li>\n<li><strong>UI Label Changes:</strong> The new name appears company-wide across the interface for all users</li>\n<li><strong>Internal References Unchanged:</strong> SuiteScript references, internal IDs, and SuiteAnswers documentation continue using the original name</li>\n<li>This is purely a cosmetic change that does not affect system functionality</li>\n</ul>\n</div>\n<div class=\"mnemonic-box\">\nIf you rename \"Sales Order\" to \"Service Order\":\n<ul>\n<li>Users see \"Service Order\" in the UI</li>\n<li>SuiteScript still uses <code>record.Type.SALES_ORDER</code></li>\n<li>Help documentation still refers to \"Sales Order\"</li>\n</ul></div>",
+          "practiceQuestion": {
+            "question": "After renaming \"Sales Order\" to \"Service Order,\" which of the following is TRUE?",
+            "options": [
+              "SuiteScript references must also be updated",
+              "SuiteAnswers documentation will still refer to \"Sales Order\"",
+              "The change only affects Administrators",
+              "The internal ID of the record changes"
+            ],
+            "correctIndex": 1,
+            "explanation": "Renaming only changes the UI label company-wide. Internal IDs, scripting references, and documentation all continue using the original name. This affects all users, not just administrators."
+          }
+        },
+        {
+          "id": "topic-3",
+          "title": "Classifications (Departments, Classes, Locations)",
+          "content": "Learn about the three standard classification types for segmenting transactions and reporting.\n\n<div class=\"concept-block\"><h4>The Three Classifications</h4>\nNetSuite provides three classification types for segmentation:\n\n1. <strong>Departments</strong> - Organize by functional areas (Sales, Marketing, Operations)\n2. <strong>Classes</strong> - Track by product lines, divisions, or custom categories\n3. <strong>Locations</strong> - Segment by physical or virtual locations\n</div>\n<div class=\"concept-block\"><h4>Key Characteristics</h4>\n<ul>\n<li>All three can be <strong>renamed</strong> to suit your business needs</li>\n<li>Enable at <strong>Setup → Company → Enable Features → Company</strong></li>\n<li>Can be made <strong>mandatory</strong> on transactions</li>\n<li>Used for segmented reporting and analysis</li>\n<li>Appear as fields on transaction forms</li>\n</ul>\n\n<div class=\"note\"><strong>Note:</strong> These are NOT the same as Subsidiaries. Subsidiaries represent legal entities, while classifications are segmentation tools.</div></div>",
+          "practiceQuestion": null
+        },
+        {
+          "id": "topic-4",
+          "title": "Subsidiaries",
+          "content": "Understanding subsidiaries as legal entities in NetSuite OneWorld.\n\n<div class=\"concept-block\"><h4>Key Points</h4>\n<ul>\n<li><strong>Subsidiaries represent legal entities</strong> in NetSuite OneWorld</li>\n<li>The <strong>only classification</strong> that supports consolidated financial reporting</li>\n<li>Enable multi-subsidiary functionality in OneWorld accounts</li>\n<li>Support for <strong>intercompany transactions</strong> between subsidiaries</li>\n<li>Each subsidiary can have its own:</li>\n<li>Currency</li>\n<li>Fiscal calendar</li>\n<li>Tax settings</li>\n<li>Chart of accounts</li>\n</ul>\n</div>\n<div class=\"concept-block\"><h4>Elimination Subsidiaries</h4>\n<ul>\n<li>Used to offset intercompany transactions in consolidated reports</li>\n<li>Journals posted to elimination subsidiaries remove double-counting effects</li>\n<li>Critical for accurate consolidated financial statements</li>\n</ul></div>",
+          "practiceQuestion": {
+            "question": "Which structure allows tracking of consolidated financial reports by legal entity?",
+            "options": [
+              "Classes",
+              "Locations",
+              "Subsidiaries",
+              "Departments"
+            ],
+            "correctIndex": 2,
+            "explanation": "Subsidiaries represent legal entities in NetSuite OneWorld. They are the only classification that supports consolidated financial reporting by legal entity. Departments, Classes, and Locations are segmentation tools but don't represent legal structures."
+          }
+        },
+        {
+          "id": "topic-5",
+          "title": "Custom Records",
+          "content": "Learn how to enable and use Custom Records for extending NetSuite's data model.\n\n<div class=\"concept-block\"><h4>Enabling Custom Records</h4>\n<ul>\n<li>Must first be enabled at <strong>Setup → Company → Enable Features</strong></li>\n<li>After enabling, create and manage at <strong>Setup → Customization → Custom Records</strong></li>\n<li>This is a common trick question on the exam!</li>\n</ul>\n</div>\n<div class=\"concept-block\"><h4>Use Cases</h4>\n<ul>\n<li>Track custom business data not covered by standard records</li>\n<li>Create relationships between custom and standard records</li>\n<li>Build custom applications on the NetSuite platform</li>\n<li>Extend functionality without modifying core system</li>\n</ul>\n</div>\n<div class=\"warning-box\">\n<div class=\"note\"><strong>Exam Tip:</strong> Remember that Custom Records must be enabled in Enable Features BEFORE you can create them in the Customization menu.</div></div>",
+          "practiceQuestion": null
+        },
+        {
+          "id": "topic-6",
+          "title": "Enable Features vs. General Preferences",
+          "content": "Understanding the difference between Enable Features and General Preferences.\n\n<div class=\"concept-block\"><h4>Enable Features</h4>\n<ul>\n<li><strong>Purpose:</strong> Master switch for turning functionality on/off</li>\n<li><strong>Location:</strong> Setup → Company → Enable Features</li>\n<li><strong>Scope:</strong> Company-level</li>\n<li><strong>Examples:</strong> CRM, Advanced PDF, SuiteFlow, Projects</li>\n</ul>\n</div>\n<div class=\"concept-block\"><h4>General Preferences</h4>\n<ul>\n<li><strong>Purpose:</strong> Configure default company-wide behaviors</li>\n<li><strong>Location:</strong> Setup → Company → General Preferences</li>\n<li><strong>Scope:</strong> Company-level</li>\n<li><strong>Examples:</strong> Mandatory fields, display options, default forms</li>\n</ul>\n</div>\n<div class=\"concept-block\"><h4>Key Difference</h4>\n<strong>Enable Features</strong> controls what's available. <strong>General Preferences</strong> controls how available features behave.</div>",
+          "practiceQuestion": {
+            "question": "What is the difference between Enable Features and General Preferences?",
+            "options": [
+              "They are the same thing",
+              "Enable Features turns functionality on/off; General Preferences controls default company-wide behavior",
+              "General Preferences turns features on/off; Enable Features sets defaults",
+              "Enable Features is user-level; General Preferences is company-level"
+            ],
+            "correctIndex": 1,
+            "explanation": "Enable Features is the master switch for turning capabilities on or off. General Preferences configures default company-wide behaviors (like mandatory fields and display options). Both are company-level, but they serve different purposes."
+          }
+        },
+        {
+          "id": "topic-7",
+          "title": "SuiteFlow (Workflow Manager)",
+          "content": "Introduction to NetSuite's visual workflow automation tool.\n\n<div class=\"concept-block\"><h4>What is SuiteFlow?</h4>\nSuiteFlow (Workflow Manager) is a <strong>visual, point-and-click tool</strong> for automating business processes without scripting.\n</div>\n<div class=\"concept-block\"><h4>Key Features</h4>\n<ul>\n<li><strong>States:</strong> Define different stages in a workflow</li>\n<li><strong>Transitions:</strong> Conditions that move records between states</li>\n<li><strong>Actions:</strong> Automated tasks (send email, update field, create record)</li>\n<li><strong>No Code Required:</strong> Build complex workflows visually</li>\n</ul>\n</div>\n<div class=\"concept-block\"><h4>Common Use Cases</h4>\n<ul>\n<li>Approval workflows (purchase orders, expense reports)</li>\n<li>Automated notifications and alerts</li>\n<li>Field updates based on conditions</li>\n<li>Record creation and linking</li>\n</ul></div>",
+          "practiceQuestion": {
+            "question": "What is SuiteFlow used for?",
+            "options": [
+              "Managing data imports via CSV",
+              "Automating business processes with a visual point-and-click tool",
+              "Tracking financial transactions in the GL",
+              "Creating custom saved searches"
+            ],
+            "correctIndex": 1,
+            "explanation": "SuiteFlow (Workflow Manager) is a visual, point-and-click tool for automating business processes without scripting. You create states, transitions, and actions based on conditions to automate workflows."
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "NetSuite User Interface",
+      "description": "Study guide section covering netsuite user interface",
+      "topics": [
+        {
+          "id": "topic-1",
+          "title": "Navigation Options in NetSuite",
+          "content": "Navigation, performance optimization, user preferences, shortcuts, portlets, and daily activity tools.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li><strong>Centers</strong>: Top-level navigation tabs determined by the user's role. Different roles show different centers (e.g., an Accountant role shows Transactions, Reports, Lists).</li>\n<li><strong>Global Search</strong>: The search bar at the top of every page. Searches across records, transactions, and help. Prefix with record type for faster results (e.g., \"cust: Acme\").</li>\n<li><strong>Quick Search</strong>: A more targeted search within a specific list or record type.</li>\n<li><strong>Recent Records</strong>: Shows recently viewed or edited records for quick access.</li>\n<li><strong>Shortcuts</strong>: Bookmarks for frequently used pages, records, or URLs. Available via the shortcuts menu icon and/or the Shortcuts dashboard portlet.</li>\n<li><strong>Portlets</strong>: Customizable widgets on the dashboard — KPIs, reminders, saved searches, custom content, etc.</li>\n</ul>\n</div>\n<div class=\"mnemonic-box\">\n<strong>\"CRGSPS\"</strong> — <strong>C</strong>enters, <strong>R</strong>ecent Records, <strong>G</strong>lobal Search, <strong>S</strong>hortcuts, <strong>P</strong>ortlets, Quick <strong>S</strong>earch. Six ways to navigate in NetSuite.</div>",
+          "practiceQuestion": null
+        },
+        {
+          "id": "topic-2",
+          "title": "Browser & System Performance Optimization",
+          "content": "Best practices for optimizing NetSuite performance in the browser.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li><strong>Use the smallest portlet level refresh</strong> — minimizing dashboard portlet data reduces load time.</li>\n<li>Avoid excessive dashboard portlets, reports, and saved searches on the dashboard.</li>\n<li>Minimize the number of open browser tabs running NetSuite.</li>\n<li>Adjust browser settings (clear cache, disable unnecessary extensions).</li>\n<li><strong>Trace Routes</strong> can diagnose network-related performance issues.</li>\n<li>SuiteAnswers topics to review: Identifying Performance Issues, Improving Server Performance, Improving Client Performance.</li>\n</ul></div>",
+          "practiceQuestion": {
+            "question": "Which action can be taken to optimize NetSuite's performance in a browser?",
+            "options": [
+              "Resize dashboard portlets",
+              "Use multiple browser tabs",
+              "Use the smallest portlet level refresh",
+              "Maximize dashboard reports and searches"
+            ],
+            "correctIndex": 2,
+            "explanation": "Using the smallest portlet level refresh reduces the data loaded on the dashboard, improving performance. Multiple browser tabs and maximizing reports would hurt performance, not help it."
+          }
+        },
+        {
+          "id": "topic-3",
+          "title": "User-Level Preferences",
+          "content": "Settings that individual users can control for their own experience.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li>Accessed via <code>Home → Set Preferences</code>.</li>\n<li><strong>Key settings users can control:</strong> Default role, default forms, appearance/theme, CSV export settings, time zone, date format.</li>\n<li><strong>Show Internal IDs</strong>: Shows the internal ID next to records — useful for scripting/debugging.</li>\n<li><strong>Popup vs. Dropdown Lists</strong>: Users can choose how list fields behave.</li>\n<li>Activity preferences: Calendar, event, and task notification settings.</li>\n<li>These are <em>user-level</em> and do NOT affect other users in the system.</li>\n</ul></div>",
+          "practiceQuestion": null
+        },
+        {
+          "id": "topic-4",
+          "title": "Shortcuts Portlet vs. Shortcuts Menu Icon",
+          "content": "Understanding the differences between the two shortcuts access methods.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li><strong>Shortcuts Menu Icon</strong>: A dropdown from the navigation bar. Shows a simple list of shortcut links. Limited display options.</li>\n<li><strong>Shortcuts Dashboard Portlet</strong>: A portlet on your dashboard. Shows shortcuts with more detail and customization options. Can include icons and grouping.</li>\n<li>Both serve the same purpose (quick navigation) but the portlet offers <strong>more visual flexibility</strong> on the dashboard.</li>\n</ul>\n</div>\n<div class=\"tip-box\">\nThe exam specifically asks about the <em>differences</em> between these two. The key distinction is location (nav bar vs. dashboard) and the portlet's richer display options.</div>",
+          "practiceQuestion": null
+        },
+        {
+          "id": "topic-5",
+          "title": "Daily Activities, Communication & Documents",
+          "content": "Tools for managing daily work, communication, and document storage.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li><strong>Events</strong>: Calendar events with attendees, reminders, and recurrence.</li>\n<li><strong>Tasks</strong>: Assignable to-do items with status tracking (Not Started, In Progress, Complete).</li>\n<li><strong>Email</strong>: Send email directly from NetSuite records. Captured in the Messages subtab. Requires proper email setup under preferences.</li>\n<li><strong>File Cabinet</strong>: NetSuite's built-in document management system. Upload, organize, and share files. Organized in folders with access controls.</li>\n<li><strong>Mail Merge</strong>: Requires agreeing to Mass Messaging Application Terms of Service.</li>\n</ul></div>",
+          "practiceQuestion": {
+            "question": "Which feature requires a user to agree to the Mass Messaging Application Terms of Service?",
+            "options": [
+              "Mail Merge",
+              "Capture Email Replies",
+              "Subscription Categories",
+              "CRM"
+            ],
+            "correctIndex": 0,
+            "explanation": "Mail Merge is a mass messaging feature that sends personalized emails/letters in bulk, which is why it requires agreement to the Mass Messaging Application Terms of Service before use."
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Standard NS Process Flows",
+      "description": "Study guide section covering standard ns process flows",
+      "topics": [
+        {
+          "id": "topic-1",
+          "title": "Sales Force Automation (SFA) Setup",
+          "content": "This is the largest exam domain — covering CRM, sales cycle, order management, fulfillment, inventory, purchasing, and accounts payable.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li><strong>Lead Routing</strong>: Leads can be assigned to Sales Reps automatically via Sales Territories.</li>\n<li><strong>Online Customer Forms</strong>: Web-based forms that capture leads directly into NetSuite.</li>\n<li><strong>Customer Types</strong>: Individual vs. Company — affects which fields appear and how contacts are managed.</li>\n<li><strong>Contact Records</strong>: Linked to customer/company records. Track people within an organization.</li>\n<li><strong>CRM Lists</strong>: Configurable lists for Lead Source, Sales Territory, Win/Loss Reason, etc.</li>\n</ul></div>",
+          "practiceQuestion": null
+        },
+        {
+          "id": "topic-2",
+          "title": "Sales Cycle Progression: Lead → Prospect → Customer",
+          "content": "Understanding how customer records progress through the sales lifecycle.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li>The sales cycle follows: <strong>Lead → Prospect → Customer</strong>.</li>\n<li><strong>Lead Conversion</strong>: A Lead becomes a Prospect when an Opportunity is created. A Prospect becomes a Customer when a Sales Order or Cash Sale is created.</li>\n<li><strong>Sales Preferences</strong> control automatic conversion behavior (e.g., auto-convert on first order).</li>\n<li>Understanding how records transform through the cycle is critical for the exam.</li>\n</ul>\n</div>\n<div class=\"mnemonic-box\">\n<strong>\"L-P-C\"</strong> = Lead → Prospect → Customer. <strong>O</strong>pportunity converts L to P. <strong>S</strong>ales Order converts P to C. Think: <strong>\"Opportunity Promotes, Sales Converts.\"</strong></div>",
+          "practiceQuestion": {
+            "question": "At what point does a Lead automatically become a Prospect in NetSuite?",
+            "options": [
+              "When a Quote is sent",
+              "When an Opportunity is created",
+              "When a Sales Order is created",
+              "When a Contact is added"
+            ],
+            "correctIndex": 1,
+            "explanation": "In NetSuite's standard sales cycle, creating an Opportunity for a Lead automatically converts them to a Prospect. Creating a Sales Order converts the Prospect to a Customer."
+          }
+        },
+        {
+          "id": "topic-3",
+          "title": "Quotas & Forecast Reporting",
+          "content": "Sales performance tracking and forecasting capabilities.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li><strong>Quotas</strong> are assigned to Sales Reps, typically per period. Set on the Employee record or via Quota Assignment.</li>\n<li><strong>Forecasts</strong> can be calculated as weighted (based on opportunity probability) or unweighted.</li>\n<li>Key Sales Preferences: Calculate Forecasts as Weighted, Advanced Forecasting, Use Opportunities in Forecast.</li>\n<li>Forecasts can be edited/overwritten by authorized users in the Forecast Editor.</li>\n<li><strong>Estimate/Quote</strong> record fields feed into forecast calculations.</li>\n</ul></div>",
+          "practiceQuestion": null
+        },
+        {
+          "id": "topic-4",
+          "title": "Case Management Setup & Use",
+          "content": "Customer support case tracking and management tools.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li><strong>Cases</strong> track customer support issues. Created manually or via Online Case Forms.</li>\n<li><strong>Case Routing</strong>: Automatic assignment of cases based on rules (e.g., product, territory, issue type).</li>\n<li><strong>Case Profiles</strong>: Templates that control case behavior, auto-responses, and escalation rules.</li>\n<li><strong>Support Preferences</strong>: Subsidiary-level settings at <code>Setup → Support → Support Preferences</code>.</li>\n<li><strong>Customer Center</strong>: Portal where customers can submit and track their own cases.</li>\n<li>Roles that manage cases: Administrator, Support Administrator, Support Manager.</li>\n</ul></div>",
+          "practiceQuestion": {
+            "question": "Where can users set subsidiary-level support preferences?",
+            "options": [
+              "Case Profile",
+              "Setup → Company → General Preferences",
+              "Setup → Support → Support Preferences",
+              "Subsidiary record"
+            ],
+            "correctIndex": 2,
+            "explanation": "Subsidiary-level support preferences are configured at Setup → Support → Support Preferences. Case Profiles control case behavior and rules, not subsidiary-level settings."
+          }
+        },
+        {
+          "id": "topic-5",
+          "title": "Marketing Campaigns & SuitePromotions",
+          "content": "Marketing campaign management and promotional tools.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li><strong>Campaign Components</strong>: Groups (target audience), Promotions, Promo Codes, Email/Marketing Templates, and Campaign Metrics.</li>\n<li><strong>Campaign Metrics</strong>: Track ROI, responses, conversions per campaign event.</li>\n<li><strong>Lead Nurturing</strong>: Automated drip campaigns based on triggers and schedules.</li>\n<li><strong>SuitePromotions</strong>: Tools for creating discount codes and promotional pricing.</li>\n<li><strong>Global Subscription Status</strong>: \"Unsubscribed to Marketing by Default\" sets new customers to Soft Opt-Out.</li>\n</ul></div>",
+          "practiceQuestion": null
+        },
+        {
+          "id": "topic-6",
+          "title": "Sales Orders, GL Impact & Downstream Transactions",
+          "content": "Understanding the sales order lifecycle and accounting impacts.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li><strong>Sales Order</strong> is a commitment to sell. By itself, it has <strong>no GL impact</strong> — it's a non-posting transaction.</li>\n<li>Downstream transactions created from a Sales Order: <strong>Item Fulfillment → Invoice → Payment</strong> (or Cash Sale directly).</li>\n<li><strong>Item Fulfillment</strong>: Reduces inventory (posts to COGS and Inventory accounts).</li>\n<li><strong>Invoice</strong>: Recognizes revenue (posts to Accounts Receivable and Revenue).</li>\n<li><strong>Cash Sale</strong>: Combines fulfillment + invoice + payment in one transaction.</li>\n<li>Form settings on the Sales Order control which downstream transactions are available.</li>\n</ul>\n</div>\n<div class=\"mnemonic-box\">\n<strong>\"SO → FIP\":</strong> Sales Order triggers Fulfillment → Invoice → Payment. Remember: the Sales Order itself does NOT post to the GL.</div>",
+          "practiceQuestion": null
+        },
+        {
+          "id": "topic-7",
+          "title": "Order Fulfillment Controls",
+          "content": "Different methods and workflows for fulfilling customer orders.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li><strong>Basic Fulfillment</strong>: Mark items as fulfilled directly from the Sales Order.</li>\n<li><strong>Pick/Pack/Ship</strong>: Multi-step fulfillment process. Pick items → Pack into shipments → Ship with carrier.</li>\n<li><strong>Advanced Shipping</strong>: Supports multiple shipping methods, rate calculations, and carrier integration.</li>\n<li><strong>Drop Ship</strong>: Items shipped directly from vendor to customer. Creates a Purchase Order linked to the Sales Order.</li>\n<li><strong>Special Order</strong>: Items ordered from vendor for customer but shipped to YOU first, then to customer.</li>\n<li><strong>Invoice in Advance of Fulfillment</strong>: Accounting preference allowing invoicing before items are shipped.</li>\n</ul>\n</div>\n<div class=\"tip-box\">\nKnow the difference between Drop Ship (vendor ships directly to customer) and Special Order (vendor ships to you, then you ship to customer). This is a classic exam question.</div>",
+          "practiceQuestion": null
+        },
+        {
+          "id": "topic-8",
+          "title": "Payment Methods",
+          "content": "Available payment processing options in NetSuite.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li>Supported payment methods: <strong>Credit Cards, EFT (Electronic Funds Transfer), ACH, PayPal, Customer Payments, Checks</strong>.</li>\n<li>Credit Card Processing requires a <strong>Merchant Account</strong> setup.</li>\n<li><strong>Electronic Payments</strong> feature must be enabled for EFT/ACH processing.</li>\n<li>Customer Payments are applied against open Invoices to close Accounts Receivable balances.</li>\n</ul></div>",
+          "practiceQuestion": null
+        },
+        {
+          "id": "topic-9",
+          "title": "Return Authorization, Refunds & GL Impact",
+          "content": "Processing customer returns and refunds with accounting impacts.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li><strong>Return Authorization (RMA)</strong>: Authorizes a customer return. Non-posting (no GL impact by itself).</li>\n<li>Downstream: RMA → <strong>Item Receipt</strong> (receives goods back, increases inventory) → <strong>Credit Memo</strong> (reverses revenue, reduces AR).</li>\n<li><strong>Credit Memo</strong>: Can be applied to an existing invoice or converted to a Customer Refund (cash back).</li>\n<li><strong>Refunding a Cash Sale</strong>: Different process — uses a Cash Refund transaction.</li>\n<li>Customer Return Management Workflow controls the flow and approval steps.</li>\n</ul>\n</div>\n<div class=\"mnemonic-box\">\n<strong>\"RMA → RIC\":</strong> Return Authorization → Receive Item → Credit Memo. The reverse of the sales flow (SO → FIP).</div>",
+          "practiceQuestion": null
+        },
+        {
+          "id": "topic-10",
+          "title": "Item Types & Best Uses",
+          "content": "Understanding different item types and when to use each.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li><strong>Inventory Item</strong>: Physically stocked, tracked with quantities and costing. Posts to Inventory and COGS accounts.</li>\n<li><strong>Non-Inventory Item</strong>: Sold or purchased but NOT tracked in inventory (e.g., items shipped from vendor). Has Sale and Purchase variants.</li>\n<li><strong>Service Item</strong>: Represents labor or services. Not physically stocked. Used for time-based billing.</li>\n<li><strong>Group Item</strong>: A collection of items sold together. Each component line shows individually on the transaction (individual pricing visible).</li>\n<li><strong>Kit/Package</strong>: A collection of items sold together as ONE line item (single price, components hidden from customer).</li>\n<li><strong>Assembly Item</strong>: Manufactured item made from component items via an Assembly Build. Tracked in inventory as a finished good.</li>\n<li><strong>Matrix Item</strong>: A parent item with variants (e.g., size, color). The parent isn't sold — the sub-items (child items) are.</li>\n<li><strong>Serialized/Lot-Numbered</strong>: Items tracked by individual serial numbers or production lot numbers for traceability.</li>\n</ul>\n</div>\n<div class=\"mnemonic-box\">\n<strong>Group vs Kit:</strong> Think \"Group = Granular\" (shows each component) vs. \"Kit = Keeps it together\" (shows as one line). This distinction appears frequently on the exam.</div>",
+          "practiceQuestion": {
+            "question": "Which item type displays component items as individual lines on a Sales Order?",
+            "options": [
+              "Kit/Package",
+              "Group Item",
+              "Assembly Item",
+              "Matrix Item"
+            ],
+            "correctIndex": 1,
+            "explanation": "Group Items show each component as individual lines on the transaction with separate pricing. Kit/Package items appear as a single line. Assembly Items are manufactured finished goods. Matrix Items are parent-child item structures based on attributes."
+          }
+        },
+        {
+          "id": "topic-11",
+          "title": "Inventory Transactions & Advanced Inventory",
+          "content": "Inventory management transactions and advanced features.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li>Transactions that <strong>increase</strong> inventory: Item Receipt, Inventory Adjustment (positive), Assembly Build (finished good).</li>\n<li>Transactions that <strong>decrease</strong> inventory: Item Fulfillment, Inventory Adjustment (negative), Assembly Unbuild.</li>\n<li><strong>Committed quantity</strong>: Items on approved Sales Orders not yet fulfilled (reserved but still in stock).</li>\n<li><strong>Available = On Hand − Committed</strong>.</li>\n<li><strong>Advanced Inventory features</strong>: Multi-Location Inventory (MLI), Bins (locations within locations), Units of Measure, Assemblies, Kits/Packages.</li>\n<li>MLI is irreversible once enabled and may require NetSuite Support.</li>\n</ul></div>",
+          "practiceQuestion": null
+        },
+        {
+          "id": "topic-12",
+          "title": "Sales Pricing Strategies",
+          "content": "Different pricing methods and strategies available in NetSuite.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li><strong>Base Price</strong>: The default selling price set on the Item record.</li>\n<li><strong>Price Levels</strong>: Multiple price tiers (e.g., Retail, Wholesale, Employee). Assigned to items and can be assigned to customers.</li>\n<li><strong>Quantity Pricing</strong>: Discounts based on quantity purchased (e.g., buy 10+ get 10% off).</li>\n<li><strong>Pricing Groups</strong>: Groups of customers who receive the same pricing.</li>\n<li><strong>Pricing Schedules</strong>: Time-based pricing rules — e.g., promotional pricing valid for specific date ranges.</li>\n<li><strong>Multi-Currency Pricing</strong>: Setting prices in different currencies for international customers.</li>\n<li><strong>Customer-Specific Pricing</strong>: Custom pricing set on individual customer records.</li>\n</ul></div>",
+          "practiceQuestion": null
+        },
+        {
+          "id": "topic-13",
+          "title": "Billable Items, Time & Expenses to Invoice",
+          "content": "Tracking and billing time and expenses to customers.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li>Employees enter <strong>Time</strong> (time tracking) and <strong>Expense Reports</strong> against customers/projects.</li>\n<li>When marked as <strong>billable</strong>, these entries flow to an Invoice during the billing process.</li>\n<li>Items, time, and expenses must be associated with a customer to appear on their invoice.</li>\n<li>The billing process pulls all approved billable entries into a single invoice.</li>\n</ul></div>",
+          "practiceQuestion": null
+        },
+        {
+          "id": "topic-14",
+          "title": "Purchasing: Approval & Routing",
+          "content": "Purchase request and approval workflows.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li><strong>Purchase Requests</strong>: Internal requests to purchase items. Require approval before becoming Purchase Orders.</li>\n<li>Standard approval process is based on: requester's supervisor, spending limits, and approval routing rules.</li>\n<li>Controls determine: when approval is required, who can approve, and spending thresholds.</li>\n<li>Approved Purchase Requests can be converted into <strong>Purchase Orders</strong>.</li>\n<li><em>NOT on exam:</em> Purchase Requisitions and Custom Approval Routing.</li>\n</ul></div>",
+          "practiceQuestion": null
+        },
+        {
+          "id": "topic-15",
+          "title": "Accounts Payable Transactions & GL Impact",
+          "content": "Standard accounts payable transaction flow and accounting impacts.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li>Standard AP flow: <strong>Purchase Order → Item Receipt → Vendor Bill → Bill Payment</strong>.</li>\n<li><strong>Purchase Order</strong>: Non-posting (no GL impact).</li>\n<li><strong>Item Receipt</strong>: With Advanced Receiving enabled, this posts to inventory and an accrual account (not AP yet).</li>\n<li><strong>Vendor Bill</strong>: Posts to Accounts Payable (credit) and Expense/Inventory (debit). This is where the AP liability is recognized.</li>\n<li><strong>Bill Payment</strong>: Reduces AP and Cash.</li>\n<li><strong>Advanced Receiving</strong> changes the workflow by adding the Item Receipt step with its own GL posting.</li>\n<li>If price changes on Vendor Bill after items received, a <strong>variance</strong> may post.</li>\n</ul>\n</div>\n<div class=\"mnemonic-box\">\n<strong>\"PO → RIBP\":</strong> Purchase Order → Receive Item → Bill → Payment. Mirror of the sales cycle (SO → FIP). PO and SO are both non-posting!</div>",
+          "practiceQuestion": null
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "SuiteAnalytics",
+      "description": "Study guide section covering suiteanalytics",
+      "topics": [
+        {
+          "id": "topic-1",
+          "title": "Options for Finding Records",
+          "content": "Finding records, saved searches, portlet types, and data management tools.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li><strong>Global Search</strong>: Search bar at the top. Searches across all record types. Use prefixes to narrow (e.g., \"cust:\" for customers, \"tran:\" for transactions).</li>\n<li><strong>Lists</strong>: Navigate via menu to see full lists of records (e.g., Lists → Relationships → Customers).</li>\n<li><strong>Reports</strong>: Pre-built and custom reports for aggregated data analysis.</li>\n<li><strong>Saved Searches</strong>: The most powerful record-finding tool — customizable queries with criteria, results, filters, and formulas.</li>\n</ul></div>",
+          "practiceQuestion": null
+        },
+        {
+          "id": "topic-2",
+          "title": "Building Saved Searches",
+          "content": "Understanding the components and capabilities of saved searches.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li><strong>Criteria</strong>: Filters to narrow results (Standard and Summary criteria). Think of this as the WHERE clause.</li>\n<li><strong>Results</strong>: Columns to display. Think of this as the SELECT clause.</li>\n<li><strong>Available Filters</strong>: Filters shown on the search results page for end-users to further refine results dynamically.</li>\n<li><strong>Audience</strong>: Controls who can see and use the saved search (specific roles, departments, etc.).</li>\n<li><strong>Highlighting</strong>: Conditional formatting — highlight rows based on criteria (e.g., overdue invoices in red).</li>\n<li><strong>Formulas</strong>: Basic formulas for calculated fields in results (uses SQL-like syntax).</li>\n<li><strong>Key Set Preferences that affect searches</strong>: \"Show Inactive\" (includes inactive records), \"Show List when only 1 result\" (bypasses auto-navigation to single result), \"Main Line for Transactions\" (controls transaction line display).</li>\n</ul>\n</div>\n<div class=\"tip-box\">\nThe exam will NOT test on summary types, SQL, joins, or HTML in searches. Focus on the basic elements listed above.</div>",
+          "practiceQuestion": {
+            "question": "Which element of a saved search controls conditional row highlighting based on specific criteria?",
+            "options": [
+              "Available Filters",
+              "Audience",
+              "Highlighting",
+              "Formulas"
+            ],
+            "correctIndex": 2,
+            "explanation": "Highlighting is the saved search element that applies conditional formatting to rows — for example, coloring overdue invoices red. Available Filters let users refine results. Audience controls who sees the search. Formulas add calculated columns."
+          }
+        },
+        {
+          "id": "topic-3",
+          "title": "Portlet Types",
+          "content": "Different types of dashboard portlets and their uses.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li><strong>KPI (Key Performance Indicators)</strong>: Displays summary metrics with comparisons and thresholds. Supports date range comparisons and conditional highlighting.</li>\n<li><strong>KPI Meter</strong>: Visual gauge/speedometer-style display of a single KPI.</li>\n<li><strong>KPI Scorecard</strong>: Shows multiple KPIs in a card layout for quick status overview.</li>\n<li><strong>Report Snapshot</strong>: Displays summary data from reports or saved searches for selected date ranges.</li>\n<li><strong>Reminders</strong>: Shows alerts for items needing attention (e.g., pending approvals, overdue tasks).</li>\n<li><strong>Shortcuts</strong>: Quick links to frequently used pages.</li>\n<li><strong>Custom Portlets</strong>: HTML, list, or form-based custom content.</li>\n<li><strong>My Login Audit</strong>: Shows recent login history for the current user.</li>\n<li><strong>Settings Portlet</strong>: Quick access to setup/configuration links.</li>\n</ul></div>",
+          "practiceQuestion": {
+            "question": "Which portlet displays summary data from reports or saved searches for selected date ranges, with options to compare ranges and highlight thresholds?",
+            "options": [
+              "Report Snapshot",
+              "Key Performance Indicators",
+              "Account Reconciliation Summary",
+              "SMT Links"
+            ],
+            "correctIndex": 1,
+            "explanation": "The KPI portlet displays summary data with date range comparisons and threshold-based highlighting. Report Snapshots show report data but with fewer interactive comparison features."
+          }
+        },
+        {
+          "id": "topic-4",
+          "title": "Data Management Tools",
+          "content": "Tools for managing, importing, exporting, and maintaining data.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li><strong>Inline Editing</strong>: Edit field values directly from list views without opening the record. Must be enabled. Not available on all fields.</li>\n<li><strong>Mass Updates</strong>: Change a field value across many records at once. Select criteria → choose field → set new value. Runs as a background process.</li>\n<li><strong>CSV Import</strong>: Import data from CSV files into NetSuite records. Uses the Import Assistant (<code>Setup → Import/Export → Import CSV Records</code>). Supports creating new records and updating existing ones.</li>\n<li><strong>CSV Export</strong>: Export list views and search results to CSV format.</li>\n<li><strong>Duplicate Detection</strong>: Identifies potential duplicate records based on configurable matching criteria (name, email, phone, etc.).</li>\n<li><strong>Delete All Data</strong>: Removes all data from the account — used in sandbox/test environments. Very destructive — requires Admin role.</li>\n</ul>\n</div>\n<div class=\"warning-box\">\n<strong>Critical:</strong> Delete All Data is irreversible and available only to Administrators. It removes ALL transaction and record data. This is intended for sandbox cleanup, never for production use.</div>",
+          "practiceQuestion": null
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Maintenance, Resources & Data Security",
+      "description": "Study guide section covering maintenance, resources & data security",
+      "topics": [
+        {
+          "id": "topic-1",
+          "title": "Working with NetSuite Support",
+          "content": "Support best practices, NetSuite resources, roles and permissions, authentication, and audit tracking.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li>Always verify your <strong>Account Number and Environment</strong> (Production vs. Sandbox) before contacting Support.</li>\n<li>Know the <strong>Support Phone Menu Routing</strong> options — different queues for billing, technical, etc.</li>\n<li>Provide clear reproduction steps, screenshots, and the URL of the affected page when filing a case.</li>\n<li>Check <strong>status.netsuite.com</strong> for system-wide outages before calling Support.</li>\n</ul></div>",
+          "practiceQuestion": null
+        },
+        {
+          "id": "topic-2",
+          "title": "NetSuite Resources & Help",
+          "content": "Key resources and documentation available to NetSuite users.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li><strong>SuiteAnswers</strong>: Primary knowledge base. Search articles, guides, videos, best practices. Accessed from within NetSuite.</li>\n<li><strong>Learning Center / MyLearn</strong>: Training courses and learning paths.</li>\n<li><strong>Help User Guides</strong>: Contextual help available from within the application.</li>\n<li><strong>User Groups</strong>: Community forums for NetSuite users to discuss and share.</li>\n<li><strong>status.netsuite.com</strong>: Real-time system status and maintenance windows.</li>\n<li><strong>SuiteApp.com</strong>: Marketplace for third-party and NetSuite-built applications.</li>\n<li><strong>SuiteIdeas (Enhancement Center)</strong>: Submit and vote on feature requests.</li>\n</ul>\n</div>\n<div class=\"mnemonic-box\">\n<strong>\"SHLUSS\"</strong> — <strong>S</strong>uiteAnswers, <strong>H</strong>elp Guides, <strong>L</strong>earning Center, <strong>U</strong>ser Groups, <strong>S</strong>uiteApp.com, <strong>S</strong>uiteIdeas. Six key resources to know for the exam.</div>",
+          "practiceQuestion": null
+        },
+        {
+          "id": "topic-3",
+          "title": "Release Cycles & New Features",
+          "content": "Understanding NetSuite's release schedule and how to prepare.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li>NetSuite releases <strong>two major releases per year</strong> (typically named by year and release number, e.g., 2024.1, 2024.2).</li>\n<li><strong>Release Preview</strong> environments are available before production rollout for testing.</li>\n<li><strong>Release Notes</strong> document all new features, changes, and deprecations.</li>\n<li>SuiteAnswers topics: Release Preview Notifications, More New Release Resources, Preparing for Testing.</li>\n<li>Certification maintenance requires passing an annual <strong>New Release Quiz</strong>.</li>\n</ul></div>",
+          "practiceQuestion": null
+        },
+        {
+          "id": "topic-4",
+          "title": "Custom Roles & Data Access Control",
+          "content": "Managing user access and permissions through roles.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li><strong>Roles</strong> define what a user can see and do. Each user can be assigned multiple roles and switch between them.</li>\n<li><strong>Permissions</strong> on roles control access to: Transactions, Reports, Lists, Setup pages, and Custom Records. Levels: None, View, Create, Edit, Full.</li>\n<li><strong>Custom Roles</strong> are preferred over modifying standard roles — standard roles can be reset during upgrades.</li>\n<li>Restrict access by <strong>Department, Class, Location, or Subsidiary</strong> on the role definition.</li>\n<li><strong>Restrict CSV Import/Export</strong>: A specific permission that can be set on roles to prevent bulk data extraction.</li>\n<li><strong>Testing custom roles:</strong> Log in as a user with only that role assigned to verify correct access.</li>\n</ul></div>",
+          "practiceQuestion": {
+            "question": "What is the best practice for creating roles with specific permissions?",
+            "options": [
+              "Modify standard out-of-the-box roles",
+              "Create custom roles rather than modifying standard roles",
+              "Give all users the Administrator role",
+              "Use a single role for all users and restrict with preferences"
+            ],
+            "correctIndex": 1,
+            "explanation": "Creating custom roles is the best practice because standard roles can be reset during system upgrades. Custom roles preserve your specific permission configurations across updates."
+          }
+        },
+        {
+          "id": "topic-5",
+          "title": "User Authentication & Security Questions",
+          "content": "Security features and authentication methods.\n\n<div class=\"concept-block\"><h4>Key Concepts</h4>\n<ul>\n<li><strong>Two-Factor Authentication (2FA)</strong>: Adds a second verification step (e.g., phone, authenticator app). Can be required for specific roles.</li>\n<li><strong>Security Questions</strong>: Set during first login or via preferences. Used for password recovery and identity verification.</li>\n<li>If you forget security question answers, you must contact your Administrator to reset them.</li>\n<li><strong>Password Policies</strong>: Admins can enforce minimum length, complexity, expiration, and lockout rules.</li>\n<li><strong>IP Address Restrictions</strong>: Limit role access to specific IP addresses for added security.</li>\n</ul></div>",
+          "practiceQuestion": null
+        },
+        {
+          "id": "topic-6",
+          "title": "Settings Portlet & Tracking Record Changes",
+          "content": "Settings access and audit trail capabilities.\n\n<div class=\"concept-block\"><h4>Key Concepts — Settings Portlet</h4>\n<ul>\n<li>The Settings Portlet provides quick links to commonly used setup pages.</li>\n<li>Visible on the dashboard. Content varies by role.</li>\n<li>Provides shortcuts to: Set Preferences, Enable Features, General Preferences, Accounting Preferences, etc.</li>\n</ul>\n</div>\n<div class=\"concept-block\"><h4>Tracking Changes to Records</h4>\n<ul>\n<li><strong>System Notes</strong>: Automatically logged on every record. Shows who changed what, when, and from what value to what new value. The primary audit mechanism.</li>\n<li><strong>Transaction Audit Trail</strong>: Tracks changes to transactions specifically.</li>\n<li><strong>Line-Level Audit Trail</strong>: Tracks changes to individual lines on transactions (e.g., item quantity changes on a Sales Order).</li>\n<li><strong>Login Audit Trail</strong>: Tracks who logged in, when, from what IP.</li>\n<li><strong>GL Impact</strong>: If a change affects the General Ledger, the GL posting history reflects the change.</li>\n<li>If a <strong>field type is changed</strong>, the history for that field in System Notes may be lost or become unreadable.</li>\n</ul></div>",
+          "practiceQuestion": null
+        }
+      ]
+    }
+  ]
+}

@@ -2,7 +2,8 @@
 
 import { useState } from 'react'
 import InteractiveContent from './InteractiveContent'
-import type { Topic } from '@/data/topicsData'
+import InlineQuiz from './InlineQuiz'
+import type { Topic } from '@/data/topicsDataFromMarkdown'
 
 interface TopicCardProps {
   topic: Topic
@@ -29,6 +30,14 @@ export default function TopicCard({ topic, isChecked, toggleCheck }: TopicCardPr
 
       <div className="topic-content">
         <InteractiveContent html={topic.content} isVisible={isOpen} />
+        {topic.practiceQuestion && isOpen && (
+          <InlineQuiz
+            question={topic.practiceQuestion.question}
+            options={topic.practiceQuestion.options}
+            correctIndex={topic.practiceQuestion.correctIndex}
+            explanation={topic.practiceQuestion.explanation}
+          />
+        )}
       </div>
     </div>
   )

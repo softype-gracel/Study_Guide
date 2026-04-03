@@ -329,6 +329,29 @@ code {
   padding: 0 24px 24px;
 }
 
+/* General topic content styles */
+.topic-content > p {
+  margin: 12px 0;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.topic-content strong {
+  font-weight: 600;
+}
+
+.topic-content em {
+  font-style: italic;
+}
+
+.topic-content code {
+  background: var(--bg-hover);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
 /* CONTENT BLOCKS */
 .concept-block {
   background: var(--blue-light);
@@ -340,52 +363,98 @@ code {
 
 .concept-block h4 {
   color: var(--blue);
-  margin-bottom: 12px;
-  font-size: 1.1rem;
+  margin: 0 0 16px 0;
+  font-size: 1.15rem;
+  font-weight: 600;
 }
 
 .concept-block ul {
-  margin-left: 20px;
+  list-style: disc;
+  margin: 0 0 0 20px;
+  padding: 0;
 }
 
 .concept-block li {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.concept-block strong {
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+.concept-block code {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
 }
 
 .mnemonic-box {
   background: var(--gold-light);
   border-left: 4px solid var(--gold);
-  padding: 16px;
+  padding: 20px;
   border-radius: 8px;
   margin-bottom: 20px;
-  display: flex;
-  gap: 12px;
 }
 
-.mnemonic-box .icon {
-  font-size: 24px;
-  flex-shrink: 0;
-}
-
-.mnemonic-box .text {
+.mnemonic-box strong {
   color: var(--text);
+  font-weight: 600;
+}
+
+.mnemonic-box p {
+  margin: 8px 0 0 0;
   line-height: 1.6;
+  color: var(--text);
 }
 
 .tip-box {
   background: var(--green-light);
   border-left: 4px solid var(--green);
-  padding: 16px;
+  padding: 20px;
   border-radius: 8px;
   margin-bottom: 20px;
+}
+
+.tip-box strong {
+  color: var(--green);
+  font-weight: 600;
+}
+
+.tip-box p {
+  margin: 8px 0 0 0;
+  line-height: 1.6;
+  color: var(--text);
 }
 
 .warning-box {
   background: #FDE8E8;
   border-left: 4px solid #C53030;
-  padding: 16px;
+  padding: 20px;
   border-radius: 8px;
   margin-bottom: 20px;
+}
+
+.warning-box .note {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.warning-box strong {
+  color: #C53030;
+  font-weight: 600;
+}
+
+.warning-box p {
+  margin: 8px 0 0 0;
+  line-height: 1.6;
+  color: var(--text);
 }
 
 .quiz-block {
