@@ -48,7 +48,10 @@ function parseStudyGuideMarkdown(filePath) {
     if (trimmedLine.startsWith('## Topic:') && !inCodeBlock) {
       // Save previous topic
       if (currentTopic) {
-        finalizeTopicContent(currentTopic, contentBuffer)
+        // Only finalize if content hasn't been set yet (by practice question handler)
+        if (!currentTopic.content && contentBuffer.length > 0) {
+          finalizeTopicContent(currentTopic, contentBuffer)
+        }
         section.topics.push(currentTopic)
         contentBuffer = []
       }
@@ -132,18 +135,19 @@ function parseStudyGuideMarkdown(filePath) {
       continue
     }
 
-    // Skip description header but continue collecting content after it
+    // Handle description header - extract text but don't skip collecting
     if (trimmedLine.startsWith('**Description:**')) {
       // Get description text on same line if present
       const descText = trimmedLine.replace('**Description:**', '').trim()
       if (descText) {
         contentBuffer.push(descText)
       }
-      continue
+      currentSection = 'content' // Ensure we're in content section
+      continue // Skip to next line
     }
 
-    // Collect content (skip the topic title line itself)
-    if (currentSection === 'content' && !inQuestion && !trimmedLine.startsWith('## Topic:')) {
+    // Collect content (everything between Description and practice question)
+    if (currentTopic && !inQuestion && currentSection === 'content') {
       contentBuffer.push(line)
     }
   }
@@ -153,7 +157,8 @@ function parseStudyGuideMarkdown(filePath) {
     if (inQuestion && questionData && questionData.question) {
       currentTopic.practiceQuestion = questionData
     }
-    if (contentBuffer.length > 0) {
+    // Only finalize if content hasn't been set yet (by practice question handler)
+    if (!currentTopic.content && contentBuffer.length > 0) {
       finalizeTopicContent(currentTopic, contentBuffer)
     }
     section.topics.push(currentTopic)
