@@ -183,11 +183,87 @@ function finalizeTopicContent(topic, contentBuffer) {
  * Convert markdown to HTML-like format for the app
  */
 function markdownToHtml(markdown) {
-  let html = markdown
+  const lines = markdown.split('\n')
+  const result = []
+  let currentSection = null
+  let sectionContent = []
+  let inCodeBlock = false
 
-  // Convert headers
-  html = html.replace(/^### (.+)$/gm, '<h4>$1</h4>')
-  html = html.replace(/^#### (.+)$/gm, '<h5>$1</h5>')
+  const sectionMap = {
+    'Key Points': 'concept-block',
+    'Key Concepts': 'concept-block',
+    'The Three Classifications': 'concept-block',
+    'Important Notes': 'warning-box',
+    'Warning': 'warning-box',
+    'Exam Tip': 'tip-box',
+    'Tip': 'tip-box',
+    'Example': 'mnemonic-box',
+    'Memory Trick': 'mnemonic-box'
+  }
+
+  function flushSection() {
+    if (currentSection) {
+      const className = sectionMap[currentSection] || 'concept-block'
+      const title = currentSection.startsWith('Key') || currentSection.startsWith('The') ? `<h4>${currentSection}</h4>` : ''
+      const content = processInlineMarkdown(sectionContent.join('\n'))
+      result.push(`<div class="${className}">${title}${content}</div>`)
+      sectionContent = []
+      currentSection = null
+    }
+  }
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i]
+    const trimmed = line.trim()
+
+    // Handle code blocks
+    if (trimmed.startsWith('```')) {
+      inCodeBlock = !inCodeBlock
+      if (currentSection) {
+        sectionContent.push(line)
+      } else {
+        result.push(line)
+      }
+      continue
+    }
+
+    // Check for section headers (### Something)
+    if (trimmed.startsWith('### ') && !inCodeBlock) {
+      flushSection()
+      const headerText = trimmed.replace('### ', '')
+      currentSection = headerText
+      continue
+    }
+
+    // Collect content into current section or add to result
+    if (currentSection) {
+      sectionContent.push(line)
+    } else if (trimmed) {
+      result.push(line)
+    } else {
+      result.push('')
+    }
+  }
+
+  flushSection()
+
+  let html = result.join('\n')
+
+  // Process remaining markdown (code blocks, inline formatting)
+  html = processInlineMarkdown(html)
+
+  return html
+}
+
+function processInlineMarkdown(text) {
+  let html = text
+
+  // Convert code blocks
+  html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, '<pre><code class="language-$1">$2</code></pre>')
+
+  // Convert blockquotes (for warnings within sections)
+  html = html.replace(/^> \*\*(.+?):\*\* (.+)$/gm, '<div class="note"><strong>$1:</strong> $2</div>')
+  html = html.replace(/^> (.+)$/gm, '<div class="note">$1</div>')
 
   // Convert bold
   html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
@@ -195,18 +271,15 @@ function markdownToHtml(markdown) {
   // Convert italic
   html = html.replace(/\*(.+?)\*/g, '<em>$1</em>')
 
-  // Convert blockquotes
-  html = html.replace(/^> (.+)$/gm, '<div class="note">$1</div>')
-
   // Convert unordered lists
   html = html.replace(/^- (.+)$/gm, '<li>$1</li>')
   html = html.replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
 
-  // Convert code blocks
-  html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, '<pre><code class="language-$1">$2</code></pre>')
-
   // Convert inline code
   html = html.replace(/`([^`]+)`/g, '<code>$1</code>')
+
+  // Convert standalone #### headers
+  html = html.replace(/^#### (.+)$/gm, '<h5>$1</h5>')
 
   return html
 }

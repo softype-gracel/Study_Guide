@@ -21,6 +21,14 @@ Learn about NetSuite's Enable Features configuration and how to activate/deactiv
 
 > **Warning:** Multi-Location Inventory (MLI) is the classic example of a feature that requires NetSuite Support intervention to enable and cannot be reversed once turned on, because it fundamentally changes how inventory data is stored.
 
+### Memory Trick
+
+**Memory trick — "EGAL":** The 4 places to configure behavior: **E**nable Features → **G**eneral Preferences → **A**ccounting Preferences → user-**L**evel (Set Preferences). They go from broadest (system) to narrowest (user).
+
+### Exam Tip
+
+**Exam Tip:** When a question says "Where do you turn on...", the answer is almost always Enable Features. When it says "Where do you set the default behavior...", think General Preferences or Accounting Preferences.
+
 ### Practice Question
 
 **Question:** Where does an Administrator enable the CRM feature in NetSuite?
