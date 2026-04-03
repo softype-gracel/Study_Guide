@@ -192,19 +192,33 @@ function markdownToHtml(markdown) {
   const sectionMap = {
     'Key Points': 'concept-block',
     'Key Concepts': 'concept-block',
+    'Key Characteristics': 'concept-block',
+    'Key Difference': 'concept-block',
     'The Three Classifications': 'concept-block',
+    'Enable Features': 'concept-block',
+    'General Preferences': 'concept-block',
+    'Use Cases': 'concept-block',
     'Important Notes': 'warning-box',
+    'Important Note': 'warning-box',
     'Warning': 'warning-box',
     'Exam Tip': 'tip-box',
     'Tip': 'tip-box',
     'Example': 'mnemonic-box',
-    'Memory Trick': 'mnemonic-box'
+    'Memory Trick': 'mnemonic-box',
+    'Elimination Subsidiaries': 'concept-block',
+    'Enabling Custom Records': 'concept-block'
   }
 
   function flushSection() {
     if (currentSection) {
       const className = sectionMap[currentSection] || 'concept-block'
-      const title = currentSection.startsWith('Key') || currentSection.startsWith('The') ? `<h4>${currentSection}</h4>` : ''
+      // Show title for concept blocks and some specific sections
+      const showTitle = className === 'concept-block' ||
+                       currentSection.startsWith('Key') ||
+                       currentSection.startsWith('The') ||
+                       currentSection.includes('Characteristics') ||
+                       currentSection.includes('Use Cases')
+      const title = showTitle ? `<h4>${currentSection}</h4>` : ''
       const content = processInlineMarkdown(sectionContent.join('\n'))
       result.push(`<div class="${className}">${title}${content}</div>`)
       sectionContent = []
