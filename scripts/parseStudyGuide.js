@@ -205,6 +205,7 @@ function markdownToHtml(markdown) {
     'Tip': 'tip-box',
     'Example': 'mnemonic-box',
     'Memory Trick': 'mnemonic-box',
+    'Memory Tip': 'mnemonic-box',
     'Elimination Subsidiaries': 'concept-block',
     'Enabling Custom Records': 'concept-block'
   }
