@@ -1,17 +1,10 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { type QuizExam } from '@/data/loadQuizData'
 import { type QuizQuestion } from '@/data/quizData'
 
-export interface QuizExam {
-  id: string
-  title: string
-  description: string
-  totalQuestions: number
-  timeAllowed?: string
-  passingScore?: string
-  questions: QuizQuestion[]
-}
+export type { QuizExam }
 
 function shuffleArray<T>(arr: T[]): T[] {
   const shuffled = [...arr]

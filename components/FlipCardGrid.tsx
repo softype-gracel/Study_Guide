@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import type { Topic } from '@/data/topicsDataFromMarkdown'
 
-const ACCENTS = ['yellow', 'pink', 'mint', 'blue', 'purple', 'yellow', 'pink', 'mint', 'blue', 'purple']
+const ACCENTS = ['yellow', 'pink', 'mint', 'blue', 'purple']
 
 function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()

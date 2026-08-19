@@ -14,7 +14,7 @@ export default function InlineQuiz({ question, options, correctIndex, explanatio
   const [revealed, setRevealed] = useState(false)
   const [understood, setUnderstood] = useState(false)
 
-  const uid = question.slice(0, 20).replace(/\s/g, '-')
+  const uid = `${question.slice(0, 20).replace(/\s/g, '-')}-${correctIndex}`
 
   const handleReveal = () => {
     if (revealed) {
