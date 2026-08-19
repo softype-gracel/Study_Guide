@@ -1,12 +1,8 @@
-import { RefObject } from 'react'
-
 interface HeaderProps {
   progress: number
-  barRef: RefObject<HTMLDivElement>
-  pctRef: RefObject<HTMLDivElement>
 }
 
-export default function Header({ progress, barRef, pctRef }: HeaderProps) {
+export default function Header({ progress }: HeaderProps) {
   return (
     <header className="top">
       <div>
@@ -19,11 +15,10 @@ export default function Header({ progress, barRef, pctRef }: HeaderProps) {
       </div>
 
       <div className="mastery-note">
-        <div ref={pctRef} className="pct">{progress}%</div>
+        <div className="pct">{progress}%</div>
         <div className="cap hand">mastered!</div>
         <div className="mastery-bar-track">
           <div
-            ref={barRef}
             className="mastery-bar-fill"
             style={{ width: `${progress}%` }}
           />

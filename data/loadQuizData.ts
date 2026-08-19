@@ -74,7 +74,7 @@ export function loadQuizExams(): QuizExam[] {
         id: parsedExam.id,
         title: parsedExam.title,
         description: parsedExam.description || `Practice exam with ${parsedExam.totalQuestions} questions`,
-        totalQuestions: parsedExam.totalQuestions || questions.length,
+        totalQuestions: questions.length,
         timeAllowed: parsedExam.timeAllowed,
         passingScore: parsedExam.passingScore,
         questions
@@ -87,27 +87,3 @@ export function loadQuizExams(): QuizExam[] {
   return exams
 }
 
-/**
- * Gets a specific exam by ID
- * @param examId - The exam ID
- * @returns QuizExam or undefined if not found
- */
-export function getExamById(examId: string): QuizExam | undefined {
-  const exams = loadQuizExams()
-  return exams.find(exam => exam.id === examId)
-}
-
-/**
- * Gets all questions from all exams combined
- * @returns Array of all QuizQuestion objects
- */
-export function getAllQuestions(): QuizQuestion[] {
-  const exams = loadQuizExams()
-  const allQuestions: QuizQuestion[] = []
-
-  for (const exam of exams) {
-    allQuestions.push(...exam.questions)
-  }
-
-  return allQuestions
-}

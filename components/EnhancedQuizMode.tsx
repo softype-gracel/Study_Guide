@@ -1,17 +1,10 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { type QuizExam } from '@/data/loadQuizData'
 import { type QuizQuestion } from '@/data/quizData'
 
-export interface QuizExam {
-  id: string
-  title: string
-  description: string
-  totalQuestions: number
-  timeAllowed?: string
-  passingScore?: string
-  questions: QuizQuestion[]
-}
+export type { QuizExam }
 
 function shuffleArray<T>(arr: T[]): T[] {
   const shuffled = [...arr]
@@ -106,7 +99,7 @@ export default function EnhancedQuizMode() {
                 {exam.timeAllowed && <span>⏱ {exam.timeAllowed}</span>}
                 {exam.passingScore && <span>🎯 Pass @ {exam.passingScore}</span>}
               </div>
-              <button className="exam-start-btn">Start Exam →</button>
+              <button className="exam-start-btn" onClick={(e) => { e.stopPropagation(); startExam(exam) }}>Start Exam →</button>
             </div>
           ))}
         </div>
@@ -117,7 +110,9 @@ export default function EnhancedQuizMode() {
   // ── Results ──
   if (showResults) {
     const pct = Math.round((quizCorrect / quizData.length) * 100)
-    const threshold = selectedExam.passingScore ? parseInt(selectedExam.passingScore) : 70
+    const threshold = selectedExam.passingScore
+      ? (parseInt(selectedExam.passingScore.replace(/\D/g, '')) || 70)
+      : 70
     const passed = pct >= threshold
 
     return (
@@ -174,6 +169,7 @@ export default function EnhancedQuizMode() {
 
   // ── Question ──
   const q = quizData[currentQ]
+  if (!q) return null
   const answered = quizAnswers[currentQ] !== null
   const allAnswered = quizAnswers.every((a) => a !== null)
   const pctLive = quizAnswered > 0 ? Math.round((quizCorrect / quizAnswered) * 100) : 0
@@ -205,7 +201,14 @@ export default function EnhancedQuizMode() {
               else if (i === quizAnswers[currentQ] && i !== q.correct) cls += ' incorrect'
             }
             return (
-              <li key={i} className={cls} onClick={() => handleAnswer(i)}>
+              <li
+                key={i}
+                className={cls}
+                role="button"
+                tabIndex={answered ? -1 : 0}
+                onClick={() => handleAnswer(i)}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleAnswer(i) } }}
+              >
                 {String.fromCharCode(65 + i)}. {opt}
               </li>
             )

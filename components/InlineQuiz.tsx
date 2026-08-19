@@ -11,19 +11,31 @@ interface InlineQuizProps {
 
 export default function InlineQuiz({ question, options, correctIndex, explanation }: InlineQuizProps) {
   const [selected, setSelected] = useState<number | null>(null)
+  const [revealed, setRevealed] = useState(false)
   const [understood, setUnderstood] = useState(false)
-  const revealed = selected !== null
 
-  const uid = question.slice(0, 20).replace(/\s/g, '-')
+  const uid = `${question.slice(0, 20).replace(/\s/g, '-')}-${correctIndex}`
+
+  const handleReveal = () => {
+    if (revealed) {
+      // Hide — reset everything
+      setRevealed(false)
+      setSelected(null)
+    } else {
+      setRevealed(true)
+    }
+  }
+
+  const handleSelect = (i: number) => {
+    if (selected !== null) return // already answered
+    setSelected(i)
+  }
 
   return (
     <div className="q-item" style={{ marginTop: '16px' }}>
       <div className="q-top">
         <div className="q-text">{question}</div>
-        <button
-          className="q-reveal-btn"
-          onClick={() => setSelected(revealed ? null : -1)}
-        >
+        <button className="q-reveal-btn" onClick={handleReveal}>
           {revealed ? 'Hide' : 'Reveal'}
         </button>
       </div>
@@ -31,19 +43,33 @@ export default function InlineQuiz({ question, options, correctIndex, explanatio
       {revealed && (
         <ul className="quiz-options" style={{ marginTop: '12px' }}>
           {options.map((opt, i) => {
-            let cls = 'quiz-opt disabled'
-            if (i === correctIndex) cls += ' correct'
-            else if (i === selected && i !== correctIndex) cls += ' incorrect'
-            return <li key={i} className={cls}>{String.fromCharCode(65 + i)}. {opt}</li>
+            let cls = 'quiz-opt'
+            if (selected !== null) {
+              cls += ' disabled'
+              if (i === correctIndex) cls += ' correct'
+              else if (i === selected) cls += ' incorrect'
+            }
+            return (
+              <li
+                key={i}
+                className={cls}
+                role="button"
+                tabIndex={selected !== null ? -1 : 0}
+                onClick={() => handleSelect(i)}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleSelect(i) } }}
+              >
+                {String.fromCharCode(65 + i)}. {opt}
+              </li>
+            )
           })}
         </ul>
       )}
 
-      <div className={`q-answer${revealed ? ' revealed' : ''}`} style={revealed ? { display: 'block' } : {}}>
-        <div className="q-answer-inner">
-          {revealed && <div className="q-answer-content">{explanation}</div>}
+      {revealed && selected !== null && (
+        <div className="quiz-explanation show" style={{ marginTop: '8px' }}>
+          {explanation}
         </div>
-      </div>
+      )}
 
       <div className="q-footer">
         <input

@@ -33,8 +33,6 @@ const TABS = [
 export default function Home() {
   const [activeTab, setActiveTab] = useState(1)
   const [checkedTopics, setCheckedTopics] = useState<Set<string>>(new Set())
-  const barRef = useRef<HTMLDivElement>(null)
-  const pctRef = useRef<HTMLDivElement>(null)
   const loaded = useRef(false)
 
   useEffect(() => {
@@ -52,11 +50,6 @@ export default function Home() {
     () => (totalTopics > 0 ? Math.round((checkedTopics.size / totalTopics) * 100) : 0),
     [checkedTopics.size]
   )
-
-  useEffect(() => {
-    if (barRef.current) barRef.current.style.width = `${progress}%`
-    if (pctRef.current) pctRef.current.textContent = `${progress}%`
-  }, [progress])
 
   const toggleCheck = useCallback((topicId: string) => {
     setCheckedTopics((prev) => {
@@ -86,7 +79,7 @@ export default function Home() {
       </div>
 
       <main>
-        <Header progress={progress} barRef={barRef} pctRef={pctRef} />
+        <Header progress={progress} />
 
         {studyGuideData.sections.map((section) => (
           <Section
