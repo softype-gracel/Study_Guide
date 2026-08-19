@@ -32,19 +32,13 @@ export default function EnhancedQuizMode() {
   const [quizAnswers, setQuizAnswers] = useState<(number | null)[]>([])
   const [showResults, setShowResults] = useState(false)
 
-  // Load available exams on mount
   useEffect(() => {
     async function fetchExams() {
       try {
-        const response = await fetch('/api/quiz-exams')
-        if (response.ok) {
-          const exams = await response.json()
-          setAvailableExams(exams)
-        } else {
-          console.error('Failed to load quiz exams')
-        }
-      } catch (error) {
-        console.error('Error fetching quiz exams:', error)
+        const res = await fetch('/api/quiz-exams')
+        if (res.ok) setAvailableExams(await res.json())
+      } catch (err) {
+        console.error('Error fetching quiz exams:', err)
       }
     }
     fetchExams()
@@ -55,428 +49,173 @@ export default function EnhancedQuizMode() {
     setSelectedExam(exam)
     setQuizData(shuffled)
     setQuizAnswers(new Array(shuffled.length).fill(null))
-    setCurrentQ(0)
-    setQuizCorrect(0)
-    setQuizAnswered(0)
-    setShowResults(false)
+    setCurrentQ(0); setQuizCorrect(0); setQuizAnswered(0); setShowResults(false)
   }
 
   const handleAnswer = (idx: number) => {
     if (quizAnswers[currentQ] !== null) return
-
-    const newAnswers = [...quizAnswers]
-    newAnswers[currentQ] = idx
-    setQuizAnswers(newAnswers)
-
-    if (idx === quizData[currentQ].correct) {
-      setQuizCorrect((prev) => prev + 1)
-    }
-    setQuizAnswered((prev) => prev + 1)
-  }
-
-  const nextQuestion = () => {
-    if (currentQ < quizData.length - 1) {
-      setCurrentQ((prev) => prev + 1)
-    }
-  }
-
-  const prevQuestion = () => {
-    if (currentQ > 0) {
-      setCurrentQ((prev) => prev - 1)
-    }
+    const next = [...quizAnswers]; next[currentQ] = idx; setQuizAnswers(next)
+    if (idx === quizData[currentQ].correct) setQuizCorrect((p) => p + 1)
+    setQuizAnswered((p) => p + 1)
   }
 
   const restartQuiz = () => {
-    if (selectedExam) {
-      const shuffled = shuffleArray(selectedExam.questions)
-      setQuizData(shuffled)
-      setCurrentQ(0)
-      setQuizCorrect(0)
-      setQuizAnswered(0)
-      setQuizAnswers(new Array(shuffled.length).fill(null))
-      setShowResults(false)
-    }
+    if (!selectedExam) return
+    const shuffled = shuffleArray(selectedExam.questions)
+    setQuizData(shuffled)
+    setQuizAnswers(new Array(shuffled.length).fill(null))
+    setCurrentQ(0); setQuizCorrect(0); setQuizAnswered(0); setShowResults(false)
   }
 
   const backToExamSelection = () => {
-    setSelectedExam(null)
-    setQuizData([])
-    setCurrentQ(0)
-    setQuizCorrect(0)
-    setQuizAnswered(0)
-    setQuizAnswers([])
-    setShowResults(false)
+    setSelectedExam(null); setQuizData([]); setQuizAnswers([])
+    setCurrentQ(0); setQuizCorrect(0); setQuizAnswered(0); setShowResults(false)
   }
 
-  const finishExam = () => {
-    setShowResults(true)
-  }
-
-  // Show exam selection screen
+  // ── Exam selection ──
   if (!selectedExam || quizData.length === 0) {
     return (
-      <div className="section active">
-        <div className="section-header">
+      <section className="study-section">
+        <div className="section-label">
+          <span className="section-chip" style={{ background: 'var(--purple)' }}>06</span>
           <h2>Practice Quiz</h2>
-          <p>Select a practice exam to begin</p>
         </div>
+        <span className="note-scrawl">pick an exam and go for it — you've got this!</span>
 
-        <div className="exam-selection-container" style={{ marginTop: '2rem' }}>
+        <div className="exam-selection-container">
+          {availableExams.length === 0 && (
+            <p style={{ color: 'var(--ink-soft)', fontFamily: "'Kalam', cursive", marginTop: '12px' }}>
+              Loading exams…
+            </p>
+          )}
           {availableExams.map((exam) => (
-            <div
-              key={exam.id}
-              className="exam-card"
-              style={{
-                background: 'var(--bg-card)',
-                border: '2px solid var(--border)',
-                borderRadius: 'var(--radius)',
-                padding: '1.75rem',
-                marginBottom: '1.5rem',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                boxShadow: 'var(--shadow)'
-              }}
-              onClick={() => startExam(exam)}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'var(--primary)'
-                e.currentTarget.style.transform = 'translateY(-4px)'
-                e.currentTarget.style.boxShadow = 'var(--shadow-lg)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'var(--border)'
-                e.currentTarget.style.transform = 'translateY(0)'
-                e.currentTarget.style.boxShadow = 'var(--shadow)'
-              }}
-            >
-              <h3 style={{
-                marginTop: 0,
-                marginBottom: '0.75rem',
-                color: 'var(--primary)',
-                fontSize: '1.5rem',
-                fontWeight: '700'
-              }}>
-                {exam.title}
-              </h3>
-              <p style={{
-                color: 'var(--text-muted)',
-                margin: '0.5rem 0 1.25rem',
-                fontSize: '1rem',
-                lineHeight: '1.6'
-              }}>
-                {exam.description}
-              </p>
-              <div style={{
-                display: 'flex',
-                gap: '1.5rem',
-                marginBottom: '1.5rem',
-                fontSize: '0.95rem',
-                flexWrap: 'wrap'
-              }}>
-                <span style={{ color: 'var(--text)' }}>
-                  <strong style={{ color: 'var(--primary)' }}>Questions:</strong> {exam.totalQuestions}
-                </span>
-                {exam.timeAllowed && (
-                  <span style={{ color: 'var(--text)' }}>
-                    <strong style={{ color: 'var(--primary)' }}>Time:</strong> {exam.timeAllowed}
-                  </span>
-                )}
-                {exam.passingScore && (
-                  <span style={{ color: 'var(--text)' }}>
-                    <strong style={{ color: 'var(--primary)' }}>Passing Score:</strong> {exam.passingScore}
-                  </span>
-                )}
+            <div key={exam.id} className="exam-card" onClick={() => startExam(exam)}>
+              <h3>{exam.title}</h3>
+              {exam.description && <p>{exam.description}</p>}
+              <div className="exam-meta">
+                <span>📋 {exam.totalQuestions} questions</span>
+                {exam.timeAllowed && <span>⏱ {exam.timeAllowed}</span>}
+                {exam.passingScore && <span>🎯 Pass @ {exam.passingScore}</span>}
               </div>
-              <button
-                style={{
-                  padding: '0.75rem 1.75rem',
-                  background: 'var(--primary)',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  fontWeight: '600',
-                  fontSize: '1rem',
-                  transition: 'all 0.2s ease',
-                  boxShadow: '0 2px 8px rgba(196, 93, 62, 0.3)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'var(--primary-dark)'
-                  e.currentTarget.style.transform = 'scale(1.05)'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'var(--primary)'
-                  e.currentTarget.style.transform = 'scale(1)'
-                }}
-              >
-                Start Exam →
-              </button>
+              <button className="exam-start-btn">Start Exam →</button>
             </div>
           ))}
         </div>
-      </div>
+      </section>
     )
   }
 
-  // Show results screen
+  // ── Results ──
   if (showResults) {
-    const percentageScore = Math.round((quizCorrect / quizData.length) * 100)
-    const passingThreshold = selectedExam?.passingScore ? parseInt(selectedExam.passingScore) : 70
-    const passed = percentageScore >= passingThreshold
+    const pct = Math.round((quizCorrect / quizData.length) * 100)
+    const threshold = selectedExam.passingScore ? parseInt(selectedExam.passingScore) : 70
+    const passed = pct >= threshold
 
     return (
-      <div className="section active">
-        <div className="section-header">
-          <h2>Exam Results</h2>
-          <p>{selectedExam?.title}</p>
+      <section className="study-section">
+        <div className="section-label">
+          <span className="section-chip" style={{ background: 'var(--purple)' }}>06</span>
+          <h2>Results</h2>
         </div>
 
-        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          {/* Results Card */}
-          <div style={{
-            background: 'var(--bg-card)',
-            border: '2px solid var(--border)',
-            borderRadius: 'var(--radius)',
-            padding: '2.5rem',
-            marginBottom: '2rem',
-            boxShadow: 'var(--shadow-lg)',
-            textAlign: 'center'
-          }}>
-            {/* Pass/Fail Badge */}
-            <div style={{
-              display: 'inline-block',
-              padding: '0.75rem 2rem',
-              borderRadius: '50px',
-              fontSize: '1.25rem',
-              fontWeight: '700',
-              marginBottom: '1.5rem',
-              background: passed ? 'var(--green-light)' : 'var(--primary-light)',
-              color: passed ? 'var(--green)' : 'var(--primary-dark)',
-              border: `2px solid ${passed ? 'var(--green)' : 'var(--primary)'}`
-            }}>
-              {passed ? '✓ PASSED' : '✗ NOT PASSED'}
+        <div className="results-card">
+          <div className={`results-badge ${passed ? 'passed' : 'failed'}`}>
+            {passed ? '🎉 PASSED' : '📚 NOT PASSED'}
+          </div>
+          <div className={`results-score ${passed ? 'passed' : 'failed'}`}>{pct}%</div>
+          <div className="results-sub">{quizCorrect} of {quizData.length} correct</div>
+          <div className="results-stats">
+            <div>
+              <div className="results-stat-label">Correct</div>
+              <div className="results-stat-val" style={{ color: 'var(--mint)' }}>{quizCorrect}</div>
             </div>
-
-            {/* Score Display */}
-            <div style={{
-              fontSize: '4rem',
-              fontWeight: '700',
-              color: passed ? 'var(--green)' : 'var(--primary)',
-              marginBottom: '0.5rem',
-              fontFamily: "'DM Serif Display', serif"
-            }}>
-              {percentageScore}%
+            <div>
+              <div className="results-stat-label">Incorrect</div>
+              <div className="results-stat-val" style={{ color: 'var(--pink)' }}>{quizData.length - quizCorrect}</div>
             </div>
-
-            <div style={{
-              fontSize: '1.25rem',
-              color: 'var(--text-muted)',
-              marginBottom: '2rem'
-            }}>
-              {quizCorrect} out of {quizData.length} correct
-            </div>
-
-            {/* Stats Grid */}
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-              gap: '1.5rem',
-              marginTop: '2rem',
-              paddingTop: '2rem',
-              borderTop: '1px solid var(--border)'
-            }}>
-              <div>
-                <div style={{ fontSize: '0.875rem', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>
-                  Correct Answers
-                </div>
-                <div style={{ fontSize: '1.5rem', fontWeight: '700', color: 'var(--green)' }}>
-                  {quizCorrect}
-                </div>
-              </div>
-              <div>
-                <div style={{ fontSize: '0.875rem', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>
-                  Incorrect Answers
-                </div>
-                <div style={{ fontSize: '1.5rem', fontWeight: '700', color: 'var(--primary)' }}>
-                  {quizData.length - quizCorrect}
-                </div>
-              </div>
-              <div>
-                <div style={{ fontSize: '0.875rem', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>
-                  Passing Score
-                </div>
-                <div style={{ fontSize: '1.5rem', fontWeight: '700', color: 'var(--text)' }}>
-                  {passingThreshold}%
-                </div>
-              </div>
-            </div>
-
-            {/* Feedback Message */}
-            <div style={{
-              marginTop: '2rem',
-              padding: '1.5rem',
-              background: passed ? 'var(--green-light)' : 'var(--primary-light)',
-              borderRadius: '8px',
-              color: 'var(--text)'
-            }}>
-              {passed ? (
-                <>
-                  <strong>Congratulations!</strong> You've passed the exam. Great job on demonstrating your knowledge!
-                </>
-              ) : (
-                <>
-                  <strong>Keep learning!</strong> Review the material and try again. You're on your way to success!
-                </>
-              )}
+            <div>
+              <div className="results-stat-label">Passing score</div>
+              <div className="results-stat-val" style={{ color: 'var(--ink)' }}>{threshold}%</div>
             </div>
           </div>
-
-          {/* Action Buttons */}
-          <div style={{
-            display: 'flex',
-            gap: '1rem',
-            justifyContent: 'center',
-            flexWrap: 'wrap'
-          }}>
-            <button
-              onClick={restartQuiz}
-              style={{
-                padding: '0.75rem 1.75rem',
-                background: 'var(--primary)',
-                color: 'white',
-                border: 'none',
-                borderRadius: '8px',
-                cursor: 'pointer',
-                fontWeight: '600',
-                fontSize: '1rem',
-                transition: 'all 0.2s ease',
-                boxShadow: '0 2px 8px rgba(196, 93, 62, 0.3)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'var(--primary-dark)'
-                e.currentTarget.style.transform = 'scale(1.05)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'var(--primary)'
-                e.currentTarget.style.transform = 'scale(1)'
-              }}
-            >
-              Retake Exam
-            </button>
-            <button
-              onClick={backToExamSelection}
-              style={{
-                padding: '0.75rem 1.75rem',
-                background: 'var(--bg-card)',
-                color: 'var(--text)',
-                border: '2px solid var(--border)',
-                borderRadius: '8px',
-                cursor: 'pointer',
-                fontWeight: '600',
-                fontSize: '1rem',
-                transition: 'all 0.2s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'var(--primary)'
-                e.currentTarget.style.transform = 'scale(1.05)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'var(--border)'
-                e.currentTarget.style.transform = 'scale(1)'
-              }}
-            >
-              Choose Another Exam
-            </button>
+          <div className={`results-feedback ${passed ? 'passed' : 'failed'}`}>
+            {passed
+              ? <><strong>Woohoo!</strong> You nailed it. Great work studying this material!</>
+              : <><strong>Almost there!</strong> Review the sections above and give it another shot.</>}
           </div>
         </div>
-      </div>
+
+        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+          <button className="exam-start-btn" onClick={restartQuiz}>🔄 Retake</button>
+          <button
+            onClick={backToExamSelection}
+            style={{
+              fontFamily: "'Baloo 2', sans-serif", fontWeight: 700, fontSize: '14px',
+              background: 'var(--cork)', border: '2.5px solid var(--ink)', color: 'var(--ink)',
+              borderRadius: '20px', padding: '8px 20px', cursor: 'pointer',
+              boxShadow: '0 3px 0 rgba(46,42,37,0.15)',
+            }}
+          >
+            ← All Exams
+          </button>
+        </div>
+      </section>
     )
   }
 
-  // Show quiz interface
+  // ── Question ──
   const q = quizData[currentQ]
   const answered = quizAnswers[currentQ] !== null
-  const isLastQuestion = currentQ === quizData.length - 1
-  const percentageScore = quizAnswered > 0 ? Math.round((quizCorrect / quizAnswered) * 100) : 0
-  const allQuestionsAnswered = quizAnswers.every(answer => answer !== null)
+  const allAnswered = quizAnswers.every((a) => a !== null)
+  const pctLive = quizAnswered > 0 ? Math.round((quizCorrect / quizAnswered) * 100) : 0
 
   return (
-    <div className="section active">
-      <div className="section-header">
+    <section className="study-section">
+      <div className="section-label">
+        <span className="section-chip" style={{ background: 'var(--purple)' }}>06</span>
         <h2>{selectedExam.title}</h2>
-        <p>Test your knowledge with randomized questions</p>
       </div>
 
       <div className="quiz-mode-container">
         <div className="quiz-mode-header">
-          <div>
-            <h3>
-              Question {currentQ + 1} of {quizData.length}
-            </h3>
-            {selectedExam.timeAllowed && (
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: '0.25rem 0' }}>
-                Time Allowed: {selectedExam.timeAllowed}
-              </p>
-            )}
-          </div>
+          <h3>Question {currentQ + 1} / {quizData.length}</h3>
           <div className="quiz-score-display">
-            <div>Score: {quizCorrect} / {quizAnswered}</div>
-            {quizAnswered > 0 && (
-              <div style={{ fontSize: '0.9rem', color: percentageScore >= 70 ? 'var(--success)' : 'var(--text-muted)' }}>
-                {percentageScore}%
-                {selectedExam.passingScore && ` (Passing: ${selectedExam.passingScore})`}
-              </div>
-            )}
+            {quizCorrect}/{quizAnswered} correct {quizAnswered > 0 && `· ${pctLive}%`}
           </div>
         </div>
 
-        <div className="quiz-block" style={{ background: 'var(--bg-accent)', borderColor: 'var(--border)' }}>
-          <h4 style={{ color: 'var(--text-muted)' }}>Domain: {q.domain}</h4>
-          <div className="quiz-q">{q.q}</div>
-          <ul className="quiz-options">
-            {q.opts.map((opt, i) => {
-              let cls = 'quiz-opt'
-              if (answered) {
-                cls += ' disabled'
-                if (i === q.correct) cls += ' correct'
-                else if (i === quizAnswers[currentQ] && i !== q.correct) cls += ' incorrect'
-              }
+        <div className="quiz-domain">📂 {q.domain}</div>
+        <div className="quiz-q">{q.q}</div>
 
-              return (
-                <li key={i} className={cls} onClick={() => handleAnswer(i)}>
-                  {String.fromCharCode(65 + i)}. {opt}
-                </li>
-              )
-            })}
-          </ul>
-          <div className={`quiz-explanation ${answered ? 'show' : ''}`}>{q.explain}</div>
-        </div>
+        <ul className="quiz-options">
+          {q.opts.map((opt, i) => {
+            let cls = 'quiz-opt'
+            if (answered) {
+              cls += ' disabled'
+              if (i === q.correct) cls += ' correct'
+              else if (i === quizAnswers[currentQ] && i !== q.correct) cls += ' incorrect'
+            }
+            return (
+              <li key={i} className={cls} onClick={() => handleAnswer(i)}>
+                {String.fromCharCode(65 + i)}. {opt}
+              </li>
+            )
+          })}
+        </ul>
+
+        <div className={`quiz-explanation${answered ? ' show' : ''}`}>{q.explain}</div>
 
         <div className="quiz-nav-btns">
-          <button onClick={backToExamSelection}>
-            ← Back to Exams
-          </button>
-          <div style={{ display: 'flex', gap: '0.5rem' }}>
-            <button onClick={prevQuestion} disabled={currentQ === 0}>
-              ← Previous
-            </button>
-            {allQuestionsAnswered ? (
-              <button
-                onClick={finishExam}
-                style={{
-                  background: 'var(--green)',
-                  color: 'white'
-                }}
-              >
-                Finish Exam ✓
-              </button>
-            ) : (
-              <button onClick={nextQuestion} disabled={currentQ === quizData.length - 1}>
-                Next →
-              </button>
-            )}
+          <button onClick={backToExamSelection}>← Exams</button>
+          <div style={{ display: 'flex', gap: '8px' }}>
+            <button onClick={() => setCurrentQ((p) => p - 1)} disabled={currentQ === 0}>← Prev</button>
+            {allAnswered
+              ? <button className="btn-finish" onClick={() => setShowResults(true)}>Finish ✓</button>
+              : <button onClick={() => setCurrentQ((p) => p + 1)} disabled={currentQ === quizData.length - 1}>Next →</button>
+            }
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

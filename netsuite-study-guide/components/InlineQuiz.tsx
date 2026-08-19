@@ -10,44 +10,49 @@ interface InlineQuizProps {
 }
 
 export default function InlineQuiz({ question, options, correctIndex, explanation }: InlineQuizProps) {
-  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null)
+  const [selected, setSelected] = useState<number | null>(null)
+  const [understood, setUnderstood] = useState(false)
+  const revealed = selected !== null
 
-  const handleAnswer = (index: number) => {
-    if (selectedAnswer === null) {
-      setSelectedAnswer(index)
-    }
-  }
+  const uid = question.slice(0, 20).replace(/\s/g, '-')
 
   return (
-    <div className="quiz-block">
-      <h4>Practice Question</h4>
-      <div className="quiz-q">{question}</div>
-      <ul className="quiz-options">
-        {options.map((option, index) => {
-          let className = 'quiz-opt'
+    <div className="q-item" style={{ marginTop: '16px' }}>
+      <div className="q-top">
+        <div className="q-text">{question}</div>
+        <button
+          className="q-reveal-btn"
+          onClick={() => setSelected(revealed ? null : -1)}
+        >
+          {revealed ? 'Hide' : 'Reveal'}
+        </button>
+      </div>
 
-          if (selectedAnswer !== null) {
-            className += ' disabled'
-            if (index === correctIndex) {
-              className += ' correct'
-            } else if (index === selectedAnswer && index !== correctIndex) {
-              className += ' incorrect'
-            }
-          }
+      {revealed && (
+        <ul className="quiz-options" style={{ marginTop: '12px' }}>
+          {options.map((opt, i) => {
+            let cls = 'quiz-opt disabled'
+            if (i === correctIndex) cls += ' correct'
+            else if (i === selected && i !== correctIndex) cls += ' incorrect'
+            return <li key={i} className={cls}>{String.fromCharCode(65 + i)}. {opt}</li>
+          })}
+        </ul>
+      )}
 
-          return (
-            <li
-              key={index}
-              className={className}
-              onClick={() => handleAnswer(index)}
-            >
-              {option}
-            </li>
-          )
-        })}
-      </ul>
-      <div className={`quiz-explanation ${selectedAnswer !== null ? 'show' : ''}`}>
-        {explanation}
+      <div className={`q-answer${revealed ? ' revealed' : ''}`} style={revealed ? { display: 'block' } : {}}>
+        <div className="q-answer-inner">
+          {revealed && <div className="q-answer-content">{explanation}</div>}
+        </div>
+      </div>
+
+      <div className="q-footer">
+        <input
+          type="checkbox"
+          id={`got-${uid}`}
+          checked={understood}
+          onChange={() => setUnderstood(!understood)}
+        />
+        <label htmlFor={`got-${uid}`}>Got it! ✔</label>
       </div>
     </div>
   )
