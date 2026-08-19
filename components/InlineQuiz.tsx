@@ -50,7 +50,14 @@ export default function InlineQuiz({ question, options, correctIndex, explanatio
               else if (i === selected) cls += ' incorrect'
             }
             return (
-              <li key={i} className={cls} onClick={() => handleSelect(i)}>
+              <li
+                key={i}
+                className={cls}
+                role="button"
+                tabIndex={selected !== null ? -1 : 0}
+                onClick={() => handleSelect(i)}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleSelect(i) } }}
+              >
                 {String.fromCharCode(65 + i)}. {opt}
               </li>
             )

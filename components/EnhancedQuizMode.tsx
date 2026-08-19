@@ -176,6 +176,7 @@ export default function EnhancedQuizMode() {
 
   // ── Question ──
   const q = quizData[currentQ]
+  if (!q) return null
   const answered = quizAnswers[currentQ] !== null
   const allAnswered = quizAnswers.every((a) => a !== null)
   const pctLive = quizAnswered > 0 ? Math.round((quizCorrect / quizAnswered) * 100) : 0
@@ -207,7 +208,14 @@ export default function EnhancedQuizMode() {
               else if (i === quizAnswers[currentQ] && i !== q.correct) cls += ' incorrect'
             }
             return (
-              <li key={i} className={cls} onClick={() => handleAnswer(i)}>
+              <li
+                key={i}
+                className={cls}
+                role="button"
+                tabIndex={answered ? -1 : 0}
+                onClick={() => handleAnswer(i)}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleAnswer(i) } }}
+              >
                 {String.fromCharCode(65 + i)}. {opt}
               </li>
             )

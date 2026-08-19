@@ -53,7 +53,11 @@ export default function FlipCardGrid({ topics }: FlipCardGridProps) {
             key={topic.id}
             className={`flip-card${isFlipped ? ' flipped' : ''}`}
             data-accent={accent}
+            role="button"
+            tabIndex={0}
+            aria-pressed={isFlipped}
             onClick={() => toggle(topic.id)}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(topic.id) } }}
           >
             <div className="flip-inner">
               <div className="flip-face flip-front">{topic.title}</div>
