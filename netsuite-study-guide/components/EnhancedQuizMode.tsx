@@ -27,10 +27,15 @@ export default function EnhancedQuizMode() {
   const [selectedExam, setSelectedExam] = useState<QuizExam | null>(null)
   const [quizData, setQuizData] = useState<QuizQuestion[]>([])
   const [currentQ, setCurrentQ] = useState(0)
-  const [quizCorrect, setQuizCorrect] = useState(0)
-  const [quizAnswered, setQuizAnswered] = useState(0)
   const [quizAnswers, setQuizAnswers] = useState<(number | null)[]>([])
   const [showResults, setShowResults] = useState(false)
+
+  // Derive counts from quizAnswers to avoid async state drift
+  const quizAnswered = quizAnswers.filter((a) => a !== null).length
+  const quizCorrect = quizAnswers.reduce<number>((sum, answer, i) => {
+    if (answer !== null && answer === quizData[i]?.correct) return sum + 1
+    return sum
+  }, 0)
 
   useEffect(() => {
     async function fetchExams() {
@@ -49,14 +54,14 @@ export default function EnhancedQuizMode() {
     setSelectedExam(exam)
     setQuizData(shuffled)
     setQuizAnswers(new Array(shuffled.length).fill(null))
-    setCurrentQ(0); setQuizCorrect(0); setQuizAnswered(0); setShowResults(false)
+    setCurrentQ(0); setShowResults(false)
   }
 
   const handleAnswer = (idx: number) => {
     if (quizAnswers[currentQ] !== null) return
-    const next = [...quizAnswers]; next[currentQ] = idx; setQuizAnswers(next)
-    if (idx === quizData[currentQ].correct) setQuizCorrect((p) => p + 1)
-    setQuizAnswered((p) => p + 1)
+    const next = [...quizAnswers]
+    next[currentQ] = idx
+    setQuizAnswers(next)
   }
 
   const restartQuiz = () => {
@@ -64,12 +69,16 @@ export default function EnhancedQuizMode() {
     const shuffled = shuffleArray(selectedExam.questions)
     setQuizData(shuffled)
     setQuizAnswers(new Array(shuffled.length).fill(null))
-    setCurrentQ(0); setQuizCorrect(0); setQuizAnswered(0); setShowResults(false)
+    setCurrentQ(0)
+    setShowResults(false)
   }
 
   const backToExamSelection = () => {
-    setSelectedExam(null); setQuizData([]); setQuizAnswers([])
-    setCurrentQ(0); setQuizCorrect(0); setQuizAnswered(0); setShowResults(false)
+    setSelectedExam(null)
+    setQuizData([])
+    setQuizAnswers([])
+    setCurrentQ(0)
+    setShowResults(false)
   }
 
   // ── Exam selection ──
