@@ -1,5 +1,6 @@
 import { memo } from 'react'
 import TopicCard from './TopicCard'
+import FlipCardGrid from './FlipCardGrid'
 import type { Section as SectionType } from '@/data/topicsDataFromMarkdown'
 
 const CHIP_COLORS = ['var(--pink)', 'var(--mint)', 'var(--blue)', 'var(--orange)', 'var(--purple)']
@@ -40,6 +41,10 @@ function Section({ section, active, checkedTopics, toggleCheck }: SectionProps) 
       )}
 
       <span className="note-scrawl">{scrawl}</span>
+
+      {/* Flip cards — one per topic */}
+      <p className="note-scrawl" style={{ marginTop: '16px', marginBottom: '4px' }}>tap a card to flip it!</p>
+      <FlipCardGrid topics={section.topics} />
 
       {/* Objective checklist pinned card */}
       <div className="obj-note">

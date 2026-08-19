@@ -14,9 +14,20 @@ const totalTopics = studyGuideData.sections.reduce(
   0
 )
 
+const TAB_SHORT_LABELS: Record<number, string> = {
+  1: 'Setup & Admin',
+  2: 'User Interface',
+  3: 'Process Flows',
+  4: 'SuiteAnalytics',
+  5: 'Security',
+}
+
 const TABS = [
-  ...studyGuideData.sections.map((s) => ({ id: s.id, label: s.title })),
-  { id: QUIZ_TAB_ID, label: '📝 Practice Quiz' },
+  ...studyGuideData.sections.map((s) => ({
+    id: s.id,
+    label: TAB_SHORT_LABELS[s.id] ?? s.title,
+  })),
+  { id: QUIZ_TAB_ID, label: '📝 Quiz' },
 ]
 
 export default function Home() {
@@ -24,13 +35,16 @@ export default function Home() {
   const [checkedTopics, setCheckedTopics] = useState<Set<string>>(new Set())
   const barRef = useRef<HTMLDivElement>(null)
   const pctRef = useRef<HTMLDivElement>(null)
+  const loaded = useRef(false)
 
   useEffect(() => {
     const saved = localStorage.getItem('checkedTopics')
     if (saved) setCheckedTopics(new Set(JSON.parse(saved)))
+    loaded.current = true
   }, [])
 
   useEffect(() => {
+    if (!loaded.current) return
     localStorage.setItem('checkedTopics', JSON.stringify(Array.from(checkedTopics)))
   }, [checkedTopics])
 
