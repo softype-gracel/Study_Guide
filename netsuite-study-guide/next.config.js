@@ -2,6 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   trailingSlash: true,
+  compress: true,
+  poweredByHeader: false,
+  experimental: {
+    optimizeCss: true,
+  },
 }
 
 module.exports = nextConfig

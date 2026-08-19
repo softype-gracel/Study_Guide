@@ -1,13 +1,42 @@
-export default function Header() {
+import { RefObject } from 'react'
+
+interface HeaderProps {
+  progress: number
+  ringRef: RefObject<SVGCircleElement>
+  ringLabelRef: RefObject<HTMLDivElement>
+}
+
+const CIRC = 238.76
+
+export default function Header({ progress, ringRef, ringLabelRef }: HeaderProps) {
   return (
-    <header className="hero">
-      <div className="hero-inner">
-        <span className="hero-badge">Certification Prep</span>
-        <h1>NetSuite SuiteFoundation Complete Study Guide</h1>
-        <p>
-          Comprehensive review covering all exam domains with mnemonics, exam
-          tips, and 40+ practice questions designed to mirror the exam format.
+    <header className="top">
+      <div>
+        <div className="eyebrow">SuiteFoundation Certification</div>
+        <h1>NetSuite Study Guide</h1>
+        <p className="sub">
+          Comprehensive review of all exam domains — classifications, roles,
+          process flows, SuiteAnalytics, and more.
         </p>
+      </div>
+
+      <div className="mastery">
+        <div className="ring-wrap">
+          <svg width="92" height="92" viewBox="0 0 92 92">
+            <circle className="ring-bg" cx="46" cy="46" r="38" />
+            <circle
+              ref={ringRef}
+              className="ring-fg"
+              cx="46"
+              cy="46"
+              r="38"
+              strokeDasharray={CIRC}
+              strokeDashoffset={CIRC - (CIRC * progress) / 100}
+            />
+          </svg>
+          <div ref={ringLabelRef} className="ring-label">{progress}%</div>
+        </div>
+        <div className="mastery-caption">Mastery</div>
       </div>
     </header>
   )

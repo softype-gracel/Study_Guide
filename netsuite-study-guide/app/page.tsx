@@ -1,63 +1,96 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import Header from '@/components/Header'
-import ProgressBar from '@/components/ProgressBar'
-import InfoStrip from '@/components/InfoStrip'
-import TabNavigation from '@/components/TabNavigation'
 import Section from '@/components/Section'
 import EnhancedQuizMode from '@/components/EnhancedQuizMode'
 import Footer from '@/components/Footer'
 import { studyGuideData } from '@/data/topicsDataFromMarkdown'
 
+const TAB_COLORS = ['yellow', 'coral', 'sky', 'yellow', 'coral', 'sky'] as const
+const QUIZ_TAB_ID = 6
+
+const totalTopics = studyGuideData.sections.reduce(
+  (sum, s) => sum + s.topics.length,
+  0
+)
+
+const CIRC = 238.76
+
 export default function Home() {
   const [activeTab, setActiveTab] = useState(1)
   const [checkedTopics, setCheckedTopics] = useState<Set<string>>(new Set())
-  const [progress, setProgress] = useState(0)
+  const ringRef = useRef<SVGCircleElement>(null)
+  const ringLabelRef = useRef<HTMLDivElement>(null)
 
-  // Load saved progress from localStorage
   useEffect(() => {
     const saved = localStorage.getItem('checkedTopics')
-    if (saved) {
-      setCheckedTopics(new Set(JSON.parse(saved)))
-    }
+    if (saved) setCheckedTopics(new Set(JSON.parse(saved)))
   }, [])
 
-  // Save progress to localStorage
   useEffect(() => {
     localStorage.setItem('checkedTopics', JSON.stringify(Array.from(checkedTopics)))
-    updateProgress()
   }, [checkedTopics])
 
-  const updateProgress = () => {
-    const totalTopics = studyGuideData.sections.reduce(
-      (sum, section) => sum + section.topics.length,
-      0
-    )
-    const percentage = totalTopics > 0 ? (checkedTopics.size / totalTopics) * 100 : 0
-    setProgress(Math.round(percentage))
-  }
+  const progress = useMemo(
+    () => (totalTopics > 0 ? Math.round((checkedTopics.size / totalTopics) * 100) : 0),
+    [checkedTopics.size]
+  )
 
-  const toggleCheck = (topicId: string) => {
+  useEffect(() => {
+    if (ringRef.current) {
+      ringRef.current.style.strokeDashoffset = String(CIRC - (CIRC * progress) / 100)
+    }
+    if (ringLabelRef.current) {
+      ringLabelRef.current.textContent = `${progress}%`
+    }
+  }, [progress])
+
+  const toggleCheck = useCallback((topicId: string) => {
     setCheckedTopics((prev) => {
-      const newSet = new Set(prev)
-      if (newSet.has(topicId)) {
-        newSet.delete(topicId)
-      } else {
-        newSet.add(topicId)
-      }
-      return newSet
+      const next = new Set(prev)
+      if (next.has(topicId)) next.delete(topicId)
+      else next.add(topicId)
+      return next
     })
-  }
+  }, [])
+
+  const tabs = [
+    ...studyGuideData.sections.map((s, i) => ({
+      id: s.id,
+      label: s.title,
+      color: TAB_COLORS[i] ?? 'sky',
+    })),
+    { id: QUIZ_TAB_ID, label: 'Practice Quiz', color: 'sky' as const },
+  ]
 
   return (
-    <>
-      <Header />
-      <ProgressBar progress={progress} />
-      <InfoStrip />
+    <div className="app">
+      {/* Left rail */}
+      <nav className="rail">
+        <div className="rail-brand">
+          <div className="eyebrow">Oracle NetSuite</div>
+          <div className="name">Study Guide</div>
+        </div>
 
-      <div className="container">
-        <TabNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
+        {tabs.map((tab) => (
+          <button
+            key={tab.id}
+            className={`tab${activeTab === tab.id ? ' active' : ''}`}
+            data-color={tab.color}
+            onClick={() => setActiveTab(tab.id)}
+          >
+            <span className="dot" />
+            {tab.label}
+          </button>
+        ))}
+
+        <div className="rail-footer">SuiteFoundation Exam Prep</div>
+      </nav>
+
+      {/* Main content */}
+      <main>
+        <Header progress={progress} ringRef={ringRef} ringLabelRef={ringLabelRef} />
 
         {studyGuideData.sections.map((section) => (
           <Section
@@ -69,10 +102,10 @@ export default function Home() {
           />
         ))}
 
-        {activeTab === 6 && <EnhancedQuizMode />}
-      </div>
+        {activeTab === QUIZ_TAB_ID && <EnhancedQuizMode />}
 
-      <Footer />
-    </>
+        <Footer />
+      </main>
+    </div>
   )
 }
