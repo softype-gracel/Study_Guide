@@ -1,63 +1,92 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import Header from '@/components/Header'
-import ProgressBar from '@/components/ProgressBar'
-import InfoStrip from '@/components/InfoStrip'
-import TabNavigation from '@/components/TabNavigation'
 import Section from '@/components/Section'
 import EnhancedQuizMode from '@/components/EnhancedQuizMode'
 import Footer from '@/components/Footer'
 import { studyGuideData } from '@/data/topicsDataFromMarkdown'
 
+const QUIZ_TAB_ID = 6
+
+const totalTopics = studyGuideData.sections.reduce(
+  (sum, s) => sum + s.topics.length,
+  0
+)
+
+const TAB_SHORT_LABELS: Record<number, string> = {
+  1: 'Setup & Admin',
+  2: 'User Interface',
+  3: 'Process Flows',
+  4: 'SuiteAnalytics',
+  5: 'Security',
+}
+
+const TABS = [
+  ...studyGuideData.sections.map((s) => ({
+    id: s.id,
+    label: TAB_SHORT_LABELS[s.id] ?? s.title,
+  })),
+  { id: QUIZ_TAB_ID, label: '📝 Quiz' },
+]
+
 export default function Home() {
   const [activeTab, setActiveTab] = useState(1)
   const [checkedTopics, setCheckedTopics] = useState<Set<string>>(new Set())
-  const [progress, setProgress] = useState(0)
+  const barRef = useRef<HTMLDivElement>(null)
+  const pctRef = useRef<HTMLDivElement>(null)
+  const loaded = useRef(false)
 
-  // Load saved progress from localStorage
   useEffect(() => {
     const saved = localStorage.getItem('checkedTopics')
-    if (saved) {
-      setCheckedTopics(new Set(JSON.parse(saved)))
-    }
+    if (saved) setCheckedTopics(new Set(JSON.parse(saved)))
+    loaded.current = true
   }, [])
 
-  // Save progress to localStorage
   useEffect(() => {
+    if (!loaded.current) return
     localStorage.setItem('checkedTopics', JSON.stringify(Array.from(checkedTopics)))
-    updateProgress()
   }, [checkedTopics])
 
-  const updateProgress = () => {
-    const totalTopics = studyGuideData.sections.reduce(
-      (sum, section) => sum + section.topics.length,
-      0
-    )
-    const percentage = totalTopics > 0 ? (checkedTopics.size / totalTopics) * 100 : 0
-    setProgress(Math.round(percentage))
-  }
+  const progress = useMemo(
+    () => (totalTopics > 0 ? Math.round((checkedTopics.size / totalTopics) * 100) : 0),
+    [checkedTopics.size]
+  )
 
-  const toggleCheck = (topicId: string) => {
+  useEffect(() => {
+    if (barRef.current) barRef.current.style.width = `${progress}%`
+    if (pctRef.current) pctRef.current.textContent = `${progress}%`
+  }, [progress])
+
+  const toggleCheck = useCallback((topicId: string) => {
     setCheckedTopics((prev) => {
-      const newSet = new Set(prev)
-      if (newSet.has(topicId)) {
-        newSet.delete(topicId)
-      } else {
-        newSet.add(topicId)
-      }
-      return newSet
+      const next = new Set(prev)
+      if (next.has(topicId)) next.delete(topicId)
+      else next.add(topicId)
+      return next
     })
-  }
+  }, [])
 
   return (
     <>
-      <Header />
-      <ProgressBar progress={progress} />
-      <InfoStrip />
+      {/* Sticky top nav */}
+      <div className="topnav-wrap">
+        <nav className="topnav">
+          <div className="brand">📌 StudyBoard</div>
+          {TABS.map((tab) => (
+            <button
+              key={tab.id}
+              className={`tab-btn${activeTab === tab.id ? ' active' : ''}`}
+              onClick={() => setActiveTab(tab.id)}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </nav>
+      </div>
 
-      <div className="container">
-        <TabNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
+      <main>
+        <Header progress={progress} barRef={barRef} pctRef={pctRef} />
 
         {studyGuideData.sections.map((section) => (
           <Section
@@ -69,10 +98,10 @@ export default function Home() {
           />
         ))}
 
-        {activeTab === 6 && <EnhancedQuizMode />}
-      </div>
+        {activeTab === QUIZ_TAB_ID && <EnhancedQuizMode />}
 
-      <Footer />
+        <Footer />
+      </main>
     </>
   )
 }

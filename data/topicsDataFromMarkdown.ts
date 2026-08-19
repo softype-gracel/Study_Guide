@@ -25,8 +25,19 @@ export interface StudyGuideData {
   sections: Section[]
 }
 
-// Export the parsed data
-export const studyGuideData: StudyGuideData = parsedStudyGuide as StudyGuideData
+// Prefix each topic ID with its section ID to make them globally unique.
+// The raw JSON reuses ids like "topic-1" across sections, which would cause
+// checkedTopics to incorrectly mark the same id in every section.
+const raw = parsedStudyGuide as StudyGuideData
+export const studyGuideData: StudyGuideData = {
+  ...raw,
+  sections: raw.sections.map((section) => ({
+    ...section,
+    topics: section.topics.map((topic) => ({
+      ...topic,
+      id: `s${section.id}-${topic.id}`,
+    })),
+  })),
+}
 
-// For backward compatibility, also export sections directly
 export const sections = studyGuideData.sections

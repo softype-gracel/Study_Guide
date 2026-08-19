@@ -1,13 +1,33 @@
-export default function Header() {
+import { RefObject } from 'react'
+
+interface HeaderProps {
+  progress: number
+  barRef: RefObject<HTMLDivElement>
+  pctRef: RefObject<HTMLDivElement>
+}
+
+export default function Header({ progress, barRef, pctRef }: HeaderProps) {
   return (
-    <header className="hero">
-      <div className="hero-inner">
-        <span className="hero-badge">Certification Prep</span>
-        <h1>NetSuite SuiteFoundation Complete Study Guide</h1>
-        <p>
-          Comprehensive review covering all exam domains with mnemonics, exam
-          tips, and 40+ practice questions designed to mirror the exam format.
+    <header className="top">
+      <div>
+        <span className="hero-badge">Oracle NetSuite · SuiteFoundation</span>
+        <h1>The <span className="underline">Study Guide</span></h1>
+        <p className="sub">
+          All exam domains covered — classifications, roles, process flows,
+          SuiteAnalytics, and more.
         </p>
+      </div>
+
+      <div className="mastery-note">
+        <div ref={pctRef} className="pct">{progress}%</div>
+        <div className="cap hand">mastered!</div>
+        <div className="mastery-bar-track">
+          <div
+            ref={barRef}
+            className="mastery-bar-fill"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
       </div>
     </header>
   )

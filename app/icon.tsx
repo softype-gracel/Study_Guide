@@ -1,10 +1,6 @@
 import { ImageResponse } from 'next/og'
 
-export const size = {
-  width: 32,
-  height: 32,
-}
-
+export const size = { width: 32, height: 32 }
 export const contentType = 'image/png'
 
 export default function Icon() {
@@ -12,22 +8,46 @@ export default function Icon() {
     (
       <div
         style={{
-          fontSize: 24,
-          background: '#C45D3E',
           width: '100%',
           height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: 'white',
-          borderRadius: '20%',
+          background: '#FFD447',
+          borderRadius: '22%',
+          border: '2.5px solid #2E2A25',
+          boxShadow: '0 3px 0 #2E2A25',
         }}
       >
-        NS
+        {/* Pin head */}
+        <div
+          style={{
+            width: 10,
+            height: 10,
+            borderRadius: '50%',
+            background: '#FF6F91',
+            border: '2px solid #2E2A25',
+            position: 'absolute',
+            top: 5,
+            left: '50%',
+            transform: 'translateX(-50%)',
+          }}
+        />
+        {/* Pin shaft */}
+        <div
+          style={{
+            width: 2.5,
+            height: 10,
+            background: '#2E2A25',
+            borderRadius: 2,
+            position: 'absolute',
+            top: 13,
+            left: '50%',
+            transform: 'translateX(-50%)',
+          }}
+        />
       </div>
     ),
-    {
-      ...size,
-    }
+    { ...size }
   )
 }
